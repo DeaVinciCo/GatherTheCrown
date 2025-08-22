@@ -90,3 +90,15 @@ export interface DistrictObjective {
   progress: number;
   target: number;
 }
+
+export interface Skill {
+  id: string;
+  name: string;
+  description: string;
+  cost: number;
+}
+
+export interface SkillNode {
+  skill: Skill;
+  requires: string[];
+}
