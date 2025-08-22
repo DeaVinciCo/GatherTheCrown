@@ -1,15 +1,22 @@
 import { Room, Client } from 'colyseus';
 import { ClientMessage, ServerMessage } from '@game/shared';
+import { basicEnemyAI, EnemyAIState } from '../sim/ai';
 
 interface StoryState {
   players: Record<string, { x: number; y: number; hp: number }>;
+  enemies: Record<string, { x: number; y: number; hp: number; state: EnemyAIState }>;
 }
 
 export class StoryRoom extends Room<StoryState> {
   maxClients = 8;
 
   onCreate() {
-    this.setState({ players: {} });
+    this.setState({
+      players: {},
+      enemies: {
+        e1: { x: 0, y: 0, hp: 100, state: 'idle' }
+      }
+    });
     this.onMessage('input', (client, message: ClientMessage) => {
       const player = this.state.players[client.sessionId];
       if (!player || message.type !== 'input') return;
@@ -24,6 +31,7 @@ export class StoryRoom extends Room<StoryState> {
         amount: message.damage
       } as ServerMessage);
     });
+    this.setSimulationInterval(() => this.updateEnemies());
   }
 
   onJoin(client: Client) {
@@ -32,5 +40,42 @@ export class StoryRoom extends Room<StoryState> {
 
   onLeave(client: Client) {
     delete this.state.players[client.sessionId];
+  }
+
+  private updateEnemies() {
+    for (const [id, enemy] of Object.entries(this.state.enemies)) {
+      const players = Object.values(this.state.players);
+      if (players.length === 0) {
+        enemy.state = 'idle';
+        continue;
+      }
+      let target = players[0];
+      let dist = Math.hypot(target.x - enemy.x, target.y - enemy.y);
+      for (const p of players.slice(1)) {
+        const d = Math.hypot(p.x - enemy.x, p.y - enemy.y);
+        if (d < dist) {
+          dist = d;
+          target = p;
+        }
+      }
+      enemy.state = basicEnemyAI({ hp: enemy.hp, distance: dist });
+      switch (enemy.state) {
+        case 'chase':
+          enemy.x += Math.sign(target.x - enemy.x);
+          enemy.y += Math.sign(target.y - enemy.y);
+          break;
+        case 'retreat':
+          enemy.x -= Math.sign(target.x - enemy.x);
+          enemy.y -= Math.sign(target.y - enemy.y);
+          break;
+        case 'attack':
+          this.broadcast({
+            type: 'damage',
+            sourceId: id,
+            amount: 10
+          } as ServerMessage);
+          break;
+      }
+    }
   }
 }
