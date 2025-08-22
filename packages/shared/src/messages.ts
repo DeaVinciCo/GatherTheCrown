@@ -40,14 +40,22 @@ export interface CrownUpdateMessage {
   fragmentId: string;
 }
 
+export interface ChatMessage {
+  type: 'chat';
+  name: string;
+  text: string;
+}
+
 export type ClientMessage =
   | JoinMessage
   | LeaveMessage
   | InputMessage
   | HitMessage
-  | LootMessage;
+  | LootMessage
+  | ChatMessage;
 
 export type ServerMessage =
   | DamageMessage
   | ObjectiveMessage
-  | CrownUpdateMessage;
+  | CrownUpdateMessage
+  | ChatMessage;
