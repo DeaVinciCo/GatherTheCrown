@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { POTION_CAP, STRINGS } from '../src';
+import { POTION_CAP, STRINGS, DROP_RATES, GOLD_MULTIPLIERS } from '../src';
 
 describe('constants', () => {
   it('caps potions at six', () => {
@@ -8,5 +8,13 @@ describe('constants', () => {
 
   it('has a title string', () => {
     expect(STRINGS.title).toBeTruthy();
+  });
+
+  it('defines basic drop rates', () => {
+    expect(DROP_RATES.COMMON).toBeGreaterThan(0);
+  });
+
+  it('uses a base gold multiplier of one', () => {
+    expect(GOLD_MULTIPLIERS.BASE).toBe(1);
   });
 });
