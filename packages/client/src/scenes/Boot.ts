@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import LayoutManager from '../ui/LayoutManager';
 
 export default class Boot extends Phaser.Scene {
   constructor() {
@@ -20,6 +21,7 @@ export default class Boot extends Phaser.Scene {
   }
 
   create() {
+    LayoutManager.init(this);
     this.scene.start('Preload');
   }
 }
