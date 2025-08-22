@@ -1,8 +1,10 @@
 import Phaser from 'phaser';
+import HeroSprite from '../actors/HeroSprite';
 
 export default class ForestZone extends Phaser.Scene {
   private seed!: number;
   private enemy!: Phaser.GameObjects.Sprite;
+  private hero!: HeroSprite;
 
   constructor() {
     super('ForestZone');
@@ -23,5 +25,9 @@ export default class ForestZone extends Phaser.Scene {
         this.scene.start('Haven');
       }
     });
+    this.hero = new HeroSprite(this, 50, 50);
+  }
+  update(time: number, delta: number) {
+    this.hero.update(time, delta);
   }
 }
