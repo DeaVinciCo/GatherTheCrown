@@ -1,5 +1,39 @@
+import { appendFile } from 'node:fs/promises';
+
+type Level = 'INFO' | 'WARN' | 'ERROR';
+
+const transport = process.env.LOG_TRANSPORT;
+const endpoint = process.env.LOG_REMOTE_ENDPOINT;
+const filePath = process.env.LOG_FILE_PATH;
+
+const sendToRemote = (level: Level, message: string) => {
+  if (transport !== 'remote' || !endpoint) return;
+  fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ level, message })
+  }).catch((err) => console.error('[LOGGER] remote transport failed', err));
+};
+
+const sendToFile = (level: Level, message: string) => {
+  if (transport !== 'file' || !filePath) return;
+  appendFile(filePath, `${new Date().toISOString()} [${level}] ${message}\n`).catch(
+    (err) => console.error('[LOGGER] file transport failed', err)
+  );
+};
+
+const log = (level: Level, msg: string) => {
+  const formatted = `[${level}] ${msg}`;
+  if (level === 'INFO') console.log(formatted);
+  else if (level === 'WARN') console.warn(formatted);
+  else console.error(formatted);
+
+  sendToRemote(level, msg);
+  sendToFile(level, msg);
+};
+
 export const logger = {
-  info: (msg: string) => console.log(`[INFO] ${msg}`),
-  warn: (msg: string) => console.warn(`[WARN] ${msg}`),
-  error: (msg: string) => console.error(`[ERROR] ${msg}`)
+  info: (msg: string) => log('INFO', msg),
+  warn: (msg: string) => log('WARN', msg),
+  error: (msg: string) => log('ERROR', msg)
 };
