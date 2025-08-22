@@ -1,0 +1,16 @@
+{
+  "name": "gather-the-crown",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter @game/server dev\" \"pnpm --filter @game/client dev\"",
+    "build": "pnpm --filter @game/client build",
+    "start": "pnpm --filter @game/server start",
+    "db:migrate": "pnpm --filter @game/server db:migrate",
+    "db:seed": "pnpm --filter @game/server db:seed"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "typescript": "^5.4.5"
+  }
+}
