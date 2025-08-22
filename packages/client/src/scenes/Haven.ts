@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { STRINGS } from '@game/shared';
+import { t } from '../locale/i18n';
 
 export default class Haven extends Phaser.Scene {
   constructor() {
@@ -11,19 +11,19 @@ export default class Haven extends Phaser.Scene {
     const name = this.registry.get('heroName') || 'Hero';
     this.add.text(20, 20, `Welcome, ${name}`, { color: '#fff' });
 
-    const forest = this.add.text(width / 2, height / 2 - 40, STRINGS.menu_forest, {
+    const forest = this.add.text(width / 2, height / 2 - 40, t('menu_forest'), {
       color: '#0f0'
     }).setOrigin(0.5);
     forest.setInteractive();
     forest.on('pointerdown', () => this.scene.start('ForestZone'));
 
-    const trial = this.add.text(width / 2, height / 2, STRINGS.menu_trial, {
+    const trial = this.add.text(width / 2, height / 2, t('menu_trial'), {
       color: '#0f0'
     }).setOrigin(0.5);
     trial.setInteractive();
     trial.on('pointerdown', () => this.scene.start('CrownTrial01'));
 
-    const arena = this.add.text(width / 2, height / 2 + 40, STRINGS.menu_arena, {
+    const arena = this.add.text(width / 2, height / 2 + 40, t('menu_arena'), {
       color: '#0f0'
     }).setOrigin(0.5);
     arena.setInteractive();

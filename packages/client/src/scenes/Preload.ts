@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { STRINGS } from '@game/shared';
+import { loadLanguage } from '../locale/i18n';
 
 export default class Preload extends Phaser.Scene {
   constructor() {
@@ -7,6 +7,10 @@ export default class Preload extends Phaser.Scene {
   }
 
   preload() {
+    const userSetting = localStorage.getItem('lang');
+    const browserLang = navigator.language;
+    loadLanguage(userSetting || browserLang);
+
     const width = this.cameras.main.width;
     const height = this.cameras.main.height;
     const progressBar = this.add.graphics();

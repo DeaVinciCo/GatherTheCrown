@@ -7,6 +7,6 @@ describe('constants', () => {
   });
 
   it('has a title string', () => {
-    expect(STRINGS.title).toBeTruthy();
+    expect(STRINGS.en.title).toBeTruthy();
   });
 });

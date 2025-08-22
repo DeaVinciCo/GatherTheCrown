@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { STRINGS } from '@game/shared';
+import { t } from '../locale/i18n';
 
 export default class MainMenu extends Phaser.Scene {
   constructor() {
@@ -8,9 +8,9 @@ export default class MainMenu extends Phaser.Scene {
 
   create() {
     const { width, height } = this.scale;
-    this.add.text(width / 2, height / 2 - 40, STRINGS.title, { color: '#fff' }).setOrigin(0.5);
+    this.add.text(width / 2, height / 2 - 40, t('title'), { color: '#fff' }).setOrigin(0.5);
 
-    const start = this.add.text(width / 2, height / 2 + 20, STRINGS.menu_start, {
+    const start = this.add.text(width / 2, height / 2 + 20, t('menu_start'), {
       color: '#0f0'
     });
     start.setOrigin(0.5);

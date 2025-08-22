@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import { STRINGS } from '@game/shared';
 
 export default class ForgeHero extends Phaser.Scene {
   private nameInput!: HTMLInputElement;
