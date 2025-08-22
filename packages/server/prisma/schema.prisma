@@ -67,3 +67,14 @@ model MatchHistory {
   hero   Hero   @relation(fields: [heroId], references: [id])
   heroId String
 }
+
+model Boss {
+  id            String @id @default(cuid())
+  name          String
+  element       String
+  hp            Int
+  stamina       Int
+  mana          Int
+  phases        Int
+  rageThreshold Float
+}
