@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import AudioManager from '../audio/AudioManager';
 
 export default class Boot extends Phaser.Scene {
   constructor() {
@@ -17,9 +18,13 @@ export default class Boot extends Phaser.Scene {
     g.fillRect(0, 0, 32, 32);
     g.generateTexture('green', 32, 32);
     g.destroy();
+
+    AudioManager.preload(this);
   }
 
   create() {
+    AudioManager.init(this);
+    AudioManager.playMusic(AudioManager.MENU_THEME);
     this.scene.start('Preload');
   }
 }
