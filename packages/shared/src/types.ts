@@ -96,9 +96,20 @@ export interface Skill {
   name: string;
   description: string;
   cost: number;
+  icon?: string;
 }
 
 export interface SkillNode {
+  id: string;
   skill: Skill;
   requires: string[];
+  tier: number;
+  position?: {
+    x: number;
+    y: number;
+  };
+}
+
+export interface SkillTreeState {
+  unlockedSkillIds: string[];
 }
