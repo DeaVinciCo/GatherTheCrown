@@ -5,6 +5,14 @@ var _cooldown_pct: float = 0.0
 var _attack_count: int = 1
 var _hero_xp_current: float = 0.0
 var _hero_xp_max: float = 100.0
+var _anim_time: float = 0.0
+
+func _ready() -> void:
+	set_process(true)
+
+func _process(delta: float) -> void:
+	_anim_time += delta
+	queue_redraw()
 
 func set_state(data: Dictionary) -> void:
 	_unlocked_slots = clampi(int(data.get("unlocked_slots", 1)), 1, 6)
@@ -15,12 +23,19 @@ func set_state(data: Dictionary) -> void:
 	queue_redraw()
 
 func _draw() -> void:
+	var panel := Rect2(Vector2.ZERO, size)
+	draw_rect(panel, Color(0.12, 0.10, 0.06, 0.84), true)
+	draw_rect(panel, Color(0.79, 0.63, 0.26, 0.72), false, 1.6)
+
 	draw_string(ThemeDB.fallback_font, Vector2(8, 18), "ITEMS 1-5 / HERO XP / COOLDOWN", HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color(0.95, 0.92, 0.86, 1.0))
 	for i in 5:
 		var slot_rect := Rect2(8 + i * 32, 28, 26, 26)
 		var unlocked: bool = i < _unlocked_slots
 		draw_rect(slot_rect, Color(0.26, 0.34, 0.46, 1.0) if unlocked else Color(0.14, 0.14, 0.16, 0.9), true)
 		draw_rect(slot_rect, Color(0.95, 0.78, 0.28, 1.0) if unlocked else Color(0.31, 0.31, 0.34, 0.95), false, 1.5)
+		if unlocked:
+			var shine := 0.22 + sin(_anim_time * 4.0 + float(i) * 0.5) * 0.12
+			draw_rect(slot_rect.grow(-4.0), Color(0.95, 0.87, 0.62, shine), true)
 		draw_string(ThemeDB.fallback_font, slot_rect.position + Vector2(7, 18), "%d" % (i + 1), HORIZONTAL_ALIGNMENT_LEFT, -1, 10, Color(0.96, 0.94, 0.84, 1.0))
 		if unlocked:
 			var cooldown_h: float = slot_rect.size.y * _cooldown_pct
