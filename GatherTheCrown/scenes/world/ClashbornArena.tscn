@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://clashborn_arena_001"]
+
+[ext_resource type="Script" path="res://scripts/world/mode_stub.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c7yj4c3xvyxwd" path="res://scenes/actors/player/Player.tscn" id="2_player"]
+
+[node name="ClashbornArena" type="Node2D"]
+script = ExtResource("1_script")
+mode_name = "Clashborn Arena"
+unlock_condition = "story_completed_once"
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.30, 0.05, 0.05, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(640, 400)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 120.0
+offset_right = 1000.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 28
+text = "CLASHBORN ARENA  -  Melee / PvP Mode"
+
+[node name="DescLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 170.0
+offset_right = 1000.0
+offset_bottom = 280.0
+text = "Head-to-head combat against other players or elite foes.\nApply critical debuffs using elemental opposites:\n  Fire -> Ice crit (freeze 4s)  |  Shadow -> Light crit (silence 5s)\n\nForge the Duelist's Crest (Bronze/Silver/Gold + Spinel/Sapphire/Topaz)\nto gain the arena edge.\n\n[Unlock: Complete Story Mode once]  Press Esc to return."
+
+[node name="LockedLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 320.0
+offset_right = 1000.0
+offset_bottom = 350.0
+text = ""
+modulate = Color(1, 0.5, 0.2, 1)

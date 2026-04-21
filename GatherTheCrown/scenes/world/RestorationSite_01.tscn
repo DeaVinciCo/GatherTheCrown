@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://xxqj77d2c29a"]
+
+[ext_resource type="Script" path="res://scripts/world/greenwood_clearing.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c7yj4c3xvyxwd" path="res://scenes/actors/player/Player.tscn" id="2_player"]
+
+[node name="RestorationSite_01" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.3, 0.3, 0.2, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(640, 300)
+
+[node name="ExitMarker" type="Marker2D" parent="."]
+position = Vector2(50, 360)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 300.0
+offset_top = 650.0
+offset_right = 980.0
+offset_bottom = 680.0
+text = "Restoration Site - Gather materials, then restore the structures"

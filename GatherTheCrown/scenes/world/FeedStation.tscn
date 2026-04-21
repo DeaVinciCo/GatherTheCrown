@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dllb4m7cy71q"]
+
+[ext_resource type="Script" path="res://scripts/world/feed_station.gd" id="1_feed_station"]
+[ext_resource type="Script" path="res://scripts/world/interaction_component.gd" id="2_interaction"]
+
+[node name="FeedStation" type="Node2D"]
+script = ExtResource("1_feed_station")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.5, 0.7, 0.3, 1)
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("2_interaction")
+interaction_type = "feed_creat"
+interaction_prompt = "Feed Creat"
+interaction_range = 50.0
+can_repeat = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -30.0
+offset_top = 30.0
+offset_right = 30.0
+offset_bottom = 50.0
+text = "Feed"

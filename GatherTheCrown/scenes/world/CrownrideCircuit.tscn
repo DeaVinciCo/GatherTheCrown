@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3 uid="uid://crownride_circuit_001"]
+
+[ext_resource type="Script" path="res://scripts/world/crownride_circuit.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c7yj4c3xvyxwd" path="res://scenes/actors/player/Player.tscn" id="2_player"]
+
+[node name="CrownrideCircuit" type="Node2D"]
+script = ExtResource("1_script")
+mode_name = "Crownride Racing"
+unlock_condition = ""
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.13, 0.33, 0.12, 1)
+
+[node name="GroundTint" type="ColorRect" parent="."]
+offset_left = -40.0
+offset_top = 310.0
+offset_right = 1320.0
+offset_bottom = 780.0
+color = Color(0.18, 0.42, 0.15, 0.95)
+
+[node name="PathCrossA" type="Line2D" parent="."]
+points = PackedVector2Array(40, 360, 1240, 360)
+width = 28.0
+default_color = Color(0.47, 0.43, 0.39, 0.95)
+
+[node name="PathCrossB" type="Line2D" parent="."]
+points = PackedVector2Array(426, 40, 426, 700)
+width = 28.0
+default_color = Color(0.43, 0.39, 0.35, 0.95)
+
+[node name="ForestTrail" type="Line2D" parent="."]
+points = PackedVector2Array(640, 520, 760, 420, 900, 305, 1040, 210, 1140, 120)
+width = 16.0
+default_color = Color(0.62, 0.49, 0.24, 1)
+
+[node name="HomeTrail" type="Line2D" parent="."]
+points = PackedVector2Array(640, 520, 530, 420, 420, 300, 300, 205, 160, 120)
+width = 14.0
+default_color = Color(0.67, 0.56, 0.30, 1)
+
+[node name="TreeFallbackA" type="Polygon2D" parent="."]
+color = Color(0.15, 0.52, 0.16, 1)
+polygon = PackedVector2Array(154, 102, 122, 156, 186, 156)
+
+[node name="TreeFallbackB" type="Polygon2D" parent="."]
+color = Color(0.14, 0.49, 0.16, 1)
+polygon = PackedVector2Array(1130, 96, 1098, 154, 1162, 154)
+
+[node name="EnemyFallbackA" type="Polygon2D" parent="."]
+color = Color(0.83, 0.22, 0.22, 1)
+polygon = PackedVector2Array(980, 486, 993, 500, 980, 514, 967, 500)
+
+[node name="EnemyFallbackB" type="Polygon2D" parent="."]
+color = Color(0.83, 0.22, 0.22, 1)
+polygon = PackedVector2Array(320, 506, 333, 520, 320, 534, 307, 520)
+
+[node name="PickupFallbackA" type="Polygon2D" parent="."]
+color = Color(0.95, 0.76, 0.18, 1)
+polygon = PackedVector2Array(700, 452, 708, 460, 700, 468, 692, 460)
+
+[node name="PickupFallbackB" type="Polygon2D" parent="."]
+color = Color(0.23, 0.82, 0.40, 1)
+polygon = PackedVector2Array(860, 342, 868, 350, 860, 358, 852, 350)
+
+[node name="PickupFallbackC" type="Polygon2D" parent="."]
+color = Color(0.24, 0.56, 0.95, 1)
+polygon = PackedVector2Array(390, 342, 398, 350, 390, 358, 382, 350)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(640, 400)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 120.0
+offset_right = 1000.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 28
+text = "CROWNRIDE EDGE - VISUAL BUILD MARKER"
+
+[node name="DescLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 170.0
+offset_right = 1000.0
+offset_bottom = 260.0
+text = "If you can read this marker, the updated Crownride scene is loaded.\n\nVisible fallback elements are drawn here: grass, crossing paths, trees, enemies, pickups, and route trails.\n\nControls: M map, I inventory, Shift chat, R restore checkpoint, E interact."
+
+[node name="RouteLabelForest" type="Label" parent="."]
+offset_left = 1040.0
+offset_top = 88.0
+offset_right = 1270.0
+offset_bottom = 116.0
+text = "Forest Trials ->"
+theme_override_font_sizes/font_size = 16
+modulate = Color(0.82, 1, 0.58, 1)
+
+[node name="RouteLabelHome" type="Label" parent="."]
+offset_left = 106.0
+offset_top = 88.0
+offset_right = 320.0
+offset_bottom = 116.0
+text = "<- Home Base"
+theme_override_font_sizes/font_size = 16
+modulate = Color(1, 0.94, 0.70, 1)
+
+[node name="LockedLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 310.0
+offset_right = 1000.0
+offset_bottom = 340.0
+text = ""
+modulate = Color(1, 0.5, 0.2, 1)

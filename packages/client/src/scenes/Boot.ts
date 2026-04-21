@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import LayoutManager from '../ui/LayoutManager';
+import { AudioManager } from '../audio/AudioManager';
 
 export default class Boot extends Phaser.Scene {
   constructor() {
@@ -7,6 +7,8 @@ export default class Boot extends Phaser.Scene {
   }
 
   preload() {
+    AudioManager.initialize();
+
     // Generate simple textures
     const g = this.add.graphics();
     g.fillStyle(0xff0000, 1);
@@ -21,7 +23,7 @@ export default class Boot extends Phaser.Scene {
   }
 
   create() {
-    LayoutManager.init(this);
+    AudioManager.playMenuTheme();
     this.scene.start('Preload');
   }
 }

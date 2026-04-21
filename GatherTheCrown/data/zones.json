@@ -1,0 +1,445 @@
+{
+  "zones": {
+    "greenwood_clearing": {
+      "id": "greenwood_clearing",
+      "name": "Greenwood Clearing",
+      "type": "forest_hub",
+      "level_range": [1, 5],
+      "position": [320, 360],
+      "biome": "forest",
+      "elevation": 0.5,
+      "restoration_sites": 3,
+      "creat_density": {
+        "fire": 0.8,
+        "water": 0.2,
+        "earth": 0.1,
+        "storm": 0.0
+      },
+      "resources": [
+        {
+          "type": "embersteel_fragment",
+          "name": "Embersteel Fragment",
+          "amount": 5,
+          "respawn_days": 1
+        },
+        {
+          "type": "herb_mild",
+          "name": "Mild Herb",
+          "amount": 3,
+          "respawn_days": 1
+        }
+      ],
+      "active_events": [],
+      "landmarks": ["crown_forge_01", "bond_shrine_01"]
+    },
+    "wooded_trail": {
+      "id": "wooded_trail",
+      "name": "Wooded Trail",
+      "type": "combat_zone",
+      "level_range": [5, 15],
+      "position": [640, 360],
+      "biome": "forest",
+      "elevation": 0.3,
+      "restoration_sites": 2,
+      "boss": {
+        "id": "fire_boss_001",
+        "name": "Embercrown Champion",
+        "status": "undefeated",
+        "element": "fire",
+        "recommended_level": 10
+      },
+      "creat_density": {
+        "fire": 0.9,
+        "water": 0.1,
+        "earth": 0.0,
+        "storm": 0.0
+      },
+      "resources": [
+        {
+          "type": "embersteel_fragment",
+          "name": "Embersteel Fragment",
+          "amount": 10,
+          "respawn_days": 2
+        },
+        {
+          "type": "essence_fire",
+          "name": "Fire Essence",
+          "amount": 2,
+          "respawn_days": 3
+        }
+      ],
+      "active_events": [],
+      "landmarks": []
+    },
+    "restoration_site_01": {
+      "id": "restoration_site_01",
+      "name": "Ancient Grove",
+      "type": "restoration_site",
+      "level_range": [3, 8],
+      "position": [450, 200],
+      "biome": "forest",
+      "elevation": 0.6,
+      "restoration_sites": 1,
+      "state": "unrestored",
+      "restoration_reward": {
+        "daily_items": [
+          {
+            "type": "ember_fruit",
+            "amount": 3
+          }
+        ]
+      },
+      "creat_density": {
+        "fire": 0.3,
+        "water": 0.7,
+        "earth": 0.0,
+        "storm": 0.0
+      },
+      "resources": [],
+      "active_events": [],
+      "landmarks": []
+    },
+    "emberveil_wasteland": {
+      "id": "emberveil_wasteland",
+      "name": "Emberveil Wasteland",
+      "type": "combat_zone",
+      "level_range": [15, 25],
+      "position": [900, 360],
+      "biome": "volcanic",
+      "elevation": 0.2,
+      "restoration_sites": 1,
+      "boss": {
+        "id": "fire_boss_002",
+        "name": "Inferno Sovereign",
+        "status": "undefeated",
+        "element": "fire",
+        "recommended_level": 20
+      },
+      "creat_density": {
+        "fire": 1.0,
+        "water": 0.0,
+        "earth": 0.0,
+        "storm": 0.0
+      },
+      "resources": [
+        {
+          "type": "dreadsteel_fragment",
+          "name": "Dreadsteel Fragment",
+          "amount": 8,
+          "respawn_days": 2
+        },
+        {
+          "type": "essence_fire",
+          "amount": 5,
+          "respawn_days": 3
+        }
+      ],
+      "active_events": [],
+      "landmarks": []
+    },
+    "crystalline_caverns": {
+      "id": "crystalline_caverns",
+      "name": "Crystalline Caverns",
+      "type": "combat_zone",
+      "level_range": [10, 20],
+      "position": [320, 100],
+      "biome": "cave",
+      "elevation": -0.5,
+      "restoration_sites": 2,
+      "boss": {
+        "id": "earth_boss_001",
+        "name": "Crystal Guardian",
+        "status": "undefeated",
+        "element": "earth",
+        "recommended_level": 15
+      },
+      "creat_density": {
+        "fire": 0.1,
+        "water": 0.2,
+        "earth": 0.9,
+        "storm": 0.0
+      },
+      "resources": [
+        {
+          "type": "starglass_shard",
+          "name": "Starglass Shard",
+          "amount": 6,
+          "respawn_days": 2
+        },
+        {
+          "type": "essence_earth",
+          "amount": 3,
+          "respawn_days": 3
+        }
+      ],
+      "active_events": [],
+      "landmarks": []
+    },
+    "whispering_marshes": {
+      "id": "whispering_marshes",
+      "name": "Whispering Marshes",
+      "type": "combat_zone",
+      "level_range": [12, 22],
+      "position": [100, 500],
+      "biome": "swamp",
+      "elevation": -0.3,
+      "restoration_sites": 1,
+      "boss": {
+        "id": "water_boss_001",
+        "name": "Tideweaver",
+        "status": "undefeated",
+        "element": "water",
+        "recommended_level": 17
+      },
+      "creat_density": {
+        "fire": 0.0,
+        "water": 0.95,
+        "earth": 0.05,
+        "storm": 0.0
+      },
+      "resources": [
+        {
+          "type": "water_lily",
+          "amount": 8,
+          "respawn_days": 1
+        },
+        {
+          "type": "essence_water",
+          "amount": 4,
+          "respawn_days": 2
+        }
+      ],
+      "active_events": [],
+      "landmarks": []
+    },
+    "crownride_circuit": {
+      "id": "crownride_circuit",
+      "name": "Crownride Circuit",
+      "type": "racing",
+      "scene": "res://scenes/world/CrownrideCircuit.tscn",
+      "level_range": [1, 99],
+      "position": [700, 600],
+      "biome": "racetrack",
+      "unlock_condition": "",
+      "crown_reward": "crown_race_torque",
+      "placement_metals": {"1st": "starforged", "2nd": "aethersteel", "3rd": "osmium", "elite": "bixbite"},
+      "active_events": [],
+      "landmarks": []
+    },
+    "clashborn_arena": {
+      "id": "clashborn_arena",
+      "name": "Clashborn Arena",
+      "type": "pvp_arena",
+      "scene": "res://scenes/world/ClashbornArena.tscn",
+      "level_range": [5, 99],
+      "position": [900, 150],
+      "biome": "arena",
+      "unlock_condition": "story_completed_once",
+      "crown_reward": "crown_pvp_conqueror",
+      "active_events": [],
+      "landmarks": []
+    },
+    "crown_trials": {
+      "id": "crown_trials",
+      "name": "Crown Trials",
+      "type": "crown_trials",
+      "scene": "res://scenes/world/CrownTrials.tscn",
+      "level_range": [10, 99],
+      "position": [200, 650],
+      "biome": "ritual_ground",
+      "unlock_condition": "",
+      "crown_reward": "crown_pve_warden",
+      "bosses": ["solflare_aevan", "crystfang", "vexiloth"],
+      "active_events": [],
+      "landmarks": []
+    }
+  },
+  "landmarks": {
+    "crown_forge_01": {
+      "id": "crown_forge_01",
+      "name": "Ancient Crown Forge",
+      "type": "npc_hub",
+      "zone": "greenwood_clearing",
+      "icon": "res://assets/ui/landmark_forge.png",
+      "discovered": true,
+      "position_offset": [50, 50],
+      "npc": "Forge Master Aldric",
+      "services": ["craft_crowns", "upgrade_crowns", "identify_items"]
+    },
+    "bond_shrine_01": {
+      "id": "bond_shrine_01",
+      "name": "Bond Shrine",
+      "type": "npc_hub",
+      "zone": "greenwood_clearing",
+      "icon": "res://assets/ui/landmark_shrine.png",
+      "discovered": true,
+      "position_offset": [-50, 50],
+      "npc": "Shrine Keeper Maris",
+      "services": ["bond_ritual", "creat_evolution", "sync_training"]
+    }
+  },
+  "paths": [
+    {
+      "from_zone": "greenwood_clearing",
+      "to_zone": "wooded_trail",
+      "terrain_type": "forest_road",
+      "difficulty": 1.0,
+      "traffic_intensity": 0.8,
+      "distance": 320
+    },
+    {
+      "from_zone": "greenwood_clearing",
+      "to_zone": "restoration_site_01",
+      "terrain_type": "forest_path",
+      "difficulty": 0.8,
+      "traffic_intensity": 0.3,
+      "distance": 180
+    },
+    {
+      "from_zone": "wooded_trail",
+      "to_zone": "emberveil_wasteland",
+      "terrain_type": "rocky_path",
+      "difficulty": 1.2,
+      "traffic_intensity": 0.5,
+      "distance": 260
+    },
+    {
+      "from_zone": "greenwood_clearing",
+      "to_zone": "crystalline_caverns",
+      "terrain_type": "mountain_path",
+      "difficulty": 1.3,
+      "traffic_intensity": 0.2,
+      "distance": 400
+    },
+    {
+      "from_zone": "greenwood_clearing",
+      "to_zone": "whispering_marshes",
+      "terrain_type": "swamp_trail",
+      "difficulty": 1.1,
+      "traffic_intensity": 0.1,
+      "distance": 350
+    }
+  ],
+  "factions": [
+    {
+      "id": "infernal_kin",
+      "name": "Infernal Kin",
+      "element": "fire",
+      "biblical_color": "scarlet",
+      "color": "#C0392B",
+      "symbol": "flame",
+      "domain": "sacrifice / war",
+      "controlled_zones": ["wooded_trail", "emberveil_wasteland"]
+    },
+    {
+      "id": "tideborn",
+      "name": "Tideborn",
+      "element": "water",
+      "biblical_color": "blue",
+      "color": "#2980B9",
+      "symbol": "wave",
+      "domain": "law / covenant",
+      "controlled_zones": ["whispering_marshes"]
+    },
+    {
+      "id": "earthbound_giants",
+      "name": "Earthbound Giants",
+      "element": "earth",
+      "biblical_color": "bronze",
+      "color": "#7D5A3C",
+      "symbol": "stone",
+      "domain": "strength / endurance",
+      "controlled_zones": ["crystalline_caverns"]
+    },
+    {
+      "id": "sky_nomads",
+      "name": "Sky Nomads",
+      "element": "wind",
+      "biblical_color": "silver",
+      "color": "#BDC3C7",
+      "symbol": "feather",
+      "domain": "redemption / freedom",
+      "controlled_zones": []
+    },
+    {
+      "id": "mystic_scribes",
+      "name": "Mystic Scribes",
+      "element": "arcane",
+      "biblical_color": "purple",
+      "color": "#8E44AD",
+      "symbol": "scroll",
+      "domain": "royalty / hidden knowledge",
+      "controlled_zones": []
+    },
+    {
+      "id": "shadow_folk",
+      "name": "Shadow Folk",
+      "element": "shadow",
+      "biblical_color": "black",
+      "color": "#2C2C2C",
+      "symbol": "veil",
+      "domain": "judgment / the unseen",
+      "controlled_zones": []
+    },
+    {
+      "id": "first_witness",
+      "name": "The First Witness",
+      "element": "light",
+      "biblical_color": "gold",
+      "color": "#F4D35E",
+      "symbol": "sunseal",
+      "domain": "revelation / guardianship",
+      "controlled_zones": []
+    },
+    {
+      "id": "verdant_keepers",
+      "name": "Verdant Keepers",
+      "element": "nature",
+      "biblical_color": "white",
+      "color": "#28B463",
+      "symbol": "living_branch",
+      "domain": "renewal / restoration",
+      "controlled_zones": []
+    },
+    {
+      "id": "soulward_synod",
+      "name": "Soulward Synod",
+      "element": "spirit",
+      "biblical_color": "crimson",
+      "color": "#DCCFC3",
+      "symbol": "halo_sigil",
+      "domain": "soulkeeping / sacred rites",
+      "controlled_zones": []
+    },
+    {
+      "id": "covenant_bearers",
+      "name": "Covenant Bearers",
+      "element": "blood",
+      "biblical_color": "green",
+      "color": "#A3152A",
+      "symbol": "bound_chalice",
+      "domain": "oath / sacrifice",
+      "controlled_zones": []
+    },
+    {
+      "id": "the_remainder",
+      "name": "The Remainder",
+      "element": "void",
+      "biblical_color": "ivory",
+      "color": "#3A2E4F",
+      "symbol": "shattered_ring",
+      "domain": "corruption / exile",
+      "controlled_zones": []
+    },
+    {
+      "id": "memory_weavers",
+      "name": "Memory Weavers",
+      "element": "time",
+      "biblical_color": "amber",
+      "color": "#4FA7A3",
+      "symbol": "hourglass_knot",
+      "domain": "fate / memory / timelines",
+      "controlled_zones": []
+    }
+  ]
+}

@@ -15,7 +15,8 @@ export class LobbyRoom extends Room<LobbyState> {
         this.broadcast({ type: 'crown', fragmentId: 'welcome' } as ServerMessage);
       }
       if (message.type === 'chat') {
-        this.broadcast(message as ChatMessage);
+        const chatMessage: ChatMessage = { ...message, sentAt: Date.now() };
+        this.broadcast(chatMessage);
       }
     });
   }

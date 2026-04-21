@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ylk7hllgv37abt"]
+
+[sub_resource type="GDScript" id="GDScript_xyf6k"]
+script = """
+extends Node
+
+func _ready() -> void:
+	print("\\n=== SYSTEM TEST SCENE ===")
+	print("[Test] Scene loaded successfully")
+	
+	# Test DayNightCycle
+	if DayNightCycle:
+		print("[Test] DayNightCycle is available")
+		print("[Test] Time label: %s" % DayNightCycle.get_time_label())
+		print("[Test] Is day: %s" % DayNightCycle.is_day)
+	else:
+		print("[Test] ERROR: DayNightCycle not available")
+	
+	# Test AdvancedInventorySystem
+	if AdvancedInventorySystem:
+		print("[Test] AdvancedInventorySystem is available")
+		print("[Test] Item database size: %d" % AdvancedInventorySystem.item_database.size())
+		AdvancedInventorySystem.add_item("bread_loaf", 5)
+		var count = AdvancedInventorySystem.get_item_count("bread_loaf")
+		print("[Test] Added bread_loaf (5), count now: %d" % count)
+	else:
+		print("[Test] ERROR: AdvancedInventorySystem not available")
+	
+	# Test CheckpointSystem
+	if CheckpointSystem:
+		print("[Test] CheckpointSystem is available")
+		print("[Test] Checkpoint count: %d" % CheckpointSystem.checkpoints.size())
+	else:
+		print("[Test] ERROR: CheckpointSystem not available")
+	
+	# Test KingdomFindingsSystem
+	if KingdomFindingsSystem:
+		print("[Test] KingdomFindingsSystem is available")
+		print("[Test] Finding count: %d" % KingdomFindingsSystem.findings.size())
+		var town_findings = KingdomFindingsSystem.get_findings_by_category(KingdomFindingsSystem.FindingCategory.TOWN)
+		print("[Test] Town findings: %d" % town_findings.size())
+	else:
+		print("[Test] ERROR: KingdomFindingsSystem not available")
+	
+	print("[Test] \\nAll systems initialized successfully!")
+	print("[Test] You can safely close this window now")
+"""
+
+[node name="SystemTest" type="Node"]
+script = SubResource("GDScript_xyf6k")

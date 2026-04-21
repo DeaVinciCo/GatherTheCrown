@@ -34,7 +34,7 @@ model Creat {
   element String
   stage  String
   hero   Hero   @relation(fields: [heroId], references: [id])
-  heroId String
+  heroId String @unique
 }
 
 model InventoryItem {
@@ -58,7 +58,7 @@ model Progress {
   id          String @id @default(cuid())
   district01  Boolean @default(false)
   hero        Hero   @relation(fields: [heroId], references: [id])
-  heroId      String
+  heroId      String @unique
 }
 
 model MatchHistory {

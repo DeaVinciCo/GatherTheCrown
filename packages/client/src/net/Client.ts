@@ -1,5 +1,5 @@
 import * as Colyseus from 'colyseus.js';
-import { ClientMessage, ChatMessage } from '@game/shared';
+// Using local message types
 
 class GameClient {
   private client = new Colyseus.Client(`${location.protocol.replace('http', 'ws')}//${location.hostname}:2567`);

@@ -1,26 +1,40 @@
 import Phaser from 'phaser';
-import { SkillNode } from '@game/shared';
+import { SkillNode, SkillTreeState } from '@game/shared';
 import { createButton } from './Widgets';
+
+export const SKILL_TREE_REGISTRY_KEY = 'skillTreeState';
+
+function getSkillTreeState(scene: Phaser.Scene): SkillTreeState {
+  return scene.registry.get(SKILL_TREE_REGISTRY_KEY) ?? { unlockedSkillIds: [] };
+}
+
+function saveSkillTreeState(scene: Phaser.Scene, state: SkillTreeState): void {
+  scene.registry.set(SKILL_TREE_REGISTRY_KEY, state);
+}
+
+export function canUnlock(node: SkillNode, state: SkillTreeState): boolean {
+  if (state.unlockedSkillIds.includes(node.id)) return false;
+  return node.requires.every((id) => state.unlockedSkillIds.includes(id));
+}
 
 export function showSkillTree(
   scene: Phaser.Scene,
   container: HTMLElement,
   nodes: SkillNode[]
 ) {
-  const unlocked: string[] = scene.registry.get('unlockedSkills') || [];
+  const state = getSkillTreeState(scene);
 
   nodes.forEach((node) => {
     const btn = createButton(node.skill.name, () => {
-      const current: string[] = scene.registry.get('unlockedSkills') || [];
-      const prereqsMet = node.requires.every((id) => current.includes(id));
-      if (prereqsMet && !current.includes(node.skill.id)) {
-        current.push(node.skill.id);
-        scene.registry.set('unlockedSkills', current);
+      const current = getSkillTreeState(scene);
+      if (canUnlock(node, current)) {
+        current.unlockedSkillIds.push(node.id);
+        saveSkillTreeState(scene, current);
         btn.disabled = true;
       }
     });
 
-    if (unlocked.includes(node.skill.id)) {
+    if (!canUnlock(node, state)) {
       btn.disabled = true;
     }
 

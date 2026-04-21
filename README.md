@@ -3,12 +3,19 @@
 **Gather The Crown: Creats & Foes** is a multiplayer, browser‑based action RPG built for a monorepo workflow.  
 The project ships with a minimal yet complete “vertical slice” of the game loop, featuring a story boss, a randomized forest run, basic crafting and a functional HUD that showcases the artifact frame concept.
 
+🚀 **Now with Cross-Platform Distribution!** Play on Web, Desktop (Windows/Mac/Linux), iOS, and Android.  
+See [PLATFORM_QUICKSTART.md](./PLATFORM_QUICKSTART.md) for deployment instructions.
+⚡ **Godot Version (MVP)**: See [GatherTheCrown/QUICKSTART.md](./GatherTheCrown/QUICKSTART.md) for the current playable slice (updated April 21, 2026).  
+📋 **Recent Updates**: [CHANGES_APRIL_21_2026.md](./CHANGES_APRIL_21_2026.md) - Movement fixes & documentation refresh.  
+📖 **Documentation Index**: [DOCUMENTATION_MAP_APRIL_21_2026.md](./DOCUMENTATION_MAP_APRIL_21_2026.md) - Complete file guide and what changed.
+
 ---
 
 ## Contents
 
 - [Vision](#vision)
 - [Feature Pillars](#feature-pillars)
+- [Cross-Platform Distribution](#cross-platform-distribution)
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [Running the Game](#running-the-game)
@@ -24,6 +31,19 @@ The project ships with a minimal yet complete “vertical slice” of the game l
   - [Testing & Telemetry Stubs](#testing--telemetry-stubs)
 - [Roadmap](#roadmap)
 - [Smoke Test (Quick Walkthrough)](#smoke-test-quick-walkthrough)
+
+---
+
+## Design Inspiration
+
+The visual identity of *Gather The Crown* draws deliberately from **Biblical and Ethiopian heritage**, specifically referencing the **Cepher** (a restoration of the fuller Hebrew canon) and the **Ethiopian Orthodox tradition** as primary sources.
+
+- **Colors** — Palette choices reflect the pigments and dyes described in Scripture: deep crimson (*tola'at shani*), royal blue (*tekhelet*), purple (*argaman*), scarlet, white linen, and gold. Ethiopian illuminated manuscript colors — ochre, earthen red, turquoise and ivory — also inform the UI and world tilesets.
+- **Fabrics & Textures** — Crown and robe designs reference the priestly garments of the Torah (e.g., the ephod, the breastplate of twelve stones) and the *Kebra Nagast* royal court attire. Fine linen, woven gold thread, and embroidered borders are recurring visual motifs.
+- **Structural Elements** — Zone architecture borrows from the Solomonic temple layout, the round *gojjo* dwellings of highland Ethiopia, and the carved stone churches of Lalibela. The Crownbound Reignlords carry regalia that echoes the imperial crown traditions of the House of Solomon.
+- **Naming Conventions** — Boss names, zone titles, and creat species names draw on ancient Hebrew, Ge'ez, and Amharic roots where appropriate.
+
+These influences are meant to be respectful and specific — not generic "ancient" or "fantasy African" aesthetics — and should be maintained as new content is added.
 
 ---
 
@@ -52,10 +72,40 @@ The vertical slice features:
 
 ---
 
+## Cross-Platform Distribution
+
+The game is built for universal distribution:
+
+| Platform | Launch Method | Installation | Format |
+|----------|---------------|--------------|--------|
+| **Web** | Browser | None - play instantly | 🌐 Online |
+| **Desktop** | Download & Install | Single-click setup | 💻 .exe / .dmg / .AppImage |
+| **iOS** | App Store | App Store | 📱 Native app |
+| **Android** | Play Store | Play Store | 📱 Native app |
+
+**Quick Start:**
+- **Web**: `npm run web:dev` → http://localhost:5173
+- **Desktop**: `npm run build:desktop` → Creates installers
+- **Mobile**: `npm run build:mobile` → Prepares for app stores
+
+**Full deployment:**
+```bash
+npm run deploy:all  # Builds for all platforms
+```
+
+📚 See [PLATFORM_QUICKSTART.md](./PLATFORM_QUICKSTART.md) for detailed setup and [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for publishing to app stores.
+
+---
+
 ## Repository Structure
 
 ```
 /README.md                – This document
+/PLATFORM_QUICKSTART.md   – 🚀 Cross-platform setup guide
+/DEPLOYMENT_GUIDE.md      – 📤 Publishing to app stores
+/CROSS_PLATFORM_SETUP.md  – 🏗️ Technical architecture
+/build.sh                 – Build script (Mac/Linux)
+/build.bat                – Build script (Windows)
 /pnpm-workspace.yaml      – PNPM workspace config
 /package.json             – Root scripts (dev/build/start/db)
 /tsconfig.base.json       – Shared TS config

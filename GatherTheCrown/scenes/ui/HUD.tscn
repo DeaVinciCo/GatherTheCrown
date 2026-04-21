@@ -1,0 +1,324 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxc2d80gfq47p"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+[ext_resource type="Script" path="res://scripts/ui/widgets/hero_health_widget.gd" id="2_hero"]
+[ext_resource type="Script" path="res://scripts/ui/widgets/mana_potion_widget.gd" id="3_mana"]
+[ext_resource type="Script" path="res://scripts/ui/widgets/creat_status_widget.gd" id="4_creat"]
+[ext_resource type="Script" path="res://scripts/ui/widgets/attack_cooldown_widget.gd" id="5_attk"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+top_level = true
+script = ExtResource("1_hud")
+
+[node name="FrameLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GemSquareFrame" type="Panel" parent="FrameLayer"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 80.0
+offset_right = 980.0
+offset_bottom = 780.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u0y0v")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0y0v"]
+bg_color = Color(0.0666667, 0.0901961, 0.12549, 0.86)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.286275, 0.513726, 0.721569, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="TopRail" type="ColorRect" parent="FrameLayer"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 118.0
+offset_right = 940.0
+offset_bottom = 122.0
+color = Color(0.266667, 0.47451, 0.65098, 0.75)
+
+[node name="BottomRail" type="ColorRect" parent="FrameLayer"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 738.0
+offset_right = 940.0
+offset_bottom = 742.0
+color = Color(0.266667, 0.47451, 0.65098, 0.75)
+
+[node name="HeroHeartIcon" type="ColorRect" parent="FrameLayer"]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 168.0
+offset_right = 352.0
+offset_bottom = 182.0
+color = Color(0.87451, 0.203922, 0.203922, 1)
+
+[node name="CreatHeartIcon" type="ColorRect" parent="FrameLayer"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 490.0
+offset_right = 774.0
+offset_bottom = 504.0
+color = Color(0.223529, 0.576471, 0.933333, 1)
+
+[node name="StatWidgets" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HeroHealthWidget" type="Control" parent="StatWidgets"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 198.0
+offset_right = 560.0
+offset_bottom = 288.0
+script = ExtResource("2_hero")
+
+[node name="ManaPotionWidget" type="Control" parent="StatWidgets"]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 244.0
+offset_right = 952.0
+offset_bottom = 404.0
+script = ExtResource("3_mana")
+
+[node name="CreatStatusWidget" type="Control" parent="StatWidgets"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 408.0
+offset_right = 930.0
+offset_bottom = 558.0
+script = ExtResource("4_creat")
+
+[node name="AttackCooldownWidget" type="Control" parent="StatWidgets"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 480.0
+offset_right = 590.0
+offset_bottom = 612.0
+script = ExtResource("5_attk")
+
+[node name="UtilityLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RiderGemButton" type="Button" parent="UtilityLayer"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 82.0
+offset_right = 676.0
+offset_bottom = 114.0
+text = "KEYS"
+
+[node name="CreatGemButton" type="Button" parent="UtilityLayer"]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 412.0
+offset_right = 952.0
+offset_bottom = 444.0
+text = "CREAT"
+
+[node name="InventoryGemButton" type="Button" parent="UtilityLayer"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 628.0
+offset_right = 696.0
+offset_bottom = 660.0
+text = "POTION"
+
+[node name="OtherGemButton" type="Button" parent="UtilityLayer"]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 670.0
+offset_right = 684.0
+offset_bottom = 702.0
+text = "OTHER"
+
+[node name="MapGemButton" type="Button" parent="UtilityLayer"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 404.0
+offset_right = 364.0
+offset_bottom = 436.0
+text = "CHAR"
+
+[node name="OptionsGemButton" type="Button" parent="UtilityLayer"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 618.0
+offset_right = 980.0
+offset_bottom = 650.0
+text = "OPT"
+
+[node name="InventoryMenuButton" type="Button" parent="UtilityLayer"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 656.0
+offset_right = 1006.0
+offset_bottom = 688.0
+text = "INV"
+
+[node name="OverlayLabels" type="Control" parent="FrameLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopCenterKeysLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 122.0
+offset_right = 734.0
+offset_bottom = 142.0
+text = "KEYS / STATUS"
+
+[node name="TopLeftGemsLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 132.0
+offset_right = 432.0
+offset_bottom = 152.0
+text = "GEMS"
+
+[node name="TopRightShardLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 132.0
+offset_right = 972.0
+offset_bottom = 152.0
+text = "SHARD"
+
+[node name="LeftArcHpLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 234.0
+offset_right = 438.0
+offset_bottom = 254.0
+text = "HP"
+
+[node name="LeftArcXpLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 264.0
+offset_right = 444.0
+offset_bottom = 284.0
+text = "XP"
+
+[node name="LeftArcStamLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 294.0
+offset_right = 458.0
+offset_bottom = 314.0
+text = "STAM"
+
+[node name="LeftArcTimeLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 324.0
+offset_right = 460.0
+offset_bottom = 344.0
+text = "TIME"
+
+[node name="CenterManaLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 334.0
+offset_right = 666.0
+offset_bottom = 354.0
+text = "MANA"
+
+[node name="RightArcInfoLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 178.0
+offset_right = 964.0
+offset_bottom = 234.0
+text = "MANA / BOOST / SPELL CD / POTIONS USED"
+autowrap_mode = 3
+
+[node name="AttackZoneLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 622.0
+offset_right = 548.0
+offset_bottom = 674.0
+text = "ITEMS 1-5 / HERO XP / COOLDOWN"
+autowrap_mode = 3
+
+[node name="BottomCenterLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 664.0
+offset_right = 724.0
+offset_bottom = 684.0
+text = "POTION"
+
+[node name="BottomRightLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 660.0
+offset_right = 992.0
+offset_bottom = 708.0
+text = "OPT / INV / MISC"
+autowrap_mode = 3
+
+[node name="BottomLeftGoldLabel" type="Label" parent="FrameLayer/OverlayLabels"]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 666.0
+offset_right = 412.0
+offset_bottom = 686.0
+text = "GOLD"
+
+[node name="ChatDrawer" type="Panel" parent="UtilityLayer"]
+visible = false
+layout_mode = 0
+offset_left = 994.0
+offset_top = 178.0
+offset_right = 1264.0
+offset_bottom = 570.0
+
+[node name="ChatTitle" type="Label" parent="UtilityLayer/ChatDrawer"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 256.0
+offset_bottom = 32.0
+text = "Local Chat [Shift]"
+
+[node name="ChatBody" type="RichTextLabel" parent="UtilityLayer/ChatDrawer"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 42.0
+offset_right = 250.0
+offset_bottom = 376.0
+bbcode_enabled = false
+text = "Channel connected.\nGem-square HUD mock is active.\nUse gem buttons for rider/creat/inventory/map/options."

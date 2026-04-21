@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1wk3y8u5wxvr"]
+
+[ext_resource type="Script" path="res://scripts/world/wooded_trail.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c7yj4c3xvyxwd" path="res://scenes/actors/player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://bxc2d80gfq47p" path="res://scenes/ui/HUD.tscn" id="3_hud"]
+[ext_resource type="PackedScene" uid="uid://c6uyf4wj8p3v" path="res://scenes/world/EggDiscoveryTrigger.tscn" id="4_egg_trigger"]
+
+[node name="WoodedTrail" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.15, 0.3, 0.15, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(100, 300)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="ExitMarker" type="Marker2D" parent="."]
+position = Vector2(50, 360)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 350.0
+offset_top = 650.0
+offset_right = 830.0
+offset_bottom = 680.0
+text = "[M] Map | [E] Return to Home | Gather materials and find the egg!"
+
+[node name="EggDiscoveryTrigger" parent="." instance=ExtResource("4_egg_trigger")]
+position = Vector2(500, 400)
+egg_type = "fire_creat"

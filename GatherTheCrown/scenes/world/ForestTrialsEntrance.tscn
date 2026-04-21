@@ -1,0 +1,139 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv7c6k3m79sp"]
+
+[ext_resource type="Script" path="res://scripts/world/forest_trials_entrance.gd" id="1_script"]
+
+[node name="ForestTrialsEntrance" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.13, 0.22, 0.09, 1)
+
+[node name="GroundFill" type="ColorRect" parent="."]
+offset_left = 0.0
+offset_top = 380.0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.17, 0.28, 0.10, 1)
+
+; Distant tree silhouettes (upper-right, beyond forest path end)
+
+[node name="TreeFarA" type="Polygon2D" parent="."]
+color = Color(0.07, 0.18, 0.05, 1)
+polygon = PackedVector2Array(1082, 0, 1044, 92, 1120, 92)
+
+[node name="TreeFarB" type="Polygon2D" parent="."]
+color = Color(0.09, 0.21, 0.06, 1)
+polygon = PackedVector2Array(1158, 4, 1118, 96, 1198, 96)
+
+[node name="TreeFarC" type="Polygon2D" parent="."]
+color = Color(0.06, 0.17, 0.04, 1)
+polygon = PackedVector2Array(1232, 0, 1194, 86, 1270, 86)
+
+[node name="TreeMidA" type="Polygon2D" parent="."]
+color = Color(0.11, 0.26, 0.07, 1)
+polygon = PackedVector2Array(1025, 12, 990, 82, 1060, 82)
+
+[node name="TreeMidB" type="Polygon2D" parent="."]
+color = Color(0.10, 0.24, 0.07, 1)
+polygon = PackedVector2Array(1270, 8, 1236, 78, 1304, 78)
+
+[node name="TreeMidC" type="Polygon2D" parent="."]
+color = Color(0.08, 0.20, 0.05, 1)
+polygon = PackedVector2Array(1195, 18, 1168, 72, 1222, 72)
+
+; Path border lines (drawn first so main path renders on top)
+
+[node name="ForestPathEdge" type="Line2D" parent="."]
+points = PackedVector2Array(640, 430, 760, 345, 900, 170, 1065, 98, 1245, 40)
+width = 24.0
+default_color = Color(0.28, 0.22, 0.10, 0.65)
+z_index = -1
+
+[node name="HomePathEdge" type="Line2D" parent="."]
+points = PackedVector2Array(640, 430, 818, 295, 900, 170, 835, 98, 758, 54)
+width = 20.0
+default_color = Color(0.28, 0.22, 0.10, 0.65)
+z_index = -1
+
+; Main path surfaces
+; Forest Trials path is longer, runs upper-right to the distant trees.
+; Home Base path is shorter, curves up-left from the shared junction.
+; Both paths cross at roughly (900, 170) - the junction point.
+
+[node name="ForestPath" type="Line2D" parent="."]
+points = PackedVector2Array(640, 430, 760, 345, 900, 170, 1065, 98, 1245, 40)
+width = 18.0
+default_color = Color(0.54, 0.45, 0.28, 1)
+
+[node name="HomePath" type="Line2D" parent="."]
+points = PackedVector2Array(640, 430, 818, 295, 900, 170, 835, 98, 758, 54)
+width = 14.0
+default_color = Color(0.60, 0.52, 0.33, 1)
+
+; Path destination labels
+
+[node name="LabelForestTrials" type="Label" parent="."]
+offset_left = 1048.0
+offset_top = 36.0
+offset_right = 1280.0
+offset_bottom = 62.0
+text = "Forest Trials ->"
+theme_override_font_sizes/font_size = 17
+modulate = Color(0.78, 1.0, 0.52, 1)
+
+[node name="LabelHomeBase" type="Label" parent="."]
+offset_left = 636.0
+offset_top = 34.0
+offset_right = 820.0
+offset_bottom = 58.0
+text = "<- Home Base"
+theme_override_font_sizes/font_size = 16
+modulate = Color(1.0, 0.94, 0.65, 1)
+
+[node name="LabelJunction" type="Label" parent="."]
+offset_left = 854.0
+offset_top = 148.0
+offset_right = 1000.0
+offset_bottom = 170.0
+text = "* Junction"
+theme_override_font_sizes/font_size = 13
+modulate = Color(1.0, 0.88, 0.45, 0.90)
+
+; Route selection menu (bottom-left)
+
+[node name="RouteMenu" type="VBoxContainer" parent="."]
+offset_left = 28.0
+offset_top = 195.0
+offset_right = 640.0
+offset_bottom = 640.0
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="RouteMenu"]
+text = "Forest Trials Junction"
+theme_override_font_sizes/font_size = 20
+
+[node name="Gap" type="Control" parent="RouteMenu"]
+custom_minimum_size = Vector2(0, 6)
+
+[node name="Route1Label" type="Label" parent="RouteMenu"]
+text = "[1]  Sproutbound Trail (Initiate) - 3-4 foes - 5-8 min"
+
+[node name="Route2Label" type="Label" parent="RouteMenu"]
+text = "[2]  Emberroot Passage (Vanguard) - 4-5 foes - 8-12 min"
+
+[node name="Route3Label" type="Label" parent="RouteMenu"]
+text = "[3]  Crownfire Gauntlet (Apex) - 6 foes - 12-15 min"
+
+[node name="Route4Label" type="Label" parent="RouteMenu"]
+text = "[4]  Whispergrove Forage - scavenging with egg discovery"
+
+[node name="Route5Label" type="Label" parent="RouteMenu"]
+text = "[5]  Home Base Return - no trials"
+
+[node name="InfoLabel" type="Label" parent="RouteMenu"]
+text = "All branches return to Greenwood Clearing after completion."
+modulate = Color(0.65, 0.65, 0.65, 1)

@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/forest_trials_path.gd" id="1_path"]
+[ext_resource type="PackedScene" uid="uid://c7yj4c3xvyxwd" path="res://scenes/actors/player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://dc15q5w8kg2v" path="res://scenes/actors/enemies/Enemy.tscn" id="3_enemy"]
+
+[node name="ForestTrials_Crownfire" type="Node2D"]
+script = ExtResource("1_path")
+path_title = "Crownfire Gauntlet"
+encounter_min = 6
+encounter_max = 6
+egg_discovery_defeat = 5
+estimated_time = "12-15 min"
+theme_color = Color(0.26, 0.14, 0.12, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.26, 0.14, 0.12, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 96.0
+offset_right = 1130.0
+offset_bottom = 132.0
+text = "Crownfire Gauntlet | ETA 12-15 min"
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 138.0
+offset_right = 1130.0
+offset_bottom = 176.0
+text = "Defeats: 0 / 6 | Egg target: after 5"
+
+[node name="HintLabel" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 620.0
+offset_right = 1130.0
+offset_bottom = 674.0
+text = "Press [Space] near each foe to resolve trial encounter"
+
+[node name="LiveFileMarker" type="Label" parent="."]
+offset_left = 180.0
+offset_top = 20.0
+offset_right = 1180.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 30
+text = "CROWNSFIRE LIVE FILE MARKER"
+horizontal_alignment = 1
+modulate = Color(1, 0.54, 0.30, 1)
+
+[node name="StaticPlayer" parent="." instance=ExtResource("2_player")]
+position = Vector2(560, 390)
+
+[node name="StaticEnemy" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(760, 390)
+
+[node name="StaticEncounterRing" type="Line2D" parent="."]
+position = Vector2(760, 390)
+points = PackedVector2Array(42, 0, 38.8181, 15.7069, 29.6985, 29.6985, 15.7069, 38.8181, 0, 42, -15.7069, 38.8181, -29.6985, 29.6985, -38.8181, 15.7069, -42, 0, -38.8181, -15.7069, -29.6985, -29.6985, -15.7069, -38.8181, 0, -42, 15.7069, -38.8181, 29.6985, -29.6985, 38.8181, -15.7069, 42, 0)
+width = 8.0
+default_color = Color(1, 0.40, 0.20, 0.96)
+closed = true
+z_index = 301

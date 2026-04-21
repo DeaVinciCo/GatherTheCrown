@@ -1,0 +1,144 @@
+Gather The Crown: Creats & Foes
+Complete Crown, Metal, Gem, and Boss System
+
+Overview
+--------
+Gather The Crown is a fantasy RPG strategy-action game built around elemental bonds between Riders and Creats. The world is medieval-fantasy with temples, ruins, forests, castles, towns, shoppes, and mystical hidden zones.
+
+Core Systems
+------------
+- Elemental bonding: Riders and Creats form pairs with shared elemental affinities.
+- Crown crafting: Players collect metal fragments and gems across modes to forge mode-specific crowns.
+- Boss progression: Story bosses scale and return at stronger levels, requiring new strategy each encounter.
+- Mode diversity: Story, Melee, Racing, Mini-Games, PvE Dungeons, PvP Crownfall, and Side Quests each offer distinct crowns and rewards.
+- Currency and loot: Gold, gems, shards, and rare Bixbite support progression, crafting, and crown completion.
+
+Metal Hierarchy
+---------------
+1. Bronze – starter durability, basic crown material.
+2. Silver – elegant, reflective, magic-friendly.
+3. Gold (Sungold) – rare, amplifies element power.
+4. Bixbite – fiery, rare red core, used in high-tier items.
+5. Osmium – dense, legendary, heavy and deep.
+6. Aethersteel – cosmic, weightless, almost mythical.
+7. Starforged – ultimate legendary crown metal.
+
+Gem Hierarchy
+-------------
+1. Quartz – common, focus and mana.
+2. Topaz – fire courage and power.
+3. Sapphire – wisdom, ice power.
+4. Spinel – resilience and healing.
+5. Alexandrite – light/dark balance.
+6. Jeremejevite – psychic, electricity, reflex.
+7. Painite – ultra-rare, universal elemental boost.
+8. Bixbite – divine-tier crown centerpiece.
+
+Mode-Specific Crowns
+--------------------
+1. Story Mode: The Sovereign's Diadem
+   - Metals: Starforged, Aethersteel
+   - Gems: Alexandrite, Jeremejevite, Painite
+   - Flavor: final narrative trophies, mythic power.
+
+2. Melee Mode: The Duelist's Crest
+   - Metals: Bronze, Silver, Hardened Gold
+   - Gems: Spinel, Sapphire, Topaz
+   - Flavor: combat mastery, critical and stamina perks.
+
+3. Racing Mode: The Racer's Torque
+   - Metals: Lightweight Osmium, Aethersteel
+   - Gems: Quartz, Jeremejevite
+   - Flavor: speed, reflex, boost power.
+
+4. Mini-Games: The Tactician's Band
+   - Metals: Silver, Bronze
+   - Gems: Quartz, Topaz
+   - Flavor: precision, quick thinking, accessible rewards.
+
+5. PvE Dungeon Mode: The Warden's Circlet
+   - Metals: Bixbite, Gold
+   - Gems: Alexandrite, Spinel, Painite
+   - Flavor: heavy defense, dungeon synergy.
+
+6. PvP Crownfall: The Conqueror's Halo
+   - Metals: Osmium, Starforged, Bixbite
+   - Gems: Jeremejevite, Painite
+   - Flavor: pure dominance, flashy competitive rewards.
+
+7. Side Quests: The Seeker's Laurel
+   - Metals: Silver, Bronze, Aethersteel inlays
+   - Gems: Topaz, Quartz, Spinel
+   - Flavor: exploration, lore, bond power.
+
+Boss Tier System
+----------------
+Tier 1: Mini-Bosses / Trial Beasts
+- Location: Mini-games, early side quests.
+- Style: short, pattern-based, gimmick fights.
+- Examples: Twistroot, Glintgaze, Crackbite.
+
+Tier 2: Roaming Bosses / Worldbinders
+- Location: side quests, optional dungeons.
+- Style: regional, multi-phase, lore-heavy.
+- Examples: Thornmane, Froskarn, Skyrend.
+
+Tier 3: Crown Trial Bosses / Crown Sentinels
+- Location: Crown Trials, PvP/PvE hybrid events.
+- Style: ritual fights with synergy requirements.
+- Examples: Solflare Aevan, Crystfang, Vexiloth.
+
+Tier 4: Story Mode Bosses / Reignlords
+- Location: main story campaign.
+- Style: cinematic, multi-form, narrative impact.
+- Examples: Ashthrone Veyla, Silkbrand Hollowshade, Tidal Father Roen, The Hollow Monarch.
+
+Tier 5: Faction Raids / Legendary Bosses
+- Location: faction battles or raid events.
+- Style: large-scale group, territory control, elite rewards.
+- Examples: The False Sovereign.
+
+Boss Evolution System
+---------------------
+- Story bosses reappear stronger across major story arcs.
+- Each rematch uses a new elemental form based on the player's character/Creat element.
+- Level durations: ~5 min, ~10 min, ~15 min for each successive fight.
+- Defeating each level drops stage keys, boss essences, and loot for the next stage.
+- Critical debuff system: specific char/Creat elemental crits are needed to break shields and slow, freeze, blind, or stun bosses.
+- Example debuff triggers:
+  - Fire boss + Ice crit = freeze
+  - Ice boss + Fire crit = burn
+  - Lightning boss + Earth crit = blind
+  - Shadow boss + Light crit = silence
+
+Crown Completion Rewards
+------------------------
+- Completing a crown by assembling all metal fragments and matching gems triggers major rewards.
+- Reward types:
+  - Gold lumps based on crown rarity.
+  - Rare gems and shards.
+  - Bixbite for high-tier and meta crowns.
+  - Blueprints, titles, cosmetics, and permanent stat boosts.
+  - Unique visual effects and crown auras.
+- Example reward: The Duelist's Crest completion grants 15,000 gold, bonus gems, +10% melee crit chance, title "Arena Champion", and the Blade Dancer armor blueprint.
+
+Meta Crown
+----------
+- Completing all mode crowns unlocks the Crown of the Seven Realms.
+- Materials: Starforged base with Painite, Alexandrite, Jeremejevite, and other mode gems.
+- Effect: permanent +15% all stats, special visual aura, and access to an endgame portal.
+
+Crown Forge & UI Concepts
+-------------------------
+- Crown Forge menu shows mode crown paths, fragments collected, and tooltip lore.
+- Visual tracker: ring or map with glowing shards for each fragment.
+- Completion flow: assemble metal base + gem set, confirm forge, receive rewards.
+- UI features: mode-specific crown previews, rarity, fragment hints, and next acquisition sources.
+
+Next Steps
+----------
+- Design boss movesets, phase flows, and elemental fight tactics.
+- Create lore entries for metals, gems, factions, and legendary crown fragments.
+- Build a Crown Forge UI mockup with mode-specific progression and completion flows.
+- Define exact crown rewards and perk tables per mode.
+- Map fragment locations to story beats, side quests, and boss drops.

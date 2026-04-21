@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import { POTION_CAP, STRINGS } from '@game/shared';
+
+const POTION_CAP = 99;
 
 export class ArtifactFrameHUD extends Phaser.GameObjects.Container {
   private potionsText: Phaser.GameObjects.Text;

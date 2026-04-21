@@ -9,14 +9,14 @@ export default class CrownTrial01 extends Phaser.Scene {
     super('CrownTrial01');
   }
 
-  create() {
+  async create() {
     const cutscene = new CutscenePlayer(this);
-    cutscene
-      .play([
-        { type: 'text', text: 'Crown Trial I: Ember Reignlord', duration: 1500 },
-        { type: 'text', text: 'The flames await a challenger...', duration: 1500 },
-      ])
-      .then(() => this.startCombat());
+    await cutscene.play([
+      { type: 'text', text: 'Crown Trial I: Ember Reignlord', duration: 1500 },
+      { type: 'wait', duration: 500 },
+      { type: 'text', text: 'The flames await a challenger...', duration: 1500 },
+    ]);
+    this.startCombat();
   }
 
   private startCombat() {

@@ -1,12 +1,14 @@
 import Phaser from 'phaser';
 import Weather, { WeatherCondition } from '../environment/Weather';
 
+const DAY_DURATION = 24000; // ms for full day/night cycle
+
 export default class District01 extends Phaser.Scene {
   private weather!: Weather;
   private conditions: WeatherCondition[] = ['clear', 'rain', 'snow', 'lightning'];
   private conditionIndex = 0;
+  private weatherCycleEvent?: Phaser.Time.TimerEvent;
 
-  private dayDuration = 10000; // milliseconds for full cycle day -> night -> day
   private dayTime = 0;
   private goingToNight = true;
 
@@ -19,26 +21,26 @@ export default class District01 extends Phaser.Scene {
 
     this.weather = new Weather(this);
     this.cycleWeather();
+
+    this.events.once(Phaser.Core.Events.SHUTDOWN, () => {
+      this.weatherCycleEvent?.remove(false);
+    });
   }
 
   private cycleWeather() {
     this.weather.setCondition(this.conditions[this.conditionIndex]);
     this.conditionIndex = (this.conditionIndex + 1) % this.conditions.length;
-    this.time.addEvent({ delay: 5000, callback: this.cycleWeather, callbackScope: this });
+    this.weatherCycleEvent = this.time.addEvent({
+      delay: 5000,
+      callback: this.cycleWeather,
+      callbackScope: this
+    });
   }
 
   update(_time: number, delta: number) {
-    // Update day/night progress
-    this.dayTime += delta * (this.goingToNight ? 1 : -1);
-    if (this.dayTime >= this.dayDuration) {
-      this.dayTime = this.dayDuration;
-      this.goingToNight = false;
-    }
-    if (this.dayTime <= 0) {
-      this.dayTime = 0;
-      this.goingToNight = true;
-    }
-    const progress = this.dayTime / this.dayDuration;
+    // Oscillate day/night using sine for smoother transition
+    this.dayTime = (this.dayTime + delta) % (DAY_DURATION * 2);
+    const progress = Math.abs(this.dayTime / DAY_DURATION - 1);
     this.weather.setTimeOfDay(progress);
   }
 }

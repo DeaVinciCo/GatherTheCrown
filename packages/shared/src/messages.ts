@@ -44,6 +44,7 @@ export interface ChatMessage {
   type: 'chat';
   name: string;
   text: string;
+  sentAt: number;
 }
 
 export type ClientMessage =
@@ -52,7 +53,7 @@ export type ClientMessage =
   | InputMessage
   | HitMessage
   | LootMessage
-  | ChatMessage;
+  | Omit<ChatMessage, 'sentAt'>;
 
 export type ServerMessage =
   | DamageMessage

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏰 Gather The Crown - Play Now!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+            max-width: 600px;
+            border: 2px solid #FFD700;
+        }
+        h1 {
+            font-size: 3em;
+            color: #FFD700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .status {
+            background: #1a5f1a;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #00ff00;
+        }
+        .status h2 {
+            color: #00ff00;
+            margin-bottom: 10px;
+        }
+        .play-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 20px 10px;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+        .play-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+        .instructions {
+            text-align: left;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #FFD700;
+        }
+        .instructions h3 {
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+        .instructions ul {
+            list-style: none;
+            padding: 0;
+        }
+        .instructions li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .instructions li:last-child {
+            border-bottom: none;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .feature strong {
+            color: #FFD700;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .play-button {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏰 Gather The Crown</h1>
+        
+        <div class="status">
+            <h2>✅ Game is Live!</h2>
+            <p>Server running and ready to play</p>
+        </div>
+
+        <a href="/" class="play-button">🎮 PLAY ON DESKTOP</a>
+        <a href="/" class="play-button">📱 PLAY ON PHONE</a>
+
+        <div class="instructions">
+            <h3>📋 How to Play</h3>
+            <ul>
+                <li><strong>Desktop:</strong> Click "PLAY ON DESKTOP" or visit http://localhost:5173/</li>
+                <li><strong>Phone (same WiFi):</strong> Click "PLAY ON PHONE" or visit http://192.168.1.104:5173/</li>
+                <li><strong>Controls:</strong> WASD/Arrows to move, mouse/touch to interact</li>
+                <li><strong>Combat:</strong> Auto-attack enemies, collect loot and treasures</li>
+            </ul>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <strong>🎮 Cross-Platform</strong>
+                <p>Play on desktop or mobile</p>
+            </div>
+            <div class="feature">
+                <strong>📱 Touch Ready</strong>
+                <p>Full mobile optimization</p>
+            </div>
+            <div class="feature">
+                <strong>⚔️ Combat</strong>
+                <p>Battle creatures & bosses</p>
+            </div>
+            <div class="feature">
+                <strong>💰 Loot System</strong>
+                <p>Collect treasure & gold</p>
+            </div>
+            <div class="feature">
+                <strong>🗺️ Explore</strong>
+                <p>Adventure through realms</p>
+            </div>
+            <div class="feature">
+                <strong>📊 Progress</strong>
+                <p>Level up & gain skills</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

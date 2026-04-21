@@ -1,10 +1,36 @@
 import Phaser from 'phaser';
-import { STRINGS } from '@game/shared';
 import { InventoryMenu, InventoryItem } from '../ui/InventoryMenu';
+import { t } from '../locale/i18n';
+
+const DEFAULT_INVENTORY: InventoryItem[] = [
+  { id: 'sword', name: 'Rusty Sword', equipped: false },
+  { id: 'shield', name: 'Wooden Shield', equipped: false }
+];
 
 export default class Haven extends Phaser.Scene {
   constructor() {
     super('Haven');
+  }
+
+  private getInventory(): InventoryItem[] {
+    let items: InventoryItem[] = this.registry.get('inventory');
+    if (!items) {
+      items = DEFAULT_INVENTORY.map((i) => ({ ...i }));
+      this.registry.set('inventory', items);
+    }
+    return items;
+  }
+
+  private openInventoryMenu(): void {
+    const container = document.getElementById('game');
+    if (!container) return;
+    const items = this.getInventory();
+    const menu = new InventoryMenu(items, {
+      onClose: (updated) => {
+        this.registry.set('inventory', updated);
+      }
+    });
+    menu.attach(container);
   }
 
   create() {
@@ -16,36 +42,21 @@ export default class Haven extends Phaser.Scene {
       color: '#0f0'
     }).setOrigin(1, 0);
     inventoryBtn.setInteractive();
-    inventoryBtn.on('pointerdown', () => {
-      const container = document.getElementById('game');
-      if (!container) return;
-      let items: InventoryItem[] = this.registry.get('inventory');
-      if (!items) {
-        items = [
-          { id: 'sword', name: 'Rusty Sword', equipped: false },
-          { id: 'shield', name: 'Wooden Shield', equipped: false }
-        ];
-        this.registry.set('inventory', items);
-      }
-      const menu = new InventoryMenu(items, (updated) => {
-        this.registry.set('inventory', updated);
-      });
-      menu.attach(container);
-    });
+    inventoryBtn.on('pointerdown', () => this.openInventoryMenu());
 
-    const forest = this.add.text(width / 2, height / 2 - 40, STRINGS.menu_forest, {
+    const forest = this.add.text(width / 2, height / 2 - 40, t('menu_forest'), {
       color: '#0f0'
     }).setOrigin(0.5);
     forest.setInteractive();
     forest.on('pointerdown', () => this.scene.start('ForestZone'));
 
-    const trial = this.add.text(width / 2, height / 2, STRINGS.menu_trial, {
+    const trial = this.add.text(width / 2, height / 2, t('menu_trial'), {
       color: '#0f0'
     }).setOrigin(0.5);
     trial.setInteractive();
     trial.on('pointerdown', () => this.scene.start('CrownTrial01'));
 
-    const arena = this.add.text(width / 2, height / 2 + 40, STRINGS.menu_arena, {
+    const arena = this.add.text(width / 2, height / 2 + 40, t('menu_arena'), {
       color: '#0f0'
     }).setOrigin(0.5);
     arena.setInteractive();

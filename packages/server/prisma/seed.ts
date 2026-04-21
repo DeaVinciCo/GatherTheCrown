@@ -76,8 +76,7 @@ async function main() {
     });
 
     await prisma.inventoryItem.createMany({
-      data: h.items.map((i) => ({ ...i, heroId: hero.id })),
-      skipDuplicates: true
+      data: h.items.map((i) => ({ ...i, heroId: hero.id }))
     });
 
     for (const frag of h.fragments) {
@@ -121,8 +120,7 @@ async function main() {
         phases: 1,
         rageThreshold: 0.2
       }
-    ],
-    skipDuplicates: true
+    ]
   });
 
   console.log('Seed data inserted.');

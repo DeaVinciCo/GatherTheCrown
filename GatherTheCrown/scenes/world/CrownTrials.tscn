@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://crown_trials_001"]
+
+[ext_resource type="Script" path="res://scripts/world/mode_stub.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c7yj4c3xvyxwd" path="res://scenes/actors/player/Player.tscn" id="2_player"]
+
+[node name="CrownTrials" type="Node2D"]
+script = ExtResource("1_script")
+mode_name = "Crown Trials"
+unlock_condition = ""
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.08, 0.05, 0.22, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(640, 400)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 120.0
+offset_right = 1000.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 28
+text = "CROWN TRIALS  -  Faction Ritual Bosses"
+
+[node name="DescLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 170.0
+offset_right = 1000.0
+offset_bottom = 310.0
+text = "Face Tier 3 Crown Sentinels (4-7 min, sync strategy required):\n  Solflare Aevan  |  Crystfang  |  Vexiloth\n\nEach sentinel is tied to a faction zone:\n  Infernal Kin, Tideborn, Sky Nomads, Earthbound Giants,\n  Mystic Scribes, Shadow Folk\n\nForge the Warden's Circlet (Bixbite/Gold + Spinel/Alexandrite)\nfor PvE dungeon bonuses.\n\n[COMING SOON]  Press Esc to return."
+
+[node name="LockedLabel" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 340.0
+offset_right = 1000.0
+offset_bottom = 370.0
+text = ""
+modulate = Color(1, 0.5, 0.2, 1)

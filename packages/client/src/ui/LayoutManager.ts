@@ -10,13 +10,16 @@ export default class LayoutManager {
   private static baseHeight: number;
   private static root: HTMLElement | null = null;
   private static initialized = false;
+  private static sceneHooks = new Set<Phaser.Scene>();
 
   /**
    * Initialise layout scaling for the given scene. The first call
    * sets up resize listeners and applies the initial scale. Subsequent
-   * calls are ignored.
+   * scenes are registered to receive per-scene hooks.
    */
   static init(scene: Phaser.Scene): void {
+    this.hookSceneCreate(scene);
+
     if (this.initialized) return;
     this.initialized = true;
 
@@ -33,6 +36,15 @@ export default class LayoutManager {
     window.addEventListener('resize', () => this.updateScale());
   }
 
+  private static hookSceneCreate(scene: Phaser.Scene): void {
+    if (this.sceneHooks.has(scene)) return;
+    this.sceneHooks.add(scene);
+
+    scene.events.once(Phaser.Core.Events.DESTROY, () => {
+      this.sceneHooks.delete(scene);
+    });
+  }
+
   private static updateScale(): void {
     if (!this.root) return;
 
@@ -43,5 +55,6 @@ export default class LayoutManager {
     const y = (windowHeight - this.baseHeight * scale) / 2;
 
     this.root.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    document.documentElement.style.setProperty('--ui-scale', String(scale.toFixed(3)));
   }
 }

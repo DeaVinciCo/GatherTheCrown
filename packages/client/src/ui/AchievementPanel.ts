@@ -7,8 +7,11 @@ export interface Achievement {
 
 export default class AchievementPanel {
   private root: HTMLDivElement;
+  private listContainer: HTMLDivElement;
+  private achievements: Achievement[];
 
-  constructor(private achievements: Achievement[]) {
+  constructor(achievements: Achievement[]) {
+    this.achievements = achievements;
     this.root = document.createElement('div');
     this.root.style.position = 'absolute';
     this.root.style.top = '10%';
@@ -26,8 +29,9 @@ export default class AchievementPanel {
     title.innerText = 'Achievements';
     this.root.appendChild(title);
 
-    this.buildSection('Completed', this.achievements.filter((a) => a.completed));
-    this.buildSection('Pending', this.achievements.filter((a) => !a.completed));
+    this.listContainer = document.createElement('div');
+    this.root.appendChild(this.listContainer);
+    this.render();
 
     const close = document.createElement('button');
     close.innerText = 'Close';
@@ -35,10 +39,21 @@ export default class AchievementPanel {
     this.root.appendChild(close);
   }
 
+  setAchievements(achievements: Achievement[]): void {
+    this.achievements = achievements;
+    this.render();
+  }
+
+  private render(): void {
+    this.listContainer.innerHTML = '';
+    this.buildSection('Completed', this.achievements.filter((a) => a.completed));
+    this.buildSection('Pending', this.achievements.filter((a) => !a.completed));
+  }
+
   private buildSection(label: string, list: Achievement[]) {
     const header = document.createElement('h3');
     header.innerText = label;
-    this.root.appendChild(header);
+    this.listContainer.appendChild(header);
 
     const ul = document.createElement('ul');
     if (list.length === 0) {
@@ -48,11 +63,20 @@ export default class AchievementPanel {
     } else {
       for (const a of list) {
         const li = document.createElement('li');
-        li.innerText = a.title;
+        const strong = document.createElement('strong');
+        strong.innerText = a.title;
+        li.appendChild(strong);
+        if (a.description) {
+          const desc = document.createElement('span');
+          desc.style.marginLeft = '8px';
+          desc.style.opacity = '0.7';
+          desc.innerText = `— ${a.description}`;
+          li.appendChild(desc);
+        }
         ul.appendChild(li);
       }
     }
-    this.root.appendChild(ul);
+    this.listContainer.appendChild(ul);
   }
 
   attach(parent: HTMLElement) {
