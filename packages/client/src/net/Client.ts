@@ -3,7 +3,7 @@ import { getRealtimeServerUrl } from './serverUrl';
 // Using local message types
 
 class GameClient {
-  private client = new Colyseus.Client(getRealtimeServerUrl());
+  private client?: Colyseus.Client;
   private room?: Colyseus.Room;
   private chatOverlay: HTMLDivElement;
 
@@ -23,8 +23,20 @@ class GameClient {
   }
 
   async joinLobby() {
-    this.room = await this.client.joinOrCreate('lobby');
-    this.onChat((message) => this.displayChat(message));
+    const realtimeServerUrl = getRealtimeServerUrl();
+
+    if (!realtimeServerUrl) {
+      this.displaySystemMessage('Multiplayer chat is offline on this host.');
+      return;
+    }
+
+    try {
+      this.client = new Colyseus.Client(realtimeServerUrl);
+      this.room = await this.client.joinOrCreate('lobby');
+      this.onChat((message) => this.displayChat(message));
+    } catch (_error) {
+      this.displaySystemMessage('Could not connect to multiplayer chat server.');
+    }
   }
 
   send(message: ClientMessage) {
@@ -42,6 +54,13 @@ class GameClient {
   private displayChat(message: ChatMessage) {
     const line = document.createElement('div');
     line.textContent = `${message.name}: ${message.text}`;
+    this.chatOverlay.appendChild(line);
+  }
+
+  private displaySystemMessage(text: string) {
+    const line = document.createElement('div');
+    line.textContent = text;
+    line.style.opacity = '0.85';
     this.chatOverlay.appendChild(line);
   }
 }

@@ -1,4 +1,4 @@
-﻿extends Node
+extends Node
 ## CompanionCommands - Simple command layer for Fire Creat
 ## Follow, Attack, Defensive modes
 
@@ -53,6 +53,3 @@ func is_following() -> bool:
 
 func is_defensive() -> bool:
 	return current_command == CommandMode.DEFENSIVE
-
-
-

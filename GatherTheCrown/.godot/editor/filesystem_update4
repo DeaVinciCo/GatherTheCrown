@@ -1,0 +1,3 @@
+res://scripts/actors/ai/enemy_ai.gd
+res://scripts/ui/character_creation.gd
+res://scripts/actors/companion/companion_commands.gd

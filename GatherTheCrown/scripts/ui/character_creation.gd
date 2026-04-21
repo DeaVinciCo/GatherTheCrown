@@ -91,7 +91,7 @@ func _build_ui() -> void:
 	layer.add_child(banner_label)
 
 	for i in BANNER_PATHS.size():
-		var bdata := BANNER_PATHS[i]
+		var bdata: Dictionary = BANNER_PATHS[i]
 		var bx := 264.0 + i * 256.0
 		_build_banner_button(layer, i, bx, 140.0, bdata)
 
@@ -209,7 +209,7 @@ func _build_option_row(parent: Node, label_text: String, options: Array, x: int,
 
 func _select_banner(index: int) -> void:
 	_selected_banner = index
-	var bdata := BANNER_PATHS[index]
+	var bdata: Dictionary = BANNER_PATHS[index]
 	_custom_element = bdata.element
 	_custom_weapon = bdata.weapon
 	_custom_look = bdata.look
@@ -272,7 +272,7 @@ func _on_forge_pressed() -> void:
 		_set_status("Name must be at least 2 characters.", true)
 		return
 
-	var bdata := BANNER_PATHS[_selected_banner]
+	var bdata: Dictionary = BANNER_PATHS[_selected_banner]
 	var profile := {
 		"name": name_val,
 		"element": _custom_element if _custom_element != "" else bdata.element,

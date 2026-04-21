@@ -11,10 +11,16 @@
 npm install -g netlify-cli
 
 # Deploy
-cd packages/client
-npm run build
-netlify deploy --prod --dir=dist
+pnpm --filter @game/client build
+netlify deploy --prod --dir=packages/client/dist
 ```
+
+Netlify dashboard settings (monorepo):
+- Build command: `pnpm --filter @game/client build`
+- Publish directory: `packages/client/dist`
+- Optional env var for multiplayer: `VITE_SERVER_WS_URL=wss://your-realtime-server.example.com`
+
+If `VITE_SERVER_WS_URL` is not set, the web build stays playable with offline-safe fallback modes for multiplayer scenes.
 
 #### Option B: Vercel
 ```bash

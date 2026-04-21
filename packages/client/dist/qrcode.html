@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gather The Crown - QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #1a1a1a;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: #2a2a2a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        h1 {
+            margin-top: 0;
+            color: #FFD700;
+        }
+        #qrcode {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        .url {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            word-break: break-all;
+            font-size: 14px;
+        }
+        .instructions {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏰 Gather The Crown</h1>
+        <p>Scan this QR code with your phone's camera or browser</p>
+        <div id="qrcode"></div>
+        <div class="url">
+            <strong>Or visit:</strong><br>
+            http://192.168.1.104:5173/
+        </div>
+        <div class="instructions">
+            <p>✅ Game is running on your local network</p>
+            <p>📱 Works on any phone on the same WiFi</p>
+            <p>🎮 Touch controls enabled</p>
+        </div>
+    </div>
+
+    <script>
+        // Generate QR code for the game URL
+        const url = "http://192.168.1.104:5173/";
+        new QRCode(document.getElementById("qrcode"), {
+            text: url,
+            width: 300,
+            height: 300,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>

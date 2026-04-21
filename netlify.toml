@@ -1,0 +1,15 @@
+[build]
+  base = "."
+  command = "pnpm --filter @game/client build"
+  publish = "packages/client/dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

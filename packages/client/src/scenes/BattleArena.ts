@@ -11,6 +11,7 @@ interface BattleState {
 
 export default class BattleArena extends Phaser.Scene {
   private room?: Colyseus.Room<BattleState>;
+  private demoTimer?: Phaser.Time.TimerEvent;
   private roundText!: Phaser.GameObjects.Text;
   private timerText!: Phaser.GameObjects.Text;
   private statusText!: Phaser.GameObjects.Text;
@@ -27,12 +28,28 @@ export default class BattleArena extends Phaser.Scene {
     this.resultText = this.add.text(400, 300, '', { color: '#fff' }).setOrigin(0.5);
 
     this.connect();
+
+    this.events.once(Phaser.Core.Events.SHUTDOWN, () => {
+      this.room?.leave();
+      this.demoTimer?.remove(false);
+    });
   }
 
   private async connect() {
-    const client = new Colyseus.Client(getRealtimeServerUrl());
-    this.room = await client.joinOrCreate<BattleState>('battle');
-    this.room.onStateChange((state) => this.updateHUD(state));
+    const realtimeServerUrl = getRealtimeServerUrl();
+
+    if (!realtimeServerUrl) {
+      this.startOfflineTraining('Offline training mode (no realtime server configured).');
+      return;
+    }
+
+    try {
+      const client = new Colyseus.Client(realtimeServerUrl);
+      this.room = await client.joinOrCreate<BattleState>('battle');
+      this.room.onStateChange((state) => this.updateHUD(state));
+    } catch (_error) {
+      this.startOfflineTraining('Offline training mode (realtime connection unavailable).');
+    }
   }
 
   private updateHUD(state: BattleState) {
@@ -43,6 +60,33 @@ export default class BattleArena extends Phaser.Scene {
       const text = state.winner ? `Winner: ${state.winner}` : 'Draw!';
       this.resultText.setText(text);
     }
+  }
+
+  private startOfflineTraining(reason: string) {
+    const offlineState: BattleState = {
+      round: 1,
+      timer: 20,
+      status: 'training'
+    };
+
+    this.resultText.setText(reason);
+    this.updateHUD(offlineState);
+
+    this.demoTimer = this.time.addEvent({
+      delay: 1000,
+      loop: true,
+      callback: () => {
+        if (offlineState.timer > 0) {
+          offlineState.timer -= 1;
+        } else {
+          offlineState.status = 'finished';
+          offlineState.winner = 'You';
+          this.demoTimer?.remove(false);
+        }
+
+        this.updateHUD(offlineState);
+      }
+    });
   }
 }
 
