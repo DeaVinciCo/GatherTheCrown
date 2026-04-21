@@ -67,9 +67,8 @@ async function bootstrap() {
   });
 
   const httpServer = createServer(app);
-  const gameServer = new Server({
-    server: httpServer
-  });
+  const gameServer = new Server();
+  gameServer.attach({ server: httpServer });
 
   gameServer.define('lobby', LobbyRoom);
   gameServer.define('story', StoryRoom);
@@ -95,66 +94,3 @@ bootstrap().catch((error) => {
   logger.error(`Failed to bootstrap server: ${error}`);
   process.exit(1);
 });
-
-const port = Number(process.env.PORT) || 2567;
-
-async function bootstrap() {
-  const app = express();
-  app.use(cors());
-  app.use(express.json());
-
-  const heroStore = new HeroStore();
-
-  app.get('/health', (_, res) => res.json({ ok: true }));
-
-  app.get('/heroes/:id', async (req, res) => {
-    const hero = await heroStore.getHero(req.params.id);
-    if (!hero) {
-      return res.status(404).json({ error: 'Hero not found' });
-    }
-    res.json(hero);
-  });
-
-  app.post('/heroes', async (req, res) => {
-    try {
-      const hero = await heroStore.createHero(req.body);
-      res.json(hero);
-    } catch (err) {
-      res.status(400).json({ error: 'Could not create hero' });
-    }
-  });
-
-  app.put('/heroes/:id', async (req, res) => {
-    try {
-      const hero = await heroStore.updateHero(req.params.id, req.body);
-      res.json(hero);
-    } catch (err) {
-      res.status(400).json({ error: 'Could not update hero' });
-    }
-  });
-
-  app.delete('/heroes/:id', async (req, res) => {
-    try {
-      const hero = await heroStore.deleteHero(req.params.id);
-      res.json(hero);
-    } catch (err) {
-      res.status(400).json({ error: 'Could not delete hero' });
-    }
-  });
-
-  const server = createServer(app);
-
-  const gameServer = new Server();
-
-  gameServer.attach({ server });
-
-  gameServer.define('lobby', LobbyRoom);
-  gameServer.define('story', StoryRoom);
-  gameServer.define('battle', BattleRoom);
-
-  server.listen(port, () => {
-    logger.info(`Server listening on http://localhost:${port}`);
-  });
-}
-
-bootstrap();
