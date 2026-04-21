@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import * as Colyseus from 'colyseus.js';
+import { getRealtimeServerUrl } from '../net/serverUrl';
 
 interface BattleState {
   round: number;
@@ -29,7 +30,7 @@ export default class BattleArena extends Phaser.Scene {
   }
 
   private async connect() {
-    const client = new Colyseus.Client(`${location.protocol.replace('http', 'ws')}//${location.hostname}:2567`);
+    const client = new Colyseus.Client(getRealtimeServerUrl());
     this.room = await client.joinOrCreate<BattleState>('battle');
     this.room.onStateChange((state) => this.updateHUD(state));
   }

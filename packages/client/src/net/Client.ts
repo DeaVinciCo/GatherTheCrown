@@ -1,8 +1,9 @@
 import * as Colyseus from 'colyseus.js';
+import { getRealtimeServerUrl } from './serverUrl';
 // Using local message types
 
 class GameClient {
-  private client = new Colyseus.Client(`${location.protocol.replace('http', 'ws')}//${location.hostname}:2567`);
+  private client = new Colyseus.Client(getRealtimeServerUrl());
   private room?: Colyseus.Room;
   private chatOverlay: HTMLDivElement;
 
