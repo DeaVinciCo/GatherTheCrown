@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/actors/character_motor_2d.gd" id="1_motor"]
-[ext_resource type="Script" path="res://scripts/actors/player/player.gd" id="2_player"]
+[ext_resource type="Script" path="res://scripts/gameplay/player/player_controller.gd" id="2_player"]
 [ext_resource type="Script" path="res://scripts/combat/health.gd" id="3_health"]
 [ext_resource type="Script" path="res://scripts/combat/hurtbox.gd" id="4_hurtbox"]
 
