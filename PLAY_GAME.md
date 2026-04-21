@@ -1,58 +1,47 @@
-# 🏰 Gather The Crown - How to Play
+# Gather The Crown - Play In Browser
 
-**⚡ GODOT VERSION (MVP)**: If playing the Godot build, see [GatherTheCrown/QUICKSTART.md](./GatherTheCrown/QUICKSTART.md) instead (updated April 21, 2026).
+This repository now serves the Godot web export as the default local browser version.
 
-## ✅ Server Status
-The Vite dev server is running and ready!
+## 1) Export Godot to web folder (one-time per update)
 
-## 🎮 How to Open
+From Godot editor, export the project to:
 
-### Desktop (Local Computer)
-```
-http://localhost:5173/
-```
+../godot-web-export/index.html
 
-### Phone/Tablet (on same WiFi network)
-```
-http://192.168.1.104:5173/
-```
+The export should generate files in `godot-web-export/`, including:
+- `index.html`
+- one `.js` file
+- one `.wasm` file
+- one `.pck` file
 
-## 📱 Mobile Features
-- ✅ Touch controls enabled
-- ✅ Auto-scales to screen size
-- ✅ Full-screen capable
-- ✅ Responsive UI
-- ✅ No scrollbars or zoom interference
+## 2) Run local browser server
 
-## 🎯 To Start/Stop Server
+From repo root:
 
-**Currently Running:** The server is active in the terminal
-
-**To Stop:** Press `Ctrl+C` in the terminal
-
-**To Start:** Run from `packages/client` folder:
 ```bash
-npm run dev
+pnpm dev
 ```
 
-## 📂 Game Versions Available
+Then open:
 
-### TypeScript/Phaser (Web - Running Now)
-- Location: `packages/client/`
-- Access: `http://localhost:5173/`
-- Status: **RUNNING** ✅
+http://localhost:5173/
 
-### Python/Pygame (Desktop)
-- Location: `extracted_game/GatherTheCrown-CreatsAndFoes/`
-- Run: `python complete_ultimate_game.py`
-- Status: Ready to play
+## If You See A White Screen
 
-## 🎮 Game Controls
-- **Movement:** WASD or Arrow Keys / Touch
-- **Combat:** Auto-attack enemies
-- **Inventory:** I key
-- **Map:** M key
-- **Chat:** Shift key
-- **Mouse:** Hover for tooltips, click to interact
+This usually means the Godot export artifacts are missing or outdated.
 
-Enjoy your game! 🏰⚔️💰
+Confirm these files exist in `godot-web-export/`:
+- `index.html`
+- exported `.js`
+- exported `.wasm`
+- exported `.pck`
+
+Then re-export from Godot editor to:
+
+`../godot-web-export/index.html`
+
+After export, rerun:
+
+```bash
+pnpm dev
+```

@@ -3,46 +3,27 @@
 ## Publishing to Each Platform
 
 ### 1. Web (Browser)
-**Simplest deployment option - no installation needed**
+**Godot web export only**
 
 #### Option A: Netlify (Recommended - Free)
 ```bash
 # Install Netlify CLI
 npm install -g netlify-cli
 
-# Deploy
-pnpm --filter @game/client build
-netlify deploy --prod --dir=packages/client/dist
+# Export Godot project from the editor to:
+# ../godot-web-export/index.html
+
+# Deploy committed export files
+netlify deploy --prod --dir=godot-web-export
 ```
 
 Netlify dashboard settings (monorepo):
-- Build command: `pnpm --filter @game/client build`
-- Publish directory: `packages/client/dist`
-- Optional env var for multiplayer: `VITE_SERVER_WS_URL=wss://your-realtime-server.example.com`
+- Build command: `echo 'Using committed Godot web export files'`
+- Publish directory: `godot-web-export`
 
-If `VITE_SERVER_WS_URL` is not set, the web build stays playable with offline-safe fallback modes for multiplayer scenes.
+Godot web export artifacts (`index.html`, plus generated `.js`, `.wasm`, `.pck`) must be present in `godot-web-export/` before deploy.
 
-#### Option B: Vercel
-```bash
-npm install -g vercel
-cd packages/client
-vercel --prod
-```
-
-#### Option C: GitHub Pages
-```bash
-# Update vite.config.ts with:
-# export default {
-#   base: '/game/',
-#   ...
-# }
-
-cd packages/client
-npm run build
-# Push to GitHub, enable Pages in Settings
-```
-
-**Result:** Playable at `https://your-domain.com`
+**Result:** Godot web build playable at `https://your-domain.com`
 
 ---
 

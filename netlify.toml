@@ -1,7 +1,7 @@
 [build]
   base = "."
-  command = "pnpm --filter @game/client build"
-  publish = "packages/client/dist"
+  command = "echo 'Using committed Godot web export files'"
+  publish = "godot-web-export"
 
 [[redirects]]
   from = "/*"
@@ -13,3 +13,6 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Resource-Policy = "cross-origin"
