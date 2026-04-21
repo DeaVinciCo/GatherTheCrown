@@ -70,6 +70,7 @@ var player_level: int = 1
 # Storage capacity (scales)
 var max_slots: int = 100
 var max_home_slots: int = 300
+var _suspend_inventory_signals: bool = false
 
 signal inventory_changed
 signal item_added(item_id: String, quantity: int)
@@ -264,7 +265,8 @@ func add_item(item_id: String, quantity: int = 1, storage_type: String = "player
 	var added_quantity := requested_quantity - quantity
 	if added_quantity > 0:
 		item_added.emit(item_id, added_quantity)
-	inventory_changed.emit()
+	if not _suspend_inventory_signals:
+		inventory_changed.emit()
 	return quantity == 0
 
 func remove_item(item_id: String, quantity: int = 1, storage_type: String = "player") -> bool:
@@ -282,7 +284,8 @@ func remove_item(item_id: String, quantity: int = 1, storage_type: String = "pla
 		storage.erase(item_id)
 	
 	item_removed.emit(item_id, quantity)
-	inventory_changed.emit()
+	if not _suspend_inventory_signals:
+		inventory_changed.emit()
 	return true
 
 func get_item_count(item_id: String, storage_type: String = "player") -> int:
@@ -399,38 +402,74 @@ func get_save_data() -> Dictionary:
 
 func load_from_save_data(save_data: Dictionary) -> void:
 	"""Restore inventory from SaveManager."""
-	print("[AdvancedInventorySystem] Loading from save data...")
+	print("[AdvancedInventorySystem] Loading from save data")
 	player_inventory.clear()
 	home_storage.clear()
+
+	# Apply level-based capacity first to avoid dropping valid saved items.
+	player_level = int(save_data.get("player_level", 1))
+	_update_capacity_for_level(player_level)
+
+	_suspend_inventory_signals = true
 	
 	# Restore player inventory
 	var player_count = 0
-	for item_id in save_data.get("player_inventory", {}):
-		var quantity = save_data["player_inventory"][item_id]
-		if add_item(item_id, quantity, "player"):
+	var saved_player_inventory: Dictionary = save_data.get("player_inventory", {})
+	for item_id in saved_player_inventory.keys():
+		var quantity := int(saved_player_inventory[item_id])
+		if _restore_saved_stack(String(item_id), quantity, "player"):
 			player_count += 1
 	print("[AdvancedInventorySystem] Restored %d player inventory stacks" % player_count)
 	
 	# Restore home storage
 	var home_count = 0
-	for item_id in save_data.get("home_storage", {}):
-		var quantity = save_data["home_storage"][item_id]
-		if add_item(item_id, quantity, "home"):
+	var saved_home_storage: Dictionary = save_data.get("home_storage", {})
+	for item_id in saved_home_storage.keys():
+		var quantity := int(saved_home_storage[item_id])
+		if _restore_saved_stack(String(item_id), quantity, "home"):
 			home_count += 1
 	print("[AdvancedInventorySystem] Restored %d home storage stacks" % home_count)
 	
 	# Restore keys
 	var loaded_keyring: Dictionary = save_data.get("keyring", {})
 	for key_id in keyring.keys():
-		keyring[key_id] = int(loaded_keyring.get(key_id, 0))
+		keyring[key_id] = 0
+	for raw_key_id in loaded_keyring.keys():
+		var normalized_key_id := _normalize_key_id(String(raw_key_id))
+		if keyring.has(normalized_key_id):
+			keyring[normalized_key_id] = int(loaded_keyring[raw_key_id])
 	print("[AdvancedInventorySystem] Keyring restored")
-	
-	# Update capacity for loaded level
-	player_level = save_data.get("player_level", 1)
-	_update_capacity_for_level(player_level)
+
+	_suspend_inventory_signals = false
+	inventory_changed.emit()
 	print("[AdvancedInventorySystem] Load complete")
 	
 	print("Inventory loaded: %d player items, %d home items, keys: %s" % [player_inventory.size(), home_storage.size(), keyring])
+
+func _restore_saved_stack(item_id: String, quantity: int, storage_type: String) -> bool:
+	if quantity <= 0:
+		return false
+	if not item_database.has(item_id):
+		return false
+
+	var db_item: Dictionary = item_database[item_id]
+	var max_stack := int(db_item.get("max_stack", 1))
+	var storage: Dictionary = player_inventory if storage_type == "player" else home_storage
+	var max_capacity := max_slots if storage_type == "player" else max_home_slots
+
+	if storage.size() >= max_capacity and not storage.has(item_id):
+		return false
+
+	if storage.has(item_id):
+		storage[item_id].quantity = min(storage[item_id].quantity + quantity, max_stack)
+		storage[item_id].is_new = false
+		return true
+
+	var new_item = ItemData.new(item_id, db_item.get("category"), db_item.get("tab"), max_stack)
+	new_item.quantity = min(quantity, max_stack)
+	new_item.is_new = false
+	storage[item_id] = new_item
+	return true
 
 
 

@@ -9,6 +9,9 @@ var _avatar_head: Polygon2D
 var _avatar_hair: Polygon2D
 var _avatar_emblem: Polygon2D
 var _avatar_shadow: Polygon2D
+var _avatar_cape: Polygon2D
+var _avatar_arm_left: Polygon2D
+var _avatar_arm_right: Polygon2D
 var _anim_time: float = 0.0
 
 func setup(host: CharacterBody2D) -> void:
@@ -46,6 +49,40 @@ func setup(host: CharacterBody2D) -> void:
 		Vector2(-11, -1)
 	])
 	_avatar_root.add_child(_avatar_body)
+
+	_avatar_cape = Polygon2D.new()
+	_avatar_cape.name = "Cape"
+	_avatar_cape.color = Color(0.13, 0.2, 0.46, 0.9)
+	_avatar_cape.polygon = PackedVector2Array([
+		Vector2(-8, 2),
+		Vector2(8, 2),
+		Vector2(6, 16),
+		Vector2(0, 21),
+		Vector2(-6, 16)
+	])
+	_avatar_root.add_child(_avatar_cape)
+
+	_avatar_arm_left = Polygon2D.new()
+	_avatar_arm_left.name = "ArmLeft"
+	_avatar_arm_left.color = Color(0.09, 0.44, 0.86, 1.0)
+	_avatar_arm_left.polygon = PackedVector2Array([
+		Vector2(-11, -2),
+		Vector2(-7, -2),
+		Vector2(-8, 10),
+		Vector2(-12, 10)
+	])
+	_avatar_root.add_child(_avatar_arm_left)
+
+	_avatar_arm_right = Polygon2D.new()
+	_avatar_arm_right.name = "ArmRight"
+	_avatar_arm_right.color = Color(0.09, 0.44, 0.86, 1.0)
+	_avatar_arm_right.polygon = PackedVector2Array([
+		Vector2(7, -2),
+		Vector2(11, -2),
+		Vector2(12, 10),
+		Vector2(8, 10)
+	])
+	_avatar_root.add_child(_avatar_arm_right)
 
 	_avatar_head = Polygon2D.new()
 	_avatar_head.name = "Head"
@@ -105,6 +142,12 @@ func tick(delta: float, velocity: Vector2, current_direction: Vector2) -> void:
 		tilt = clamp(facing.x * 0.12, -0.12, 0.12)
 	_avatar_body.rotation = tilt
 	_avatar_head.rotation = -tilt * 0.7
+	if _avatar_cape:
+		_avatar_cape.rotation = -tilt * 0.8 + sin(_anim_time * (10.0 if moving else 6.0)) * (0.07 if moving else 0.03)
+	if _avatar_arm_left and _avatar_arm_right:
+		var swing := sin(_anim_time * (13.0 if moving else 4.0)) * (0.18 if moving else 0.05)
+		_avatar_arm_left.rotation = swing
+		_avatar_arm_right.rotation = -swing
 
 	if facing.y < -0.45:
 		_avatar_body.color = Color(0.2, 0.65, 1.0, 1.0)
@@ -112,5 +155,8 @@ func tick(delta: float, velocity: Vector2, current_direction: Vector2) -> void:
 		_avatar_body.color = Color(0.09, 0.48, 0.9, 1.0)
 	else:
 		_avatar_body.color = Color(0.11, 0.55, 0.98, 1.0)
+	if _avatar_arm_left and _avatar_arm_right:
+		_avatar_arm_left.color = _avatar_body.color.darkened(0.12)
+		_avatar_arm_right.color = _avatar_body.color.darkened(0.12)
 
 	_avatar_emblem.scale = Vector2.ONE * (1.0 + abs(sin(_anim_time * 6.0)) * 0.06)

@@ -2,39 +2,53 @@ extends Node
 ## Bootstrap script
 ## Initializes game systems and routes to first zone
 
+const SMOKE_TEST_SCENE: String = "res://scenes/test/RuntimeSmokeTest.tscn"
+const CHARACTER_CREATION_SCENE: String = "res://scenes/ui/CharacterCreation.tscn"
+const DEFAULT_WORLD_SCENE: String = "res://scenes/world/ForestTrialsEntrance.tscn"
+
+const ZONE_SCENE_BY_ID: Dictionary = {
+	"greenwood_clearing": "res://scenes/world/GreenwoodClearing.tscn",
+	"wooded_trail": "res://scenes/world/WoodedTrail.tscn",
+	"forest_trials_entrance": "res://scenes/world/ForestTrialsEntrance.tscn",
+	"forest_trials_sproutbound": "res://scenes/world/ForestTrials_Sproutbound.tscn",
+	"forest_trials_emberroot": "res://scenes/world/ForestTrials_Emberroot.tscn",
+	"forest_trials_crownfire": "res://scenes/world/ForestTrials_Crownfire.tscn",
+	"crownride_circuit": "res://scenes/world/CrownrideCircuit.tscn",
+	# Legacy save value from earlier builds.
+	"forest_trials_path": "res://scenes/world/ForestTrials_Sproutbound.tscn"
+}
+
 func _ready() -> void:
-	print("=== Gather The Crown Bootstrap ===")
-	print("Initializing systems...")
 	var args := OS.get_cmdline_args()
 	if args.has("--smoke-test"):
-		print("[Boot] Smoke test flag detected")
 		await get_tree().process_frame
-		SceneRouter.go_to_zone("res://scenes/test/RuntimeSmokeTest.tscn")
+		SceneRouter.go_to_zone(SMOKE_TEST_SCENE)
 		return
 	
-	# Autoloads are already running
-	print("[Boot] Waiting for process frame...")
+	# Wait one frame to ensure all autoloads are fully initialized.
 	await get_tree().process_frame
-	print("[Boot] Process frame complete")
 	
 	if SaveManager.has_save():
-		print("[Boot] Save file found, loading...")
 		SaveManager.load_game()
-		print("[Boot] Save loaded successfully")
-	else:
-		print("[Boot] No save file found")
 	
-	print("[Boot] Checking hero profile...")
 	if not GameState.has_hero_profile():
-		print("[Boot] No hero profile found; loading character creation")
-		await get_tree().create_timer(0.25).timeout
-		print("[Boot] Routing to CharacterCreation...")
-		SceneRouter.go_to_zone("res://scenes/ui/CharacterCreation.tscn")
+		SceneRouter.go_to_zone(CHARACTER_CREATION_SCENE)
 		return
 
-	# Route to Forest Trials Entrance as the default first playable world screen.
-	print("[Boot] Hero profile found; loading ForestTrialsEntrance")
-	await get_tree().create_timer(0.5).timeout
-	print("[Boot] Routing to ForestTrialsEntrance...")
-	SceneRouter.go_to_zone("res://scenes/world/ForestTrialsEntrance.tscn")
-	print("[Boot] Scene routing initiated")
+	var start_scene := _resolve_start_scene()
+	SceneRouter.go_to_zone(start_scene)
+
+func _resolve_start_scene() -> String:
+	var saved_zone := String(GameState.current_zone).strip_edges()
+	if saved_zone != "":
+		var zone_id := saved_zone.to_snake_case().to_lower()
+		if ZONE_SCENE_BY_ID.has(zone_id):
+			var candidate_scene := String(ZONE_SCENE_BY_ID[zone_id])
+			if ResourceLoader.exists(candidate_scene):
+				return candidate_scene
+
+	if ResourceLoader.exists(DEFAULT_WORLD_SCENE):
+		return DEFAULT_WORLD_SCENE
+
+	# Emergency fallback if default scene was moved/renamed.
+	return "res://scenes/world/GreenwoodClearing.tscn"

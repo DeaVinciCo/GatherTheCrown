@@ -20,6 +20,7 @@ var attack_cooldown_max: float = 1.5
 var is_dead: bool = false
 var gc_reward_min: int = 10
 var gc_reward_max: int = 30
+var _avatar_renderer := EnemyAvatarRenderer.new()
 
 # Patrol state
 var _patrol_origin: Vector2 = Vector2.ZERO
@@ -35,7 +36,7 @@ func _ready() -> void:
 	z_index = 22
 	_patrol_origin = global_position
 	_patrol_angle = randf() * TAU
-	_ensure_visible_body()
+	_avatar_renderer.setup(self, enemy_type, combat_class)
 	player = get_tree().get_first_node_in_group("player")
 
 	if not has_node("Health"):
@@ -73,6 +74,8 @@ func apply_type_data(data: Dictionary) -> void:
 	var body := get_node_or_null("VisibleBody") as Polygon2D
 	if body:
 		body.color = _color_for_type(enemy_type)
+
+	_avatar_renderer.reconfigure(enemy_type, combat_class)
 
 func _class_for_type(t: String) -> String:
 	match t:
@@ -123,6 +126,8 @@ func _process(delta: float) -> void:
 		attack_cooldown -= delta
 	_patrol_timer += delta
 	_fly_bob += delta * 4.0
+	var cooldown_ratio := attack_cooldown / maxf(0.001, attack_cooldown_max)
+	_avatar_renderer.tick(delta, velocity, movement_speed, cooldown_ratio)
 
 func _physics_process(delta: float) -> void:
 	if is_dead:

@@ -18,10 +18,12 @@ var is_telegraphing: bool = false
 var is_dead: bool = false
 var phase: int = 1
 var boss_level: int = 1
+var _avatar_renderer := BossAvatarRenderer.new()
 
 func _ready() -> void:
 	add_to_group("boss")
 	player = get_tree().root.get_child(0).get_node_or_null("Player")
+	_avatar_renderer.setup(self, boss_element)
 	
 	# Add health and hurtbox
 	if not has_node("Health"):
@@ -40,6 +42,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if attack_cooldown > 0:
 		attack_cooldown -= delta
+	_avatar_renderer.tick(delta, velocity, is_telegraphing, phase)
 
 func _physics_process(delta: float) -> void:
 	if is_dead or not player:
@@ -68,12 +71,8 @@ func telegraph_attack() -> void:
 	is_telegraphing = true
 	print("Boss telegraphs attack!")
 	
-	# Visual telegraph (would use animation/color change)
-	modulate = Color.RED
-	
 	await get_tree().create_timer(telegraph_time).timeout
-	
-	modulate = Color.WHITE
+
 	perform_attack(player)
 	is_telegraphing = false
 

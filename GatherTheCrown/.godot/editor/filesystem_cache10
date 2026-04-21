@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1776804510
+::res://::1776805441
 CREAT_DISCOVERY_COMPLETE.md::TextFile::-1::1776803014::0::1::::<><><>0<>0<><>::
 CREAT_EGG_DISCOVERY_IMPLEMENTATION.md::TextFile::-1::1776803014::0::1::::<><><>0<>0<><>::
 CRITICAL_BUGS_FIXED.md::TextFile::-1::1776803014::0::1::::<><><>0<>0<><>::
@@ -18,7 +18,7 @@ UNTESTED_SYSTEMS_CHECKLIST.md::TextFile::-1::1776803014::0::1::::<><><>0<>0<><>:
 VERIFICATION_CHECKLIST.md::TextFile::-1::1776803014::0::1::::<><><>0<>0<><>::
 ::res://assets/::1776804363
 ::res://assets/ui/::1776804363
-::res://assets/ui/icons/::1776804386
+::res://assets/ui/icons/::1776804511
 character.svg::CompressedTexture2D::8164823672897453984::1776804398::1776804511::1::::<><><>0<>0<>3d2ae7912d33ede715221a1917c8b411<>res://.godot/imported/character.svg-b36d288f0d6435ac82891ba4a26304f5.ctex::
 creat.svg::CompressedTexture2D::5498101856639960218::1776804398::1776804511::1::::<><><>0<>0<>e824612e4c10cafd05a4bd10ae380ed9<>res://.godot/imported/creat.svg-a19dd76b7c16043891e2b6218bf9b484.ctex::
 inventory.svg::CompressedTexture2D::2474325549813456745::1776804398::1776804511::1::::<><><>0<>0<>f85d9d08d81df662ce10859a5dc6ae36<>res://.godot/imported/inventory.svg-eec7dbc9168bb486ab936e8259768d7b.ctex::
@@ -92,7 +92,7 @@ fire_creat.gd::GDScript::5626536868425461531::1776803475::0::1::::<>CharacterBod
 ::res://scripts/actors/player/::1776803014
 player.gd::GDScript::8165036341038293940::1776803334::0::1::::<>CharacterMotor2D<><>0<>0<><>::
 ::res://scripts/bootstrap/::1776803014
-boot.gd::GDScript::3161435540874572171::1776803014::0::1::::<>Node<><>0<>0<><>::
+boot.gd::GDScript::3161435540874572171::1776805401::0::1::::<>Node<><>0<>0<><>::
 ::res://scripts/combat/::1776803014
 combat_engine.gd::GDScript::6580219971524307535::1776803014::0::1::::CombatEngine<>Node<><>0<>0<><>::
 health.gd::GDScript::1266147790484586497::1776803014::0::1::::Health<>Node<><>0<>0<><>::
@@ -103,7 +103,7 @@ day_night_cycle.gd::GDScript::2502439168655349824::1776803014::0::1::::<>Node<><
 event_bus.gd::GDScript::5087034499192140172::1776803014::0::1::::<>Node<><>0<>0<><>::
 game_state.gd::GDScript::5872874228588575187::1776803014::0::1::::<>Node<><>0<>0<><>::
 save_manager.gd::GDScript::1877655118698355630::1776803014::0::1::::<>Node<><>0<>0<><>::
-scene_router.gd::GDScript::9036364323935565502::1776803014::0::1::::<>Node<><>0<>0<><>::
+scene_router.gd::GDScript::9036364323935565502::1776805273::0::1::::<>Node<><>0<>0<><>::
 ::res://scripts/debug/::1776803014
 debug_checks.gd::GDScript::159587800117182188::1776803014::0::1::::<>Node<><>0<>0<><>::
 ::res://scripts/gameplay/::1776803277
@@ -112,11 +112,11 @@ character_motor_2d.gd::GDScript::948871641734792490::1776803284::0::1::::Charact
 ::res://scripts/gameplay/player/::1776803718
 player_controller.gd::GDScript::3687249645685528132::1776803475::0::1::::<>CharacterMotor2D<><>0<>0<><>::
 ::res://scripts/presentation/::1776803392
-::res://scripts/presentation/avatars/::1776803405
+::res://scripts/presentation/avatars/::1776804511
 fire_creat_avatar_renderer.gd::GDScript::1286375370628884460::1776803475::0::1::::FireCreatAvatarRenderer<>RefCounted<><>0<>0<><>::
 player_avatar_renderer.gd::GDScript::1463303265341955379::1776803475::0::1::::PlayerAvatarRenderer<>RefCounted<><>0<>0<><>::
 ::res://scripts/systems/::1776803014
-advanced_inventory_system.gd::GDScript::140288321814957100::1776803014::0::1::::<>Node<><>0<>0<><>::
+advanced_inventory_system.gd::GDScript::140288321814957100::1776805273::0::1::::<>Node<><>0<>0<><>::
 bond_system.gd::GDScript::3543150804897576269::1776803014::0::1::::<>Node<><>0<>0<><>::
 checkpoint_system.gd::GDScript::2018753955396170328::1776803014::0::1::::<>Node<><>0<>0<><>::
 companion_lifecycle.gd::GDScript::478794238976079601::1776803014::0::1::::<>Node<><>0<>0<><>::
@@ -146,10 +146,10 @@ announcement_popup.gd::GDScript::7198518822662448630::1776803014::0::1::::Announ
 game_label.gd::GDScript::3323963125781745714::1776803014::0::1::::GameLabel<>Control<><>0<>0<><>::
 royal_panel.gd::GDScript::6127103369829600761::1776803014::0::1::::RoyalPanel<>Control<><>0<>0<><>::
 ::res://scripts/ui/widgets/::1776803014
-attack_cooldown_widget.gd::GDScript::6247701424344407146::1776803014::0::1::::<>Control<><>0<>0<><>::
-creat_status_widget.gd::GDScript::1613070183456642586::1776804511::0::1::::<>Control<><>0<>0<><>::
+attack_cooldown_widget.gd::GDScript::6247701424344407146::1776804566::0::1::::<>Control<><>0<>0<><>::
+creat_status_widget.gd::GDScript::1613070183456642586::1776804566::0::1::::<>Control<><>0<>0<><>::
 hero_health_widget.gd::GDScript::5257819448241851175::1776804437::0::1::::<>Control<><>0<>0<><>::
-mana_potion_widget.gd::GDScript::3714893738369274083::1776804501::0::1::::<>Control<><>0<>0<><>::
+mana_potion_widget.gd::GDScript::3714893738369274083::1776804566::0::1::::<>Control<><>0<>0<><>::
 ::res://scripts/world/::1776803014
 creat_egg_item.gd::GDScript::2260749877988952114::1776803014::0::1::::<>Interactable<><>0<>0<><>::
 crownride_circuit.gd::GDScript::3909373833618593039::1776803014::0::1::::<>Node2D<><>0<>0<><>::
