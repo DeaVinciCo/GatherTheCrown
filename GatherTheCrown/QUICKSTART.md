@@ -279,6 +279,21 @@ Check **View → Output** for:
 
 ---
 
-**Ready to play?** Press **F5** in Godot now! 🚀
+## Design & Development Documentation
+
+For deeper reference on any topic, see the `docs/` folder:
+
+| Document | What It Covers |
+|----------|---------------|
+| [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md) | Vision, game modes, all systems design intent |
+| [Systems Architecture](docs/SYSTEMS_ARCHITECTURE.md) | Autoload APIs, signals, data flow diagrams |
+| [Content Bible](docs/CONTENT_BIBLE.md) | All enemies, bosses, creats, crowns, zones, items |
+| [Art Style Guide](docs/ART_STYLE_GUIDE.md) | Visual and audio direction |
+| [Development Roadmap](docs/DEVELOPMENT_ROADMAP.md) | What is built, what is next, phase milestones |
+| [Developer Onboarding](docs/DEVELOPER_ONBOARDING.md) | Setup guide, conventions, debugging, git workflow |
+
+---
+
+**Ready to play?** Press **F5** in Godot now!
 
 For detailed system documentation, see [README.md](README.md)

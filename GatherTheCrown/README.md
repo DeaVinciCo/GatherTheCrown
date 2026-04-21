@@ -284,9 +284,16 @@ Use the HUD to monitor:
 
 ## Design Documents
 
-- Story Mode world and quest loop blueprint: `docs/STORY_MODE_WORLD_BLUEPRINT.md`
-- Mode structure, championships, ranked/unranked, faction layer: `docs/MODE_STRUCTURE_AND_RANKING.md`
-- Full player guide (goals, currencies, crowns, limits, progression): `docs/PLAYER_COMPENDIUM_HOW_TO_PLAY.md`
+The `docs/` folder contains the full design and development documentation suite:
+
+| Document | Purpose |
+|----------|---------|
+| [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md) | Vision, pillars, all systems, game modes, economy |
+| [Systems Architecture](docs/SYSTEMS_ARCHITECTURE.md) | All 16 autoload APIs, EventBus signal reference, data flow |
+| [Content Bible](docs/CONTENT_BIBLE.md) | Canonical reference for enemies, bosses, creats, crowns, zones, items |
+| [Art Style Guide](docs/ART_STYLE_GUIDE.md) | Visual direction, color palettes, typography, HUD layout, audio |
+| [Development Roadmap](docs/DEVELOPMENT_ROADMAP.md) | Phase plan with task checklists, milestones, version history |
+| [Developer Onboarding](docs/DEVELOPER_ONBOARDING.md) | Setup, architecture overview, conventions, debugging, git workflow |
 
 ## Validation & Testing
 

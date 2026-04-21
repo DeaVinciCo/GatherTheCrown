@@ -9,6 +9,21 @@ See [PLATFORM_QUICKSTART.md](./PLATFORM_QUICKSTART.md) for deployment instructio
 📋 **Recent Updates**: [CHANGES_APRIL_21_2026.md](./CHANGES_APRIL_21_2026.md) - Movement fixes & documentation refresh.  
 📖 **Documentation Index**: [DOCUMENTATION_MAP_APRIL_21_2026.md](./DOCUMENTATION_MAP_APRIL_21_2026.md) - Complete file guide and what changed.
 
+## Design Documentation
+
+All game design and development documentation lives in [`GatherTheCrown/docs/`](./GatherTheCrown/docs/):
+
+| Document | Purpose |
+|----------|---------|
+| [Game Design Document](GatherTheCrown/docs/GAME_DESIGN_DOCUMENT.md) | Vision, pillars, all systems, game modes, economy |
+| [Systems Architecture](GatherTheCrown/docs/SYSTEMS_ARCHITECTURE.md) | All 16 autoload APIs, EventBus signal reference, data flow |
+| [Content Bible](GatherTheCrown/docs/CONTENT_BIBLE.md) | Canonical reference for enemies, bosses, creats, crowns, zones, items |
+| [Art Style Guide](GatherTheCrown/docs/ART_STYLE_GUIDE.md) | Visual direction, color palettes, typography, HUD layout, audio |
+| [Development Roadmap](GatherTheCrown/docs/DEVELOPMENT_ROADMAP.md) | Phase plan with task checklists, milestones, version history |
+| [Developer Onboarding](GatherTheCrown/docs/DEVELOPER_ONBOARDING.md) | Setup, architecture overview, conventions, debugging, git workflow |
+
+---
+
 ---
 
 ## Contents
