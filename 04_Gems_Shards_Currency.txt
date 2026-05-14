@@ -1,0 +1,64 @@
+=== GEMS (ELEMENTAL CURRENCY) ===
+
+Blue (Water/Ice) → defense, healing, freezing | Value: 350 GC
+Red (Fire) → burn, explosive attacks | Value: 500 GC
+Green (Earth) → defense, regeneration | Value: 300 GC
+Yellow/Gold (Energy/Sun) → speed, clarity, morale | Value: 700 GC
+Clear (Storm/Light) → crit chance, agility, lightning strikes | Value: 1,000 GC
+Purple (Shadow) → stealth, lifesteal, confusion | Value: 1,500 GC
+Black (Void) → chaos, corruption, rarest | Value: 3,000 GC
+
+STACKING BONUS:
+- Holding 10+ of one gem type = Power Surge (2x ability buff in battle)
+- Sets unlock burst abilities (Blue+Red = Steam AoE)
+- Sell/trade values scale by rarity
+
+=== SHARDS (METALLIC CURRENCY FOR CROWNS) ===
+
+Iron → Base crowns
+Bronze → Survival, combat crowns | Dull brownish-orange, rough edges
+Steel → Mid-tier durability crowns | Grey metallic gleam
+Silver → Magic-enhanced crowns | Reflective, agile
+Gold → Prestige crowns | Bright, shiny, rare
+Copper → Electric-based crowns | Warm orange glow
+Nickel → 2nd place race rewards | Durable, cool tint
+Rhodium → 1st place race wins | Rare, glowing victory aura
+Platinum → Prestige elite challenges | Elegant, icy resilience
+Osmium → Elite-tier legendary crafting | Heavy, deep-space metal
+Obsidian → Shadow crowns | Iridescent black, hidden in shadow zones
+Crystalsteel → Storm/Light crowns | Silver-blue shimmer
+Runemetal → Elemental hybrid crowns | Engraved glow lines
+Aurorite → Divine/ancestral crowns | Opalescent shift
+Shadowglass → Eclipsed Crown (mythic) | Translucent, dangerous
+Bixbite Core → Divine-level crown base | Red glow magic infused
+Starforged → Ultimate crown tier | Glows with cosmic energy
+
+FORGE-ONLY METALS:
+Emberium → Volcanic, fire faction | Magma-forged, red-hot
+Drakensilver → Dragon-zone material | Sacred silver + dragon essence
+Lunasteel → Full moon harvest only | Moonlight-reactive, arcane crafting
+Tideglass → Ocean water-forged | Smooth, glass-like, water-charged
+Voidiron → Anti-magic ore | Nullifies enchantments, near-indestructible
+Solarite → Heat-radiating alloy | Requires heat-resistant gear
+Cryogem Ore → Hybrid mineral/metal | Cold to touch, ice spells/barriers
+
+=== CURRENCY SYSTEM ===
+
+Gold Coins (GC): Main spendable currency
+- Earned from: matches, races, loot, quests
+- Gameplay earnings: 75M (avg), 200M (max)
+
+Gems: Elemental boosts, trading, socketing crowns
+
+Shards: Puzzle pieces for forging crowns
+
+Bixbite: Mythic currency from Divine fights only
+- Used for: ultimate crafting, legendary forging, special cosmetics
+
+Soulshards: From fallen foes
+- Used for: crafting spells, bonding creats
+
+PLACEMENT MEDALS (RACES):
+1st Place: Rhodium (rare, shiny, white metal)
+2nd Place: Nickel (durable, practical)
+3rd Place: Copper (classic, accessible)

@@ -1,0 +1,166 @@
+=== 2D VISUAL ASSETS & STYLE GUIDE ===
+
+ENGINE TARGET:
+- Flat 2D Python game (pygame)
+- Readability > detail
+- Very clear silhouettes
+- Bold outline style (2–4 px dark outline)
+- High-contrast shapes
+- Limited but distinct palettes per biome
+- Pixel scale target: 64x64 px tiles (primary), 128x128 variations for HD scenes
+
+GLOBAL STYLE NOTES:
+- Medieval-fantasy forest vibe with castles, ruins, inns, towns, shops, moats
+- Do not clutter foreground
+- Give readable negative space around interactive objects
+- Keep biome palettes unique and instantly distinguishable
+- Each region gets: map style + gameplay scene art + props + vegetation + palette
+
+=== TEXTURE RULES ===
+
+- Use large, hand-painted texture patterns (no tiny noise)
+- 2–3 layers per surface: BASE color → MID micro-texture → EDGE highlights/shadows
+- Hard ink outline (2–4 px) around key shapes
+- Inner linework for key folds/scales/wood grain
+- Avoid photo textures; everything stylized and consistent
+
+=== CHARACTERS (RIDERS/NPCs) TEXTURES ===
+
+- Skin: soft gradient shading; freckles/scars as single-stroke decals
+- Hair: chunky locks; 2–3 tone streaks; clear silhouette shapes
+- Cloth: visible weave (chevron/linen strokes); edge fray on low-tier gear
+- Leather: big pore speckles + crease lines; darker seam lines
+- Metal (armor): brushed streaks; rivet highlights; specular accents
+- Fur/Capes: long directional strokes; hemline tatter on low-tier
+- Faction markers: small sigils on shoulder/cloak
+- Crown wear: metal sheen band on brow; socket glows by gem color
+
+=== CREATS (MYTHICAL/MYSTICAL) TEXTURES ===
+
+- Scales: big plate scales with beveled ink; alternating tone rows
+- Feathers: layered clumps (3–5 per cluster); subtle barbs
+- Hide/Fur: direction strokes; scar decals; darker ridge lines
+- Stone/Crystal bodies: large facet planes; rim light on edges
+- Elemental auras (always visible, light and readable):
+  * FIRE: ember motes, orange rim light on edges
+  * WATER: soft blue caustics, drip FX on steps
+  * EARTH: dust flecks, cracked soil prints
+  * STORM: tiny spark forks, after-image on dash
+  * LIGHT: soft bloom at edges, white specks
+  * SHADOW: violet haze, subtle blur mask
+  * ICE: frost mist cone, sparkle flecks
+
+=== ANIMATION NOTES ===
+
+- Idle: subtle "breathing" (2–3 px scale pulse), cape/hair sway, aura loop
+- Walk/Run: exaggerated silhouette motion; footstep FX by element
+- Attack: 1–2 frame smear for readability; element burst frame with additive glow
+
+=== LANDSCAPE TEXTURES ===
+
+GRASS & GROUND:
+- Grass tiles (64x64): 3 variants per biome with large blade clusters
+- Dirt: big brush strokes; occasional pebbles; wheel rut decals
+- Rock: broad planes, dark core cracks, lichen blobs
+
+TREES & BUSHES:
+- Trunks: spiral bark strokes; knot/branch sockets; moss strip decals
+- Canopies: 3–4 big leaf clumps per tree
+- Pines: banded needle clumps; snow-tipped version
+- Willows: long rope leaves; water reflection decal under
+- Bushes: berry color pops (blue/red); thorn outlines in shadow biomes
+
+MOUNTAINS/CLIFFS:
+- Tiered ledges; strata lines; snow masks at top
+- Rope anchor decals for gameplay
+
+WATER:
+- Freshwater: calm ripple tile (8–10f loop); foam edge tiles; lily pad prop
+- Ocean: wave crest tiles (12f); wet sand transition; tidepool diffraction
+- Waterfalls: parallax layer with highlight streaks; mist puff at base
+
+=== STRUCTURES TEXTURES ===
+
+MATERIAL GUIDES:
+- Stone blocks: hand-cut edges; mortar gaps; occasional chipped corners
+- Timber frames: dark beams with wood grain; whitewash plaster with cracks
+- Thatch roofs: big straw clumps, ridge cap pattern; darker wet patches
+- Metalwork: rivets, hammered dimples; edge gleam; soot near forges
+- Windows: lead lattice pattern; warm gradient glow; stained glass for temples
+
+BUILD TYPES:
+- Homes: 1–2 storey timber + stone foundation; sign hooks; stacked firewood
+- Inns: swinging sign (8f); barrel clusters; lantern posts; porch benches
+- Shops: awnings (striped cloth texture); crates; coin scales prop
+- Abandoned homes: boarded windows, ivy takeover, collapsed roof holes
+- Castles/Kingdoms: blockwork with buttresses, banners, portcullis mask
+- Ruins: broken arches, fallen capitals, vine overlays, crown-relief blocks
+
+=== PARALLAX LAYERS ===
+
+Layer order (back → front):
+- Sky (speed 0.10)
+- Mountains/far (0.25)
+- Distant trees/cliffs (0.45)
+- Mid buildings/trees (0.65)
+- Near props (0.85)
+- Ground/actors (1.00)
+- FX overlays (1.05)
+
+Horizon kept low for "big sky" readability
+Avoid busy skies in combat scenes
+
+=== BIOME-SPECIFIC PALETTES ===
+
+GREENWOOD (Core Forest):
+- Canopy Greens: #2F5D31, #417A3D, #8DBB53
+- Trunks/Bark: #3B2A1E, #6A4B3D
+- Ground: #6E5A43, #8C755B
+- Sky: #A7D0F7 → #F1F7FF (day), #5B60A5 → #F4A77A (dusk)
+
+TIDEBORN SHORES:
+- Sea: #0D3B66, #155E9A, foam #E6F2FF
+- Sand: #D8C6A2, #C0A97D
+- Coral accents: #FF6F59, #F7B267
+- Sky: pale cyan → white horizon
+
+EARTHBOUND HIGHLANDS:
+- Rock: #6D7078, #8A8E99, snow #EDEFF5
+- Lichens/moss: #5B7D59, #8BAB75
+- Sky: pale blue, high clouds
+
+SKY NOMAD ISLES:
+- Greens/Stone: #2D6A4F, #B7B7C2
+- Storm accents: lightning #E9F27A, cloud violet #7C72B4
+- Sky: rolling layered clouds, purple lightning
+
+MYSTIC SCRIBES' TERRACES:
+- Marble: #F3EFE7, #D5CEC1
+- Gold: #E6C46E
+- Runes: #7FC8FF
+- Sky: calm dusk gradients, floating lanterns
+
+SHADOWFOLK WASTES:
+- Ash/Soil: #2A2A2D, #3C3C42
+- Fissure glow: #6A1E55
+- Fog: #6B6B77
+- Sky: low blood moon, fast mist drift
+
+INFERNAL KIN:
+- Lava: #F25C05, #F2B705
+- Basalt: #2B2B2B
+- Ember glow: #F7C76B
+- Sky: heat shimmer, smoke trails
+
+=== READABILITY RULES ===
+
+DO:
+- Keep silhouettes bold
+- Avoid leaf clutter in front of actors
+- Use thick outlines for interactive props and building entrances
+- Keep water edges bright (foam) against darker land tiles
+
+DON'T:
+- Use heavy noise textures
+- Exceed 6–7 major hues per biome
+- Clutter foreground with decorative elements

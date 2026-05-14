@@ -1,0 +1,166 @@
+{
+  "module": "gtc_game_modes_complete",
+  "version": "2.0",
+  "game": "Gather The Crown: Creats & Foes",
+  
+  "modes": {
+    "story_mode": {
+      "name": "Path of the Crown",
+      "flow": ["forest_trials","home_base","ruins","castle"],
+      "bosses": "evolving_arc (5min → 10min → 15min)",
+      "rewards": ["sovereign_crown_fragments","major_gems","new_zones","creat_eggs"],
+      "xp": "highest",
+      "features": ["kingdom_reclamation","forest_trials","boss_evolution","ruins_restoration"]
+    },
+    
+    "race_mode": {
+      "name": "Crownride Circuits",
+      "laps": 3,
+      "types": ["casual","ranked"],
+      "race_powerup_slots": 3,
+      "locked_trait_slot_applies": true,
+      "win_conditions": "quickest_time OR survival_until_end (1st/2nd/3rd)",
+      "powerups": ["pu_oil_flask","pu_vine_snare","pu_thunder_orb","pu_speed_draught","pu_rock_sling"],
+      "placement_rewards": {
+        "ranked": {
+          "1st": ["medal_rhodium","racer_crown_fragment","gem_sapphire","gold:800"],
+          "2nd": ["medal_nickel","racer_crown_fragment","gem_quartz","gold:500"],
+          "3rd": ["medal_copper","racer_crown_fragment_small","gold:300"]
+        },
+        "casual": {"finish": ["gold:150-300","random_loot_small"]}
+      },
+      "xp": {"casual": 50, "ranked": 120},
+      "tracks": ["forest_circuit","castle_circuit","sky_circuit","desert_storms","arctic_glaciers"]
+    },
+    
+    "pve_mode": {
+      "name": "Realms of Reckoning",
+      "features": ["dungeons","brutes","puzzles","group_crawling"],
+      "gameplay": "Explore caverns, temples, sewers, haunted woods with puzzles and traps",
+      "xp": "high",
+      "rewards": ["warden_crown","alexandrite","spinel","dungeon_loot"],
+      "replay": "procedural_dungeon_maps_enemies_reshuffle"
+    },
+    
+    "pve_melee_mode": {
+      "name": "Clashborn Arena (Faction)",
+      "faction_based": true,
+      "types": ["unranked","ranked"],
+      "waves": "escalating_difficulty",
+      "miniboss_every": 3,
+      "final_brute_roll": ["brute_ironhide","brute_gravebreaker","brute_cindergolem","brute_direloner","brute_skullwing","brute_golem"],
+      "rewards": {
+        "unranked": ["xp:120","gear_mats:2-4","shard_fragments:1-2","gold:200-400"],
+        "ranked": ["xp:200","faction_crown_piece","banner_token","gold:500-800"]
+      },
+      "gameplay": "Fight waves of enemies themed to enemy faction, collective reward chest for faction"
+    },
+    
+    "pvp_mode": {
+      "name": "Crownfall Gauntlet",
+      "types": ["casual","ranked"],
+      "variants": {
+        "duel_1v1": {"timecap_sec": 180, "xp": 90, "rewards":["gold:150-300"]},
+        "skirmish_3v3": {"timecap_sec": 300, "xp": 140, "rewards":["gold:250-450","loot_medium"]},
+        "gauntlet_battle_royale": {"timecap_sec": 600, "xp": 220, "rewards_ranked":["conqueror_crown_fragment","exclusive_gem_roll","leaderboard_title"]}
+      },
+      "ranked_mmr": {"win":"+25-35","loss":"-10-15","decay_per_week":10},
+      "rewards": {
+        "casual": ["gold:150-450","loot_medium"],
+        "ranked": ["conqueror_crown_fragments","exclusive_gem_roll","leaderboard_titles"]
+      },
+      "xp": {"casual": 90, "ranked": 160},
+      "features": ["shrinking_zone","environmental_hazards","last_player_standing"]
+    },
+    
+    "side_quests": {
+      "name": "Echoes of the Crown",
+      "examples": [
+        {"id":"sq_save_villager","goal":"defeat_loner_or_slither","reward_pool":["food_bundle","gem_small","gold:100-250","discount_scroll"]},
+        {"id":"sq_free_shopkeeper","goal":"banish_camper","reward_pool":["craft_parts:2-4","shard_silver","gold:150-300"]},
+        {"id":"sq_escort","goal":"escort_to_gate","ambush_chance":0.35,"reward_pool":["gem_medium","gold:200-400","scroll_recipe"]}
+      ],
+      "rewards": ["seeker_crown_shards","consumables","food","craft_mats"],
+      "xp_range": [80, 140],
+      "xp": "medium"
+    },
+    
+    "mini_games": {
+      "name": "Trials of Tame & Tact",
+      "events": [
+        {"id":"mg_target_shoot","desc":"Hit moving targets with bow","xp":40,"rewards":["gold:50-120","quartz","arrow_bundle"]},
+        {"id":"mg_fruit_climb","desc":"Climb and gather fruit quickly","xp":35,"rewards":["topaz","food:fruit_mix","gold:40-100"]},
+        {"id":"mg_sword_parry","desc":"Parry rhythm duel","xp":45,"rewards":["gold:60-140","craft_parts_small"]}
+      ],
+      "rewards": ["gold","basic_gems","creat_food"],
+      "xp": "low",
+      "duration": "1-minute skill challenges"
+    }
+  },
+  
+  "factions": [
+    {"id":"infernal_kin","perks":["+5% fire dmg"],"loot_bias":["emberium","molten_pearl"]},
+    {"id":"tideborn","perks":["+5% slow potency"],"loot_bias":["dusktide_opal","tideglass"]},
+    {"id":"sky_nomads","perks":["+5% move speed"],"loot_bias":["skycrystal","lunasteel"]},
+    {"id":"earthbound_giants","perks":["-5% dmg taken"],"loot_bias":["flintsteel","cryogem_ore"]},
+    {"id":"mystic_scribes","perks":["-5% ability cd"],"loot_bias":["aethercrystal","soulshards"]},
+    {"id":"shadow_folk","perks":["+5% stealth duration"],"loot_bias":["shadowglass","voidiron"]}
+  ],
+  
+  "actions_objectives": {
+    "race": [
+      {"id":"obj_finish_3_laps","desc":"Finish 3 laps","progress":3},
+      {"id":"obj_use_powerups","desc":"Use power-ups effectively","progress":3},
+      {"id":"obj_place_top3_ranked","desc":"Finish Top 3 (ranked)","progress":1}
+    ],
+    "pve": [
+      {"id":"obj_clear_waves","desc":"Defeat wave sets","progress":5},
+      {"id":"obj_defeat_brute","desc":"Defeat a Brute","progress":1},
+      {"id":"obj_solve_puzzle","desc":"Solve dungeon puzzle","progress":1}
+    ],
+    "pvp": [
+      {"id":"obj_get_kills","desc":"Eliminate opponents","progress":3},
+      {"id":"obj_survive_circle","desc":"Survive shrinking fog phases","progress":3}
+    ],
+    "story": [
+      {"id":"obj_reclaim_ruin","desc":"Clear a ruin for townsfolk","progress":1},
+      {"id":"obj_castle_floor","desc":"Clear Castle Floor","progress":1},
+      {"id":"obj_restore_monarch","desc":"Cleanse corrupted royalty","progress":1}
+    ],
+    "side_quest": [
+      {"id":"obj_rescue_npc","desc":"Rescue villager/shopkeeper","progress":1}
+    ],
+    "mini_game": [
+      {"id":"obj_score_threshold","desc":"Beat score/time threshold","progress":1}
+    ]
+  },
+  
+  "incentives": {
+    "xp_modifiers": {
+      "difficulty": {"easy": 0.9, "medium": 1.0, "hard": 1.2},
+      "night_bonus": 1.1,
+      "no_death_clear": 1.15,
+      "party_bonus_3p": 1.05
+    },
+    "streaks": {
+      "daily_first_clear": {"gold_bonus": 200, "xp_bonus": 30},
+      "weekly_mode_rotation": ["race_mode","pve_melee_mode","pvp_mode"]
+    },
+    "achievements": [
+      {"id":"ach_forest_perfect","name":"Forest Perfect","cond":"clear_forest_trials_no_hit","reward":["gem_rare","title:Trailblazer"]},
+      {"id":"ach_speed_demon","name":"Speed Demon","cond":"win_race_under_time","reward":["racer_crown_fragment","gold:600"]},
+      {"id":"ach_arena_ace","name":"Arena Ace","cond":"win_5_pvp_duels","reward":["exclusive_gem_roll","banner_token"]},
+      {"id":"ach_ruin_restorer","name":"Ruin Restorer","cond":"clear_3_ruins","reward":["crown_fragment_warden","gold:800"]}
+    ]
+  },
+  
+  "meta_crown": {
+    "name": "Crown of the Seven Realms",
+    "requirement": "complete_all_mode_crowns",
+    "reward": ["all_stat_boost_15%","mythfall_portal_access"],
+    "metals": "starforged_all_types",
+    "gems": ["painite","alexandrite","jeremejevite"],
+    "rarity": "ultimate_mythic",
+    "visual": "Pulses with rhythm of every element, visible to all crown-complete players"
+  }
+}

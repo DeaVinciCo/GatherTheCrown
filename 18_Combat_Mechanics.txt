@@ -1,0 +1,408 @@
+=== COMBAT MECHANICS ===
+
+COMBAT STYLE: Real-Time Action RPG
+- Player controls character movement and attacks
+- Creat acts as AI companion (can issue commands)
+- Dodge, block, and combo systems
+- Stamina and mana management
+
+=== CORE COMBAT LOOP ===
+
+1. ENGAGE: Enter combat zone or trigger boss
+2. POSITION: Move to optimal range (melee/ranged)
+3. ATTACK: Execute combos, manage stamina
+4. DEFEND: Dodge/block enemy attacks
+5. SYNC: Build sync meter for ultimate attacks
+6. VICTORY: Defeat enemy, collect loot
+
+=== PLAYER CONTROLS ===
+
+MOVEMENT:
+- WASD or Arrow Keys: Move character
+- Shift: Sprint (consumes stamina)
+- Space: Dodge roll (i-frames, costs 20 stamina)
+
+COMBAT:
+- Left Click: Light attack (fast, low damage)
+- Right Click: Heavy attack (slow, high damage)
+- Q: Special ability (weapon-specific)
+- E: Use equipped item (potion, bomb, etc.)
+- R: Block (hold, drains stamina while active)
+
+CREAT COMMANDS:
+- 1: Attack target
+- 2: Defend me
+- 3: Use special ability
+- 4: Retreat/heal
+
+SYNC MODE:
+- F: Activate Sync Mode (requires 100% sync meter)
+
+=== STAMINA SYSTEM ===
+
+MAX STAMINA: 100 (base, increases with stats)
+
+STAMINA COSTS:
+- Light attack: 5 stamina
+- Heavy attack: 15 stamina
+- Dodge roll: 20 stamina
+- Sprint: 10 stamina per second
+- Block: 5 stamina per second
+
+STAMINA REGEN:
+- Idle: 10 stamina per second
+- Walking: 5 stamina per second
+- Blocking: 0 stamina per second
+- Sprinting: 0 stamina per second
+
+EXHAUSTED STATE:
+- Stamina reaches 0: character slows, attacks weakened
+- Cannot dodge or sprint
+- Lasts 3 seconds or until stamina reaches 30
+
+=== MANA SYSTEM ===
+
+MAX MANA: 100 (base, increases with Wisdom stat)
+
+MANA COSTS:
+- Basic spell: 20 mana
+- Elemental attack: 30 mana
+- Healing spell: 40 mana
+- Ultimate spell: 100 mana
+
+MANA REGEN:
+- Idle: 5 mana per second
+- Combat: 2 mana per second
+- Meditation (out of combat): 15 mana per second
+
+MANA POTIONS:
+- Small: +30 mana (instant)
+- Medium: +60 mana (instant)
+- Large: +100 mana (instant)
+
+=== HEALTH SYSTEM ===
+
+MAX HEALTH: Varies by character level and Stamina stat
+- Level 1: 100 HP
+- Level 50: 500 HP
+- Elder creat bonus: +100 HP
+
+DAMAGE TYPES:
+- Physical: Swords, axes, blunt weapons
+- Elemental: Fire, ice, lightning, shadow, light
+- True damage: Ignores armor (rare)
+
+ARMOR/DEFENSE:
+- Reduces physical damage by %
+- Formula: Damage Reduction = Armor / (Armor + 100)
+- Example: 50 armor = 33% damage reduction
+
+ELEMENTAL RESISTANCE:
+- Each element has separate resistance stat
+- Fire resistance reduces fire damage
+- Wearing Fire crown: +20% fire resistance
+
+HEALING:
+- Health potions: Instant heal
+- Creat healing: Over time (Water/Light creats)
+- Campfire rest: Full heal (out of combat)
+- Inn rest: Full heal + buffs
+
+DEATH:
+- Player HP reaches 0: Respawn at last checkpoint
+- Lose 10% of current gold (not total)
+- Creat HP reaches 0: Creat faints, bond -3%, respawns after battle
+
+=== COMBO SYSTEM ===
+
+LIGHT ATTACK COMBOS:
+- 3 light attacks = 3-hit combo (bonus damage on 3rd hit)
+- Timing window: 1 second between attacks
+
+HEAVY ATTACK COMBOS:
+- Light → Light → Heavy = Launcher (knocks enemy up)
+- Heavy → Light → Light = Sweep (AoE)
+
+ELEMENTAL COMBOS:
+- Fire attack → Lightning attack = Overload (explosion)
+- Ice attack → Fire attack = Steam Cloud (blinds enemies)
+- Shadow attack → Light attack = Void Rift (high damage)
+
+CREAT COMBOS:
+- Player attack + Creat attack (within 0.5 sec) = Sync Strike (+50% damage)
+
+COMBO COUNTER:
+- Displays on screen (e.g., "5 HIT COMBO!")
+- Resets if 2 seconds pass without attack
+- Bonus damage: +5% per combo hit (max +50% at 10 hits)
+
+=== DODGE & BLOCK MECHANICS ===
+
+DODGE ROLL:
+- 0.5 seconds of invincibility frames (i-frames)
+- Moves character 2 meters in movement direction
+- Costs 20 stamina
+- Cooldown: 1 second
+
+PERFECT DODGE:
+- Dodge within 0.2 seconds of enemy attack
+- Triggers slow-motion (1 second)
+- Next attack deals +100% damage
+- Refunds 10 stamina
+
+BLOCK:
+- Hold R to raise shield/weapon
+- Reduces damage by 50-80% (depends on shield quality)
+- Drains stamina while active
+- Heavy attacks break block (stagger)
+
+PERFECT BLOCK:
+- Block within 0.3 seconds of enemy attack
+- Negates all damage
+- Staggers enemy (2 seconds)
+- Refunds stamina cost
+
+STAGGER:
+- Enemy cannot attack or move
+- Take +50% damage
+- Duration: 2-4 seconds (depends on enemy size)
+
+=== CREAT AI BEHAVIOR ===
+
+STANCE MODES:
+- AGGRESSIVE: Creat attacks on sight, uses abilities frequently
+- DEFENSIVE: Creat stays near player, blocks attacks
+- BALANCED: Mix of offense and defense (default)
+
+CREAT ACTIONS:
+- Basic attack: Elemental bite/claw/breath
+- Special ability: Element-specific (fireball, ice shard, etc.)
+- Sync attack: Coordinated attack with player
+- Protect: Blocks fatal hit (once per battle, 75%+ bond)
+
+CREAT TARGETING:
+- Prioritizes player's target
+- Switches to nearest enemy if player target dies
+- Retreats if HP below 20%
+
+CREAT COOLDOWNS:
+- Basic attack: No cooldown
+- Special ability: 10 seconds
+- Sync attack: 30 seconds (or when sync meter full)
+
+=== SYNC MODE ===
+
+SYNC METER:
+- Builds from 0-100% during combat
+- Gain: +5% per player attack hit
+- Gain: +10% per creat attack hit
+- Gain: +20% per combo finisher
+- Resets to 0 after use
+
+ACTIVATION:
+- Press F when meter at 100%
+- Player and creat merge auras (3 seconds)
+- Invincible during activation
+
+SYNC MODE EFFECTS:
+- Duration: 15 seconds
+- +50% damage for player and creat
+- +30% movement speed
+- Unlimited stamina
+- Creat abilities have no cooldown
+- Ends with Ultimate Sync Attack
+
+ULTIMATE SYNC ATTACK:
+- Massive damage (500-1000 depending on level)
+- Element-specific animation
+- AoE or single-target (depends on creat type)
+- Guaranteed crit
+
+EXAMPLES:
+- Fire Drake: Meteor Dive (AoE, burn effect)
+- Water Serpent: Tidal Wave (AoE, knockback)
+- Earth Golem: Earthquake (AoE, stun)
+- Storm Roc: Lightning Storm (multi-target)
+- Shadow Panther: Void Slash (single-target, massive damage)
+
+=== ENEMY AI ===
+
+BASIC ENEMIES:
+- Simple attack patterns (1-2 attacks)
+- Predictable timing
+- Low HP (1-3 hits to kill)
+
+ELITE ENEMIES:
+- 3-4 attack patterns
+- Dodge player attacks occasionally
+- Medium HP (5-10 hits)
+- Drop better loot
+
+MINI-BOSSES:
+- 5+ attack patterns
+- Telegraphed attacks (visual cues)
+- Phase changes at 50% HP
+- High HP (20-30 hits)
+
+STORY BOSSES:
+- Complex attack patterns (10+ moves)
+- Multiple phases (3-5)
+- Environmental hazards
+- Enrage mechanics
+- Very high HP (50-100+ hits)
+
+ATTACK TELEGRAPHS:
+- Red glow: Heavy attack incoming (1 second warning)
+- Yellow glow: Special ability (2 second warning)
+- Purple glow: AoE attack (3 second warning, shows radius)
+
+=== ELEMENTAL INTERACTIONS ===
+
+WEAKNESS CHART:
+- Fire > Ice (2x damage)
+- Ice > Earth (2x damage)
+- Earth > Lightning (2x damage)
+- Lightning > Water (2x damage)
+- Water > Fire (2x damage)
+- Light > Shadow (2x damage)
+- Shadow > Light (2x damage)
+- Arcane = Neutral (1x to all)
+
+STATUS EFFECTS:
+- Burn: 10 damage per second, 5 seconds
+- Freeze: Cannot move, 3 seconds
+- Stun: Cannot attack, 3 seconds
+- Poison: 5 damage per second, 10 seconds
+- Blind: Reduced accuracy, 5 seconds
+- Slow: -50% movement speed, 5 seconds
+
+ELEMENTAL SHIELDS:
+- Bosses can activate elemental shields
+- Shield absorbs damage from non-weakness elements
+- Must use weakness element to break shield
+- Example: Fire boss has fire shield, use ice to break
+
+=== DIFFICULTY SCALING ===
+
+EASY MODE:
+- Enemies deal 50% damage
+- Player deals 150% damage
+- Longer dodge i-frames (0.7 seconds)
+- More forgiving perfect dodge/block windows
+
+NORMAL MODE:
+- Standard damage values
+- Default i-frames and timing windows
+
+HARD MODE:
+- Enemies deal 150% damage
+- Player deals 75% damage
+- Shorter i-frames (0.3 seconds)
+- Tighter perfect dodge/block windows
+- Enemies have more HP
+
+NIGHTMARE MODE (Unlocked after Story completion):
+- Enemies deal 200% damage
+- Player deals 50% damage
+- No i-frames on dodge (must position correctly)
+- Enemies have 2x HP
+- Bosses have additional attack patterns
+- Rewards: 2x gold, 2x gem drops, exclusive cosmetics
+
+=== COMBAT REWARDS ===
+
+PER ENEMY KILL:
+- Gold coins (5-50 GC)
+- Experience points (levels up character and creat)
+- Chance for item drops (weapons, food, gems)
+
+COMBO BONUSES:
+- 10+ combo: +10% gold
+- 20+ combo: +20% gold, +5% item drop rate
+- 30+ combo: +30% gold, +10% item drop rate, guaranteed rare drop
+
+PERFECT COMBAT (No damage taken):
+- +50% gold
+- +20% item drop rate
+- Bonus: 1 Elemental Fruit
+
+SYNC MODE FINISH:
+- +25% gold
+- Guaranteed gem drop
+- Bonus: Crown shard (if in crown zone)
+
+=== COMBAT ACCESSIBILITY ===
+
+OPTIONS:
+- Auto-dodge: Automatically dodges when enemy attacks (cooldown applies)
+- Auto-block: Automatically blocks heavy attacks
+- Slow-motion mode: Combat runs at 50% speed
+- Aim assist: Attacks auto-target nearest enemy
+- Simplified combos: 3 light attacks always triggers combo finisher
+
+VISUAL AIDS:
+- Enemy attack indicators (arrows, circles)
+- Colorblind-friendly status effect icons
+- Large damage numbers
+- Screen shake toggle
+
+AUDIO CUES:
+- Sound effect for enemy attack wind-up
+- Different sounds for light/heavy attacks
+- Audio cue for perfect dodge/block timing
+
+=== COMBAT TIPS (In-Game Tutorial) ===
+
+1. "Watch for red glows - that's your cue to dodge!"
+2. "Perfect blocks stagger enemies, opening them up for combos."
+3. "Build your sync meter by landing hits with both you and your creat."
+4. "Elemental weaknesses deal double damage - use them!"
+5. "Running out of stamina leaves you vulnerable. Manage it wisely."
+6. "Creat bond affects their performance. Keep them happy!"
+7. "Combo finishers deal bonus damage. Chain your attacks!"
+8. "Some bosses require specific elements to break their shields."
+
+=== COMBAT ZONES ===
+
+OPEN WORLD:
+- Enemies roam freely
+- Can avoid combat by sneaking
+- Aggro range: 5 meters
+
+DUNGEONS:
+- Enemies patrol set paths
+- Cannot leave combat once engaged
+- Locked doors until all enemies defeated
+
+ARENAS:
+- Waves of enemies
+- Timed challenges
+- Leaderboards for fastest clear
+
+BOSS ARENAS:
+- Locked arena (cannot leave)
+- Environmental hazards (lava, spikes, falling rocks)
+- Phase transitions change arena layout
+
+=== COMBAT PROGRESSION ===
+
+EARLY GAME (Levels 1-10):
+- Learn basic attacks and dodging
+- Simple enemy patterns
+- Tutorial bosses with clear telegraphs
+
+MID GAME (Levels 11-30):
+- Unlock combo system
+- Enemies use status effects
+- Bosses have 2-3 phases
+
+LATE GAME (Levels 31-50):
+- Master Sync Mode
+- Complex enemy patterns
+- Bosses require elemental strategy
+
+ENDGAME (Level 50+):
+- Perfect dodge/block required
+- Nightmare mode challenges
+- Faction raids with team coordination
+

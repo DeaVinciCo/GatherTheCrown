@@ -1,0 +1,125 @@
+=== UI/UX DESIGN SYSTEM ===
+
+CORE PRINCIPLES:
+- Flat 2D medieval-fantasy interface with clear readability
+- Bold outlines, high-contrast elements (nothing muddy or cluttered)
+- "Fantasy parchment + gem" vibe with polished modern usability
+- Each menu feels like medieval tome, but easy to navigate
+
+=== FONTS & WORDING ===
+
+FONTS:
+- Titles: Gothic / Blackletter (Old English Text MT, Cloister Black, Fraktur)
+- Body Text: Serif readable medieval fonts (Cinzel, EB Garamond, Alegreya SC)
+- Lore/Scrolls: Script handwriting (Tangerine, Great Vibes, MedievalSharp)
+
+MEDIEVAL TERMINOLOGY:
+- XP → Renown / Glory Marks
+- Inventory → Satchel / Adventurer's Pack
+- Quest Log → Chronicles / The Ledger
+- Settings → Codex of Laws
+- Titles in scroll caps: "CROWN FORGE" not "Crown Forge"
+
+=== SCROLLS & MENUS ===
+
+BACKGROUND:
+- Parchment texture, warm beige with darker burnt edges
+- Borders: metallic trims (bronze, silver, gold, osmium, black for legendary)
+- Scroll handles: wood, iron, or gem-tipped
+- Animation: slight curl/unroll when opening menus
+- Quest Journal: ink blot style text with faint crown sketches in margins
+
+=== COLOR SCHEMES ===
+
+BASE PALETTE:
+- Parchment Beige = menu base
+- Iron Gray / Black = borders
+- Deep Forest Green = forest UI
+- Royal Blue / Indigo = water UI
+- Crimson / Gold = combat UI
+- Shadow Violet / Obsidian = legendary/void UI
+
+RARITY GLOW SYSTEM:
+- Common = white outline
+- Uncommon = green outline
+- Rare = blue outline
+- Epic = purple outline
+- Legendary = gold glow
+- Mythic = black/red pulse
+- Divine = rainbow shimmer
+
+=== MAIN HUD ===
+
+ELEMENTS:
+- Health Bar: crown-shaped container (fills red → gold)
+- Stamina/Mana: gem-shaped icons (glow when full)
+- Mini-map: parchment-style, lower-right corner
+- Crown Fragment Tracker: puzzle outline of current crown, fills as shards/gems collected
+- Quick Slots: 5 slots, gem-rimmed squares with bold icons (weapons, items, potions)
+- Counters: Gold Coins, gems (by color), shards (by metal)
+- Quick slot for equipped crown (with durability meter)
+- Creat bond meter (shows health, sync %, elemental surge status)
+
+=== MENU SCREENS ===
+
+INVENTORY:
+- Tabs: Weapons, Tools, Gems, Shards, Consumables, Crowns
+- Puzzle view for crowns: shards/gems slot into crown outline
+- Sorting: rarity (common → mythic), type, newest first
+- Drag-and-drop equipped items into slots
+- Clear tooltips: name, rarity color, stats, lore snippet
+
+CROWN FORGE (special menu):
+- Puzzle layout showing shard/gem slots for each crown
+- Forge button: anvil icon, plays forge sound + glow animation
+- Completed crowns glow, shimmer, give aura preview
+- Shattered crowns show broken outline with cracks
+
+CHARACTER/CREAT MENU:
+- 3 characters max, each with 3 creat slots
+- Creat display: big card art, elemental symbol, stat wheel
+- Characters: portraits with customizable skin, hair, eyes, outfits
+- Locked slots grayed until story mode completed
+
+MAP MENU:
+- Parchment scroll map, zoomable
+- Icons: castle, town, inn, ruins, dungeon, crownforge, race track
+- Highlight quest areas with glowing outlines
+- Fast travel unlocks via discovered locations
+
+QUEST JOURNAL:
+- Scroll-style layout
+- Quests grouped: Story, Side, Crown Trials, Mini-games
+- Each quest: title, short description, rewards preview
+
+TOP MENU BAR:
+- Iron strip with rivets
+- Tab labels in small caps serif (EB Garamond)
+- Menu items: Account, Settings, Satchel, Chronicles, Map, Codex of Laws, Exit
+- Hover state: gold underline
+- Click state: pressed inset
+- Dropdowns: parchment panels with thin bronze border
+- Icons: 24px line icons (crown, gear, bag, scroll, map, scales)
+
+=== CROWN PUZZLE UI ===
+
+- Ghost outline of each crown with shard-shaped slots
+- Shards auto-slot when picked up, multiples stack
+- Gems socket into highlighted slots (color-coded by element)
+- Completing crown triggers forge animation (glow, hum, pulse)
+- Hover: tooltips with shard lore, drop sources, rarity
+- Click: zooms crown puzzle view to see progress
+
+=== VISUAL EFFECTS ===
+
+- Rare/important items glow, pulse, or shimmer
+- Crown puzzles show cracks when incomplete, shimmer when forged
+- Animated menu effects: forge sparks, rune glow, parchment curl
+- Shatter animation: shards scatter, pulse 8 seconds, vanish
+
+=== ACCESSIBILITY ===
+
+- Font: clear serif for titles, sans-serif for text
+- Colorblind-friendly rarity coding (use symbols + shapes)
+- Adjustable UI scale (0.75–1.5x)
+- High-contrast mode option

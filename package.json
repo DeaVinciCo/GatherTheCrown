@@ -1,0 +1,23 @@
+{
+  "name": "gather-the-crown",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Gather The Crown: Creats & Foes game project.",
+  "author": "Dea Vinci Co.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter @game/server dev\" \"pnpm --filter @game/client dev\"",
+    "mobile:dev": "concurrently \"pnpm --filter @game/client dev:mobile\" \"pnpm --filter @game/mobile start\"",
+    "build": "pnpm --filter @game/client build",
+    "start": "pnpm --filter @game/server start",
+    "mobile": "pnpm --filter @game/mobile start",
+    "db:migrate": "pnpm --filter @game/server db:migrate",
+    "db:seed": "pnpm --filter @game/server db:seed",
+    "backup:supabase:dry": "node tools/supabase_full_backup.mjs --dry-run true",
+    "backup:supabase": "node tools/supabase_full_backup.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "typescript": "^5.4.5"
+  }
+}

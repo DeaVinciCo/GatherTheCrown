@@ -1,0 +1,45 @@
+=== BOSS SYSTEM ===
+
+TIER 1 — Mini-Bosses (Trial Beasts)
+- Location: Mini-Games & early Side Quests
+- Duration: 60–90 seconds
+- Style: Reflex/puzzle-based
+- Drops: Rare fruit, boosts, blueprint fragments
+
+TIER 2 — Roaming Bosses (Worldbinders)
+- Location: Side Quests / PvE Dungeons
+- Duration: 3–5 minutes
+- Mechanics: 2–3 elemental phases, minor enrages
+- Drops: Unique armor/creat skin mods, advanced food, lore entries
+
+TIER 3 — Crown Sentinels
+- Location: Crown Trials (PvE) / Crownfall Gauntlet Events
+- Duration: 4–7 minutes
+- Mechanics: Stagger phases, synced attacks, reactive to creat+char synergy
+- Drops: Mythic Crown Shards, permanent stat boosts, unique titles
+
+TIER 4 — Story Mode Bosses (Reignlords)
+- Location: Story Mode (Path of the Crown)
+- Duration: 5 min → 10 min → 15 min (progressive levels)
+- Mechanics: Multiple enrages, forcefield resistance, Sync Mode co-op attacks, environmental shifts, Crown Combo phase (30+ hits = weaken core)
+- Drops: Crown Fragments (core progression), Legendary Creat food, Region unlock keys, Unique transformations
+
+TIER 5 — Faction Raids
+- Location: Faction Battles
+- Style: Massive, 10-player synced fights
+- Scaling: Based on average player crown tier
+- Rewards: Custom faction gear, banners, keys, Keepsake entry tokens
+
+=== BOSS EVOLUTION SYSTEM ===
+- Bosses evolve each story arc, adapting elementally to player's creat/character build
+- Critical debuffs required (fire crit vs ice shield to stagger, lightning crit vs earth boss to stun)
+- Each defeat drops loot for next stage progression
+- Boss forms change based on player element (e.g., Fire Queen → Frostflame → Emberstorm)
+
+BOSS WEAKNESS TRIGGER SYSTEM:
+Fire Boss → Ice Crit = Freeze (4 sec, slows attacks)
+Ice Boss → Fire Crit = Burn (damage over time)
+Lightning Boss → Earth Crit = Blind (lowers accuracy)
+Earth Boss → Lightning Crit = Stun (3 sec, open for combo)
+Shadow Boss → Light Crit = Silence spells (5 sec)
+Light Boss → Shadow Crit = Confuse (random attack pattern)

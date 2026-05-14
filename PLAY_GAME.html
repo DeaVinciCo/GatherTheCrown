@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="./PLAY_GAME.html">
+  <meta name="author" content="Dea Vinci Co.">
+  <meta name="creator" content="Dea Vinci Co.">
+  <meta name="copyright" content="Gather The Crown: Creats & Foes - Dea Vinci Co.">
+  <title>👑 Gather the Crown: Creats & Foes</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      overflow: hidden;
+      color: white;
+    }
+    #game-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .subtitle {
+      font-size: 24px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+    .game-area {
+      background: rgba(0,0,0,0.3);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 800px;
+      width: 90%;
+    }
+    .creat-display {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .creat {
+      font-size: 100px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .stat {
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 5px;
+    }
+    .stat-value {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 5px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+      transition: width 0.3s;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    button {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    }
+    button:active {
+      transform: translateY(0px);
+    }
+    .message {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      min-height: 30px;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .kingdom-info {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .kingdom-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .kingdom-item {
+      background: rgba(0,0,0,0.2);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .creator-stamp {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <h1>👑 Gather the Crown</h1>
+    <p class="subtitle">Creats & Foes - Playable Demo</p>
+    
+    <div class="game-area">
+      <div class="creat-display">
+        <div class="creat" id="creat-emoji">🔥</div>
+        <h2 id="creat-name">Ember</h2>
+        <p id="creat-stage">Hatchling Fire Creat</p>
+      </div>
+      
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">Bond Level</div>
+          <div class="stat-value" id="bond-level">0</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="bond-bar" style="width: 0%"></div>
+          </div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-label">Hunger</div>
+          <div class="stat-value" id="hunger-level">100</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="hunger-bar" style="width: 100%; background: linear-gradient(90deg, #51cf66, #94d82d);"></div>
+          </div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-label">Happiness</div>
+          <div class="stat-value" id="happiness-level">100</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="happiness-bar" style="width: 100%; background: linear-gradient(90deg, #ffd43b, #fab005);"></div>
+          </div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-label">Level</div>
+          <div class="stat-value" id="level">1</div>
+          <div class="stat-label" style="margin-top: 5px;">XP: <span id="xp">0</span>/100</div>
+        </div>
+      </div>
+      
+      <div class="buttons">
+        <button onclick="petCreat()">💝 Pet</button>
+        <button onclick="feedCreat()">🍖 Feed</button>
+        <button onclick="playWithCreat()">🎮 Play</button>
+      </div>
+      
+      <div class="message" id="message"></div>
+      
+      <div class="kingdom-info">
+        <h3>🏰 Kingdom Progress</h3>
+        <div style="margin: 10px 0;">
+          <strong>Discovered:</strong> <span id="kingdoms-discovered">0</span>/8 kingdoms
+        </div>
+        <div class="kingdom-list" id="kingdom-list"></div>
+      </div>
+
+      <p class="creator-stamp">Created by Dea Vinci Co.</p>
+    </div>
+  </div>
+
+  <script>
+    const GTC_CREATOR_SIGNATURE = {
+      brand: 'Dea Vinci Co.',
+      project: 'Gather The Crown: Creats & Foes',
+      origin: 'Created and designed by Dea Vinci Co.',
+      established: '2026-05-02'
+    };
+
+    // Game State
+    let creat = {
+      name: 'Ember',
+      element: 'Fire',
+      stage: 'Hatchling',
+      level: 1,
+      xp: 0,
+      xpToNext: 100,
+      bond: 0,
+      hunger: 100,
+      happiness: 100,
+      emoji: '🔥'
+    };
+
+    let kingdoms = [
+      { name: 'Sylvara', element: 'Nature', discovered: false, emoji: '🌲' },
+      { name: 'Pyrrathia', element: 'Fire', discovered: false, emoji: '🔥' },
+      { name: 'Frostvale', element: 'Ice', discovered: false, emoji: '❄️' },
+      { name: 'Zerath Dunes', element: 'Desert', discovered: false, emoji: '🏜️' },
+      { name: "Mor'gahl Fen", element: 'Poison', discovered: false, emoji: '☠️' },
+      { name: 'Luminaris', element: 'Light', discovered: false, emoji: '✨' },
+      { name: 'Umbral Reach', element: 'Shadow', discovered: false, emoji: '🌑' },
+      { name: 'Crown Convergence', element: 'Unified', discovered: false, emoji: '👑' }
+    ];
+
+    // Update Display
+    function updateDisplay() {
+      document.getElementById('bond-level').textContent = creat.bond;
+      document.getElementById('bond-bar').style.width = creat.bond + '%';
+      
+      document.getElementById('hunger-level').textContent = creat.hunger;
+      document.getElementById('hunger-bar').style.width = creat.hunger + '%';
+      
+      document.getElementById('happiness-level').textContent = creat.happiness;
+      document.getElementById('happiness-bar').style.width = creat.happiness + '%';
+      
+      document.getElementById('level').textContent = creat.level;
+      document.getElementById('xp').textContent = creat.xp;
+      
+      document.getElementById('creat-emoji').textContent = creat.emoji;
+      document.getElementById('creat-name').textContent = creat.name;
+      document.getElementById('creat-stage').textContent = `${creat.stage} ${creat.element} Creat`;
+      
+      // Update kingdoms
+      const discovered = kingdoms.filter(k => k.discovered).length;
+      document.getElementById('kingdoms-discovered').textContent = discovered;
+      
+      const kingdomList = document.getElementById('kingdom-list');
+      kingdomList.innerHTML = kingdoms.map(k => 
+        `<div class="kingdom-item">${k.emoji} ${k.name} ${k.discovered ? '✓' : '🔒'}</div>`
+      ).join('');
+    }
+
+    // Show Message
+    function showMessage(text) {
+      const msg = document.getElementById('message');
+      msg.textContent = text;
+      msg.style.animation = 'none';
+      setTimeout(() => msg.style.animation = 'fadeIn 0.5s', 10);
+    }
+
+    // Pet Creat
+    function petCreat() {
+      creat.bond = Math.min(100, creat.bond + 5);
+      creat.happiness = Math.min(100, creat.happiness + 10);
+      creat.xp += 10;
+      
+      showMessage(`💝 You petted ${creat.name}! Bond +5, Happiness +10`);
+      checkLevelUp();
+      checkEvolution();
+      updateDisplay();
+    }
+
+    // Feed Creat
+    function feedCreat() {
+      creat.hunger = Math.min(100, creat.hunger + 30);
+      creat.bond = Math.min(100, creat.bond + 3);
+      creat.xp += 5;
+      
+      showMessage(`🍖 You fed ${creat.name}! Hunger restored, Bond +3`);
+      checkLevelUp();
+      updateDisplay();
+    }
+
+    // Play with Creat
+    function playWithCreat() {
+      creat.bond = Math.min(100, creat.bond + 8);
+      creat.happiness = Math.min(100, creat.happiness + 20);
+      creat.xp += 15;
+      
+      showMessage(`🎮 You played with ${creat.name}! Bond +8, Happiness +20`);
+      checkLevelUp();
+      checkEvolution();
+      updateDisplay();
+    }
+
+    // Check Level Up
+    function checkLevelUp() {
+      if (creat.xp >= creat.xpToNext) {
+        creat.level++;
+        creat.xp -= creat.xpToNext;
+        creat.xpToNext = Math.floor(creat.xpToNext * 1.5);
+        showMessage(`🎉 ${creat.name} leveled up to Level ${creat.level}!`);
+        
+        // Discover kingdom on certain levels
+        if (creat.level === 3 && !kingdoms[0].discovered) {
+          kingdoms[0].discovered = true;
+          showMessage(`🏰 Discovered ${kingdoms[0].name}!`);
+        }
+        if (creat.level === 5 && !kingdoms[1].discovered) {
+          kingdoms[1].discovered = true;
+          showMessage(`🏰 Discovered ${kingdoms[1].name}!`);
+        }
+      }
+    }
+
+    // Check Evolution
+    function checkEvolution() {
+      if (creat.bond >= 60 && creat.stage === 'Hatchling') {
+        creat.stage = 'Juvenile';
+        creat.emoji = '🐲';
+        showMessage(`✨ ${creat.name} evolved to Juvenile stage!`);
+      } else if (creat.bond >= 80 && creat.stage === 'Juvenile') {
+        creat.stage = 'Adult';
+        creat.emoji = '🐉';
+        showMessage(`✨✨ ${creat.name} evolved to Adult stage!`);
+      } else if (creat.bond >= 100 && creat.stage === 'Adult') {
+        creat.stage = 'Elder';
+        creat.emoji = '🔥🐉';
+        showMessage(`✨✨✨ ${creat.name} evolved to Elder stage! Maximum power!`);
+      }
+    }
+
+    // Decrease hunger/happiness over time
+    setInterval(() => {
+      creat.hunger = Math.max(0, creat.hunger - 1);
+      if (creat.hunger < 30) {
+        creat.happiness = Math.max(0, creat.happiness - 1);
+      }
+      updateDisplay();
+    }, 5000); // Every 5 seconds
+
+    // Initialize
+    updateDisplay();
+    showMessage(`Welcome! Meet ${creat.name}, your Fire Creat! 🔥`);
+    console.info('Creator signature:', GTC_CREATOR_SIGNATURE);
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+=== WEAPONS & TOOLS SYSTEM ===
+
+STARTER WEAPONS (basic kit before crafting):
+- Wooden Sword (short blade, weak but balanced)
+- Stone Dagger (fast, low damage, high crit rate)
+- Wooden Bow + Flint Arrows (long range, low durability)
+- Wooden Staff (basic magic focus, no elemental buffs)
+- Training Spear (reach advantage, brittle)
+- Wooden Shield (blocks 1–2 hits before breaking)
+- Slingshot (pebbles, weak, stuns small foes)
+
+BASIC UPGRADE PATH:
+- Iron Sword / Iron Dagger
+- Steel Axe / Hatchet (can also chop wood)
+- Hunting Spear (iron tip, better reach, higher damage)
+- Shortbow + Iron Arrowheads
+- Wooden Crossbow (slower, higher damage than bow)
+- Basic Mage Staff (socket for 1 gem: fire, ice, or lightning)
+- Round Iron Shield
+- Blacksmith Hammer (dual-use: crafting + blunt weapon)
+
+TOOLS (non-combat but upgradable):
+- Pickaxe (ore mining, doubles as blunt weapon)
+- Hatchet (wood harvesting, doubles as axe weapon)
+- Farming Sickle (crop harvest, doubles as slicing weapon)
+- Fishing Rod (food source, can hook small items)
+- Torch (light source, basic fire damage)
+- Shovel (digging, heavy blunt weapon if needed)
+
+ELEMENTAL / SPECIALIZED WEAPONS:
+- Flameblade (sword with fire gem socket)
+- Froststaff (staff with ice gem, shoots frost bolts)
+- Stormbow (bow socketed with lightning gem, chain-shot arrows)
+- Shadow Dagger (poison/bleed effect, stealth boost)
+- Earthshaker Hammer (stone + shard crafted, quake AoE)
+- Crystal Pike (crafted with gems, pierces armor)
+- Lightbringer Sword (socketed with clear/light gem, blinds foes)
+- Dual Blades (crafted upgrade from daggers, high combo speed)
+
+CROWN-WEAPON TIER (LEGENDARY):
+- Crownblade (crafted from crown shards + gems, emits aura)
+- Crown Staff (amplifies spells based on equipped gem set)
+- Crownbow (fires gem-charged arrows)
+- Crownshield (absorbs damage, then explodes in elemental burst)
+- Relic Weapons (boss-specific drops: Ashthrone's Ember Scythe, Hollow Monarch's Voidfang)
+
+WEAPON PROGRESSION:
+Starter Kit → 1 weapon + 1 tool chosen based on character class
+Upgrades → Found/crafted from shards + metals (iron, bronze, silver, gold, osmium)
+Elemental Weapons → Only unlocked once gems socketed into crafted base weapon
+Crown Weapons → Require completed crowns + rare boss loot (endgame tier)

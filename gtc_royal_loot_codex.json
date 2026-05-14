@@ -1,0 +1,400 @@
+{
+  "module": "gtc_royal_loot_codex",
+  "version": "1.0",
+  "game": "Gather The Crown: Creats & Foes",
+  "description": "Royal currency, vault treasures, and kingdom downfall cinematics for each realm",
+  
+  "currency_system": {
+    "standard_currency": {
+      "copper_coins": "Basic drops from weak enemies",
+      "silver_coins": "Mid-tier quest rewards",
+      "gold_coins": "Boss drops, major quest completion"
+    },
+    
+    "royal_currency": {
+      "description": "Kingdom-specific high-value currency found in vaults and major quests",
+      "uses": [
+        "Rare weapon/armor upgrades",
+        "Legendary creat food",
+        "Crown fragment forging",
+        "Faction reputation boosts",
+        "Special NPC services"
+      ],
+      "conversion": "10 royal currency = 1 crown shard fragment"
+    }
+  },
+  
+  "kingdoms": [
+    {
+      "id": 1,
+      "name": "Everdawn Plains",
+      "element": "Neutral/Light",
+      "royal_currency": {
+        "name": "Dawn Medallions",
+        "appearance": "Golden coins with sunrise emblem",
+        "value": "50 gold coins each"
+      },
+      
+      "vault_location": "Tutorial zone has no vault (starter area)",
+      "vault_loot": "N/A - this is the spawn/safe zone",
+      
+      "cutscene": {
+        "trigger": "First time entering from character creation",
+        "duration": "30 seconds",
+        "scenes": [
+          "Hero awakens in peaceful flatlands",
+          "Healing tree circles glow softly",
+          "Two paths appear: left to safety, right to trials",
+          "Narrator: 'Your journey to Gather the Crown begins here.'"
+        ]
+      },
+      
+      "downfall_story": "N/A - Everdawn Plains remains untouched as the starting sanctuary"
+    },
+    
+    {
+      "id": 2,
+      "name": "Sylvara",
+      "element": "Earth/Nature",
+      "royal_currency": {
+        "name": "Emerald Leaves",
+        "appearance": "Leaf-shaped coins with green shimmer",
+        "value": "75 gold coins each"
+      },
+      
+      "vault_location": "Beneath the Rootspire, deep underground chamber",
+      "vault_loot": {
+        "guaranteed": [
+          "Emerald Leaves x50",
+          "Forest Crown Fragment",
+          "Legendary Seed (creat evolution item)",
+          "Nature's Blessing Scroll"
+        ],
+        "random_pool": [
+          "Verdant Armor Set",
+          "Thornblade Sword",
+          "Ancient Druid Staff",
+          "Rare creat eggs (Earth element)"
+        ]
+      },
+      
+      "cutscene": {
+        "trigger": "First approach to Sylvara kingdom gates",
+        "duration": "45 seconds",
+        "scenes": [
+          "Flashback: Sylvara in its prime - lush forests, thriving villages, singing birds",
+          "Dark corruption spreads: vines turn black, trees wither",
+          "Shadow element seeps from underground, poisoning the roots",
+          "The Forest Guardian (boss) becomes corrupted, eyes glow purple",
+          "Present day: fog-covered ruins, twisted trees, eerie silence",
+          "Narrator: 'Once the greenest jewel of the realm, now choked by shadow. Can you restore the light?'"
+        ]
+      },
+      
+      "downfall_story": "Corrupted by Shadow element - dark magic seeped into the roots, turning the guardian forest spirits against the people"
+    },
+    
+    {
+      "id": 3,
+      "name": "Pyrrathia",
+      "element": "Fire/Lava",
+      "royal_currency": {
+        "name": "Ember Crowns",
+        "appearance": "Molten medallions that glow faintly red",
+        "value": "100 gold coins each"
+      },
+      
+      "vault_location": "Deep within Molten Maw Caves, protected by lava flows",
+      "vault_loot": {
+        "guaranteed": [
+          "Ember Crowns x60",
+          "Inferno Crown Fragment",
+          "Phoenix Feather (creat resurrection item)",
+          "Flameheart Gem"
+        ],
+        "random_pool": [
+          "Magma Plate Armor",
+          "Volcanic Greatsword",
+          "Cinder Staff",
+          "Fire creat eggs (legendary tier)"
+        ]
+      },
+      
+      "cutscene": {
+        "trigger": "Entering Pyrrathia borders",
+        "duration": "50 seconds",
+        "scenes": [
+          "Flashback: Volcanic forges roaring, smiths crafting legendary weapons, prosperity",
+          "Volcanic eruption: mountains explode, lava floods the kingdom",
+          "Water element attack: massive tidal wave crashes into lava, creating deadly steam",
+          "The Infernal Titan (boss) rises from the chaos, half-molten, half-frozen",
+          "Present day: cracked obsidian ruins, rivers of cooling lava, ash-filled skies",
+          "Narrator: 'Fire met water in cataclysm. What remains is neither, but both - and neither will rest.'"
+        ]
+      },
+      
+      "downfall_story": "Destroyed by opposing Water element - a massive flood from Tideholm crashed into the volcanic kingdom, creating a steam apocalypse"
+    },
+    
+    {
+      "id": 4,
+      "name": "Frostvale",
+      "element": "Ice/Frost",
+      "royal_currency": {
+        "name": "Frozen Sigils",
+        "appearance": "Ice-etched crystal discs",
+        "value": "90 gold coins each"
+      },
+      
+      "vault_location": "Inside Glacier's Crown mountain, frozen throne room",
+      "vault_loot": {
+        "guaranteed": [
+          "Frozen Sigils x55",
+          "Glacier Crown Fragment",
+          "Eternal Ice Shard (weapon enhancement)",
+          "Frostborn Essence"
+        ],
+        "random_pool": [
+          "Iceplate Armor Set",
+          "Frostbite Blade",
+          "Blizzard Staff",
+          "Ice creat eggs (rare variants)"
+        ]
+      },
+      
+      "cutscene": {
+        "trigger": "Crossing into Frostvale territory",
+        "duration": "45 seconds",
+        "scenes": [
+          "Flashback: Ice castles gleaming, aurora borealis dancing, peaceful snow festivals",
+          "Eternal winter curse: blizzards never stop, temperatures drop beyond survival",
+          "Fire element corruption: volcanic fissures crack the ice, creating unstable terrain",
+          "The Glacier Colossus (boss) awakens, half-melting, enraged",
+          "Present day: shattered ice fields, frozen corpses, howling winds",
+          "Narrator: 'Frozen in time by its own element's excess. Fire tried to free it, but only brought ruin.'"
+        ]
+      },
+      
+      "downfall_story": "Corrupted by its own Ice element (eternal winter curse) + Fire element attacks created unstable melting zones"
+    },
+    
+    {
+      "id": 5,
+      "name": "Zerath Dunes",
+      "element": "Earth/Sand",
+      "royal_currency": {
+        "name": "Sunscarabs",
+        "appearance": "Gold scarab-shaped coins",
+        "value": "85 gold coins each"
+      },
+      
+      "vault_location": "Buried beneath the Sands of Silence, ancient pyramid",
+      "vault_loot": {
+        "guaranteed": [
+          "Sunscarabs x65",
+          "Desert Crown Fragment",
+          "Sandstorm Orb (summon ability)",
+          "Pharaoh's Blessing"
+        ],
+        "random_pool": [
+          "Sunforged Armor",
+          "Scarab Blade",
+          "Dune Warden Staff",
+          "Sand creat eggs (burrower types)"
+        ]
+      },
+      
+      "cutscene": {
+        "trigger": "Entering desert kingdom ruins",
+        "duration": "50 seconds",
+        "scenes": [
+          "Flashback: Oasis cities, golden markets, caravans trading across dunes",
+          "Sandstorm apocalypse: massive storm buries entire cities in minutes",
+          "Water element drought: all oases dry up, rivers vanish",
+          "The Sandstorm Leviathan (boss) emerges, consuming everything",
+          "Present day: endless dunes, half-buried ruins, mirages of the past",
+          "Narrator: 'The sands remember prosperity. The sands remember betrayal. The sands remember everything.'"
+        ]
+      },
+      
+      "downfall_story": "Destroyed by Water element drought (opposing force dried all water sources) + massive sandstorms buried the kingdom"
+    },
+    
+    {
+      "id": 6,
+      "name": "Mor'gahl Fen",
+      "element": "Poison/Shadow",
+      "royal_currency": {
+        "name": "Bog Pearls",
+        "appearance": "Dark iridescent pearls",
+        "value": "95 gold coins each"
+      },
+      
+      "vault_location": "Sunken palace in Bogheart Hollow, underwater chamber",
+      "vault_loot": {
+        "guaranteed": [
+          "Bog Pearls x70",
+          "Swamp Crown Fragment",
+          "Plague Doctor's Mask (poison immunity)",
+          "Murk Essence"
+        ],
+        "random_pool": [
+          "Bog Warden Armor",
+          "Venomfang Dagger",
+          "Pestilence Staff",
+          "Poison creat eggs (rare serpents)"
+        ]
+      },
+      
+      "cutscene": {
+        "trigger": "Approaching swamp kingdom borders",
+        "duration": "55 seconds",
+        "scenes": [
+          "Flashback: Wetland villages on stilts, alchemists brewing cures, harmony with nature",
+          "Poison outbreak: experimental alchemy goes wrong, toxic gas spreads",
+          "Light element purge attempt: holy magic burns the swamp, making it worse",
+          "The Bog Lurker (boss) mutates from the chaos, massive and toxic",
+          "Present day: rotting vegetation, poisonous mists, sunken ruins",
+          "Narrator: 'They sought to cure all ills. Instead, they became the disease.'"
+        ]
+      },
+      
+      "downfall_story": "Self-inflicted Poison corruption (alchemical disaster) + Light element purge attempt backfired, creating toxic wasteland"
+    },
+    
+    {
+      "id": 7,
+      "name": "Luminaris Caverns",
+      "element": "Crystal/Light",
+      "royal_currency": {
+        "name": "Prism Shards",
+        "appearance": "Rainbow-refracting crystal coins",
+        "value": "120 gold coins each"
+      },
+      
+      "vault_location": "Heart of Shardspire Cavern, crystalline vault chamber",
+      "vault_loot": {
+        "guaranteed": [
+          "Prism Shards x80",
+          "Crystal Crown Fragment",
+          "Prismatic Core (ultimate crafting material)",
+          "Lightbearer's Sigil"
+        ],
+        "random_pool": [
+          "Crystalline Armor Set",
+          "Shardbreaker Sword",
+          "Prism Wand",
+          "Crystal creat eggs (legendary golems)"
+        ]
+      },
+      
+      "cutscene": {
+        "trigger": "Descending into Luminaris Caverns",
+        "duration": "50 seconds",
+        "scenes": [
+          "Flashback: Glowing crystal cities, scholars studying light magic, beauty beyond words",
+          "Shadow invasion: darkness seeps through cracks, corrupting crystals",
+          "Crystals shatter: the light becomes too intense, blinding and burning",
+          "The Crownshard Guardian (boss) fractures, becoming a prism of chaos",
+          "Present day: shattered crystals, blinding light zones, dangerous reflections",
+          "Narrator: 'Too much light casts the darkest shadows. Balance was forgotten.'"
+        ]
+      },
+      
+      "downfall_story": "Corrupted by Shadow element invasion + Light element overload (crystals amplified light to destructive levels)"
+    },
+    
+    {
+      "id": 8,
+      "name": "Crown Convergence",
+      "element": "All Elements/Chaos",
+      "royal_currency": {
+        "name": "Sovereign Fragments",
+        "appearance": "Shimmering multi-colored crown pieces",
+        "value": "500 gold coins each"
+      },
+      
+      "vault_location": "The Shattered Vault - floating throne room at Crownspire peak",
+      "vault_loot": {
+        "guaranteed": [
+          "Sovereign Fragments x100",
+          "The Final Crown Fragment",
+          "Crownbearer's Legacy (ultimate weapon)",
+          "All-Element Essence"
+        ],
+        "random_pool": [
+          "Sovereign Armor (all resistances)",
+          "Crown Blade (legendary)",
+          "Staff of Convergence",
+          "Mythic creat eggs (any element, max stats)"
+        ]
+      },
+      
+      "cutscene": {
+        "trigger": "Unlocking Crown Convergence (after collecting all 7 kingdom crown fragments)",
+        "duration": "90 seconds",
+        "scenes": [
+          "Flashback: The original Crown Kingdom - all elements in harmony, prosperity beyond measure",
+          "The Shattering: greed and power corrupt the rulers, elements turn against each other",
+          "Elemental war: fire vs water, light vs shadow, earth vs air - total chaos",
+          "The Crown shatters: fragments scatter across the realm, creating the 7 kingdoms",
+          "The Hollow Monarch (final boss) remains, wearing the broken crown, commanding all corrupted elements",
+          "Present day: fractured reality, floating islands, elemental storms colliding",
+          "Narrator: 'The Crown was whole. The Crown was broken. You will make it whole again... or join the ruins.'"
+        ]
+      },
+      
+      "downfall_story": "Destroyed by ALL elements at once - the original kingdom's greed caused elemental civil war, shattering the crown and creating the 7 corrupted kingdoms"
+    }
+  ],
+  
+  "vault_mechanics": {
+    "unlock_requirements": [
+      "Defeat kingdom boss",
+      "Complete main kingdom questline",
+      "Obtain Vault Key from boss drop"
+    ],
+    
+    "vault_experience": {
+      "entrance": "Massive ornate doors with kingdom emblem",
+      "interior": "Scrooge McDuck style - piles of coins, treasures glowing",
+      "interaction": "Player can 'swim' through coins briefly (visual effect)",
+      "collection": "Auto-collect all loot with dramatic fanfare",
+      "completion_bonus": "Kingdom restoration cutscene plays"
+    },
+    
+    "restoration_cutscene": {
+      "trigger": "After collecting vault loot",
+      "duration": "20 seconds",
+      "effect": [
+        "Kingdom colors return (desaturated → vibrant)",
+        "NPCs return to towns and villages",
+        "Shops and services unlock",
+        "Fast travel point activated",
+        "Kingdom flag raised at castle"
+      ]
+    }
+  },
+  
+  "royal_currency_exchange": {
+    "npc": "Royal Treasurer (appears in restored kingdoms)",
+    "services": [
+      {
+        "service": "Convert to Crown Shards",
+        "rate": "10 royal currency = 1 crown shard fragment"
+      },
+      {
+        "service": "Legendary Weapon Forge",
+        "cost": "50 royal currency + materials"
+      },
+      {
+        "service": "Creat Evolution Boost",
+        "cost": "30 royal currency"
+      },
+      {
+        "service": "Faction Reputation",
+        "cost": "20 royal currency = 1000 faction points"
+      }
+    ]
+  }
+}

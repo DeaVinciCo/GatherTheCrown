@@ -1,0 +1,65 @@
+=== CHARACTER FEATURES & TRAITS ===
+
+CHARACTER SYSTEM:
+- 3 characters per account max
+- Each bonded with 3 creats
+- First-ever creat = permanent (cannot delete)
+- Reset requires: Story Mode completion + 50M GC
+
+BASE STATS:
+- Strength, Agility, Stamina, Wisdom, Luck, Charisma
+- Certain crowns & gems amplify specific stats
+
+TRAITS BY FACTION & ELEMENT:
+- Fire Rider: higher crit rate
+- Water Rider: better regen
+- Earth Rider: increased defense
+- Storm Rider: speed boost
+- Light Rider: healing amplification
+- Shadow Rider: stealth enhancement
+
+APPEARANCE OPTIONS:
+- Skin Tones: pale, fair, olive, tan, bronze, deep brown, ebony, gray-toned (shadow folk), glowing (mystics)
+- Hair: long, short, braided, shaved, curly, wavy, straight, ponytails, buns, mohawks, locs, shaved sides
+- Hair Colors: black, brown, blonde, red, white, silver, blue, purple, green, gold, fiery ombre, shadow fade
+- Eye Colors: brown, blue, green, hazel, gold, silver, red, violet, glowing (elemental)
+- Face Features: scars, freckles, tattoos, warpaint, glowing runes, piercings
+- Body Types: lean, muscular, stocky, tall, short, agile, armored
+- Clothing Styles: medieval armor, robes, leather gear, faction-specific colors, cloaks, crowns
+
+=== CREAT FEATURES & TRAITS ===
+
+ELEMENTAL AFFINITIES:
+Fire, Water, Earth, Shadow, Light, Storm, Void, Arcane
+
+GROWTH SYSTEM:
+- Fed with fruits, rare foods, or shards
+- Can evolve, unlock new forms, learn combo attacks with rider
+- Battle together raises bond meter → unlocks Sync Mode
+- Higher bond = higher crit synergy during boss fights
+
+CREAT ROLES:
+- Tank (Earth, Shadow)
+- DPS (Fire, Storm, Void)
+- Support (Water, Light)
+
+CREAT TRAITS:
+- Loyalty (won't abandon rider)
+- Temperament (aggressive, cautious, curious)
+- Unique passive perks (Shadow creat cloaks rider when idle, Water creat heals over time)
+
+APPEARANCE OPTIONS:
+- Skin/Scale/Hide Colors: natural tones (gray, brown, black, green, red, blue), elemental variants (lava glow, frost shimmer, storm crackle, shadow fade, radiant)
+- Body Types: drake, serpent, boar, wolf, bird, insectoid, golem
+- Features: horns, tusks, feathers, glowing eyes, extra limbs, wings, crystalline growths, scars
+- Size Variants: hatchling, adolescent, full-grown, elder
+- Temperament: loyal, aggressive, cunning, cautious, curious
+
+ELEMENTAL AURAS (always visible):
+- FIRE: ember motes, orange rim light
+- WATER: soft blue caustics, drip FX
+- EARTH: dust flecks, cracked soil prints
+- STORM: tiny spark forks, after-image on dash
+- LIGHT: soft bloom at edges, white specks
+- SHADOW: violet haze, subtle blur mask
+- ICE: frost mist cone, sparkle flecks

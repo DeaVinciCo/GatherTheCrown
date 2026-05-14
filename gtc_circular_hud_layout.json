@@ -1,0 +1,267 @@
+{
+  "module": "gtc_circular_hud_layout",
+  "version": "1.0",
+  "game": "Gather The Crown: Creats & Foes",
+  "description": "Circular jewel-based HUD with 4 quadrants for hero, creat, attacks, and resources",
+  
+  "layout": {
+    "shape": "circular_ring",
+    "position": "screen_corners",
+    "style": "medieval_jewel_frames",
+    "opacity_idle": 0.85,
+    "opacity_active": 1.0
+  },
+  
+  "quadrants": {
+    "top_left": {
+      "name": "Hero Status",
+      "position": "top_left_corner",
+      "contents": [
+        {
+          "id": "hero_health",
+          "type": "bar",
+          "color": "#E05A5A",
+          "label": "HP",
+          "max_value": 100,
+          "current_value": 100,
+          "jewel_icon": "red_heart_gem"
+        },
+        {
+          "id": "hero_xp",
+          "type": "bar",
+          "color": "#D6B46A",
+          "label": "XP",
+          "shows_progress_to_next_level": true,
+          "jewel_icon": "gold_star_gem"
+        },
+        {
+          "id": "hero_cooldown",
+          "type": "timer_ring",
+          "color": "#A6C1FF",
+          "label": "CD",
+          "shows_active_ability_cooldown": true
+        }
+      ],
+      "jewel_count": 3,
+      "popup_menu": false
+    },
+    
+    "top_right": {
+      "name": "Mana & Potions",
+      "position": "top_right_corner",
+      "contents": [
+        {
+          "id": "mana_bar",
+          "type": "bar",
+          "color": "#3B75E6",
+          "label": "Mana",
+          "max_value": 100,
+          "current_value": 100,
+          "jewel_icon": "blue_crystal_gem",
+          "bond_scaling": "Slots increase with creat bond (50%=5, 75%=7, 100%=10)"
+        },
+        {
+          "id": "potion_slots",
+          "type": "item_slots",
+          "max_slots": 5,
+          "jewel_icons": "potion_vials",
+          "click_action": "use_potion",
+          "popup_menu": true,
+          "popup_shows": "potion_inventory_quick_select"
+        },
+        {
+          "id": "resource_cooldown",
+          "type": "timer_ring",
+          "color": "#47C08A",
+          "label": "CD",
+          "shows_mana_recharge_timer": true
+        }
+      ],
+      "jewel_count": 3,
+      "popup_menu": true,
+      "popup_icon": "+"
+    },
+    
+    "bottom_right": {
+      "name": "Creat Status",
+      "position": "bottom_right_corner",
+      "state_locked_until": "creat_fully_grown_and_rideable",
+      "visual_when_locked": "dull_dim_greyed_out",
+      "contents": [
+        {
+          "id": "creat_health",
+          "type": "bar",
+          "color": "#E05A5A",
+          "label": "Creat HP",
+          "max_value": 100,
+          "current_value": 100,
+          "jewel_icon": "red_heart_gem"
+        },
+        {
+          "id": "creat_stamina",
+          "type": "bar",
+          "color": "#47C08A",
+          "label": "Stamina",
+          "max_value": 100,
+          "current_value": 100,
+          "jewel_icon": "green_leaf_gem"
+        },
+        {
+          "id": "creat_bond",
+          "type": "percentage_ring",
+          "color": "#9E6BCF",
+          "label": "Bond",
+          "shows_bond_percentage": true,
+          "jewel_icon": "purple_bond_gem"
+        },
+        {
+          "id": "creat_cooldown",
+          "type": "timer_ring",
+          "color": "#A6C1FF",
+          "label": "CD",
+          "shows_creat_ability_cooldown": true
+        }
+      ],
+      "jewel_count": 4,
+      "popup_menu": false,
+      "note": "This entire quadrant is dim/inactive until creat is fully grown and trained to carry rider"
+    },
+    
+    "bottom_left": {
+      "name": "Attack Slots & Boosts",
+      "position": "bottom_left_corner",
+      "contents": [
+        {
+          "id": "attack_slot_1",
+          "type": "ability_slot",
+          "hotkey": "1",
+          "jewel_icon": "weapon_gem_1",
+          "shows_cooldown": true,
+          "locked_trait_slot": false
+        },
+        {
+          "id": "attack_slot_2",
+          "type": "ability_slot",
+          "hotkey": "2",
+          "jewel_icon": "weapon_gem_2",
+          "shows_cooldown": true,
+          "locked_trait_slot": false
+        },
+        {
+          "id": "attack_slot_3",
+          "type": "ability_slot",
+          "hotkey": "3",
+          "jewel_icon": "weapon_gem_3",
+          "shows_cooldown": true,
+          "locked_trait_slot": true,
+          "note": "This is the locked elemental trait attack (cannot be replaced)"
+        },
+        {
+          "id": "attack_slot_4",
+          "type": "ability_slot",
+          "hotkey": "4",
+          "jewel_icon": "weapon_gem_4",
+          "shows_cooldown": true,
+          "locked_trait_slot": false
+        },
+        {
+          "id": "attack_slot_5",
+          "type": "ability_slot",
+          "hotkey": "5",
+          "jewel_icon": "weapon_gem_5",
+          "shows_cooldown": true,
+          "locked_trait_slot": false
+        },
+        {
+          "id": "boost_slots",
+          "type": "consumable_slots",
+          "max_slots": 3,
+          "jewel_icons": "boost_gems",
+          "click_action": "activate_boost",
+          "popup_menu": true,
+          "popup_shows": "boost_inventory_quick_select"
+        },
+        {
+          "id": "xp_to_next_level",
+          "type": "text_display",
+          "color": "#D6B46A",
+          "label": "XP to Lvl Up",
+          "format": "1,250 / 5,000",
+          "jewel_icon": "gold_progress_gem"
+        }
+      ],
+      "jewel_count": 7,
+      "popup_menu": true,
+      "popup_icon": ">"
+    }
+  },
+  
+  "jewel_visual_specs": {
+    "size": "32x32 px",
+    "style": "faceted_gem_with_gold_frame",
+    "glow_when_active": true,
+    "dim_when_cooldown": true,
+    "pulse_when_ready": true,
+    "colors": {
+      "health": "#E05A5A",
+      "mana": "#3B75E6",
+      "stamina": "#47C08A",
+      "xp": "#D6B46A",
+      "bond": "#9E6BCF",
+      "cooldown": "#A6C1FF",
+      "attack": "#FF7A3C",
+      "boost": "#FFD180"
+    }
+  },
+  
+  "popup_menus": {
+    "potion_quick_select": {
+      "trigger": "click_potion_jewel_with_+_icon",
+      "shows": "inventory_potion_list",
+      "max_visible": 8,
+      "scrollable": true
+    },
+    "boost_quick_select": {
+      "trigger": "click_boost_jewel_with_>_icon",
+      "shows": "inventory_boost_list",
+      "max_visible": 6,
+      "scrollable": true
+    }
+  },
+  
+  "interaction_rules": {
+    "click_jewel": "activate_or_use_item",
+    "hover_jewel": "show_tooltip_with_name_and_stats",
+    "right_click_jewel": "open_detailed_menu_or_swap",
+    "drag_jewel": "reorder_slots_if_not_locked"
+  },
+  
+  "creat_unlock_condition": {
+    "description": "Bottom-right quadrant (Creat Status) remains dim/greyed until creat reaches rideable stage",
+    "unlock_requirements": [
+      "creat_growth_stage >= mount",
+      "creat_bond >= 50%",
+      "creat_trained_to_carry_rider = true"
+    ],
+    "visual_transition": "Jewels glow and become fully saturated when unlocked"
+  },
+  
+  "hotkeys": {
+    "1": "Attack Slot 1",
+    "2": "Attack Slot 2",
+    "3": "Attack Slot 3 (Locked Trait)",
+    "4": "Attack Slot 4",
+    "5": "Attack Slot 5",
+    "Q": "Quick Potion",
+    "E": "Quick Boost",
+    "R": "Combo/Power Attack"
+  },
+  
+  "ui_theme": {
+    "frame_style": "medieval_gold_filigree",
+    "background": "dark_parchment_with_15%_opacity",
+    "font": "medieval_serif_10pt",
+    "jewel_frames": "gold_bezels_with_shadow",
+    "glow_effect": "soft_radial_pulse"
+  }
+}

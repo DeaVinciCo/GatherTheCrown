@@ -1,0 +1,366 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum QuestStatus {
+  LOCKED
+  AVAILABLE
+  ACTIVE
+  COMPLETED
+  FAILED
+}
+
+enum HeroAchievementStatus {
+  LOCKED
+  IN_PROGRESS
+  UNLOCKED
+}
+
+enum HeroCrownState {
+  ACTIVE
+  SHATTERED
+  EXPIRED
+}
+
+enum KingdomStatus {
+  FALLEN
+  DISCOVERED
+  VAULT_CLEARED
+  RESTORING
+  RESTORED
+}
+
+model User {
+  id                   String   @id @default(uuid())
+  username             String   @unique
+  password             String?  @default("")
+  email                String?  @unique
+  guestIntroCompleted  Boolean  @default(false)
+  heroes               Hero[]
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model Hero {
+  id               String   @id @default(uuid())
+  name             String
+  level            Int      @default(1)
+  class            String   @default("Knight")
+  element          String
+  race             String   @default("Human")
+  skinTone         String   @default("tan")
+  hairStyle        String   @default("short")
+  hairColor        String   @default("brown")
+  selectedWeapons  String   @default("[]")
+  originTrait      String   @default("Realm-born")
+  combatDoctrine   String   @default("Balanced")
+  heroTattoo       String   @default("")
+  currentScene     String   @default("ForestZone")
+  gold             Int      @default(25)
+  bond             Float    @default(0.0)
+  // Creat persistence fields
+  creatElement     String   @default("")
+  creatName        String   @default("")
+  creatCompatibility String @default("match")
+  creatBond        Float    @default(0.0)
+  creatHunger      Float    @default(100.0)
+  creatOffensePoints Float  @default(0.0)
+  creatRunaway     Boolean  @default(false)
+  creatCorrupted   Boolean  @default(false)
+  creatStage       String   @default("none")
+  hasCreatEgg      Boolean  @default(false)
+  hasHatchedCreat  Boolean  @default(false)
+  creatLastFedAt   DateTime @default(now())
+  creatLastCaredAt DateTime @default(now())
+  creatSpecies     String   @default("")
+  creatTrackerTag  String   @default("King's Sigil Band")
+  creatLastSeenKingdom String @default("Haven")
+  creatInventory   String   @default("[]")
+  storyModeCompleted Boolean @default(false)
+  // Economy fields
+  soulshards       Int      @default(0)
+  greenGems        Int      @default(0)
+  redGems          Int      @default(0)
+  emberFruit       Int      @default(0)
+  crownFragments   Int      @default(0)
+  // Hero identity
+  heroGender       String   @default("")
+  // Progression / unlocks
+  havenPathsUnlocked  Boolean @default(false)
+  havenUnlocked       Boolean @default(false)
+  forestTrialsStarted Boolean @default(false)
+  homeBaseUnlocked    Boolean @default(false)
+  kingdomArcUnlocked  Boolean @default(false)
+  unlockedSkills      String  @default("[]")
+  completedSkillLessons String @default("[]")
+  // Home Base state
+  homeBaseName          String  @default("Sanctuary")
+  homeBaseRegionName    String  @default("Sanctuary Isle")
+  homeBaseNameChosen    Boolean @default(false)
+  homeBaseRestDays      Int     @default(0)
+  homeBaseStoryReady    Boolean @default(false)
+  homeBaseDay1Inspected         Boolean @default(false)
+  homeBaseDay1SuppliesGathered  Boolean @default(false)
+  homeBaseDay2Crafted           Boolean @default(false)
+  homeBaseDay2EggCared          Boolean @default(false)
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           String
+  creat            Creat?
+  inventory        InventoryItem[]
+  fragments        CrownFragment[]
+  progress         Progress?
+  matches          MatchHistory[]
+  quests           HeroQuest[]
+  achievements     HeroAchievement[]
+  kingdoms         HeroKingdomProgress[]
+  crowns           HeroCrown[]
+  stories          HeroStoryChoice[]
+  bossProgress     HeroBossProgress[]
+  createdAt        DateTime @default(now())
+  lastPlayedAt     DateTime @default(now())
+
+  @@index([userId])
+}
+
+model Creat {
+  id             String   @id @default(uuid())
+  species        String
+  element        String
+  stage          String
+  level          Int      @default(1)
+  hp             Int      @default(100)
+  maxHp          Int      @default(100)
+  attack         Int      @default(10)
+  defense        Int      @default(5)
+  speed          Int      @default(8)
+  stamina        Int      @default(50)
+  elementPower   Int      @default(10)
+  bondLevel      Int      @default(0)
+  hunger         Int      @default(100)
+  offensePoints  Int      @default(0)
+  isCorrupted    Boolean  @default(false)
+  isRunaway      Boolean  @default(false)
+  evolvedAt      DateTime?
+  hero           Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId         String   @unique
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model InventoryItem {
+  id            String   @id @default(uuid())
+  name          String
+  type          String
+  rarity        String?  @default("common")
+  quantity      Int      @default(1)
+  stackable     Boolean  @default(true)
+  source        String?
+  metadata      String?  @default("{}")
+  hero          Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId        String
+  createdAt     DateTime @default(now())
+
+  @@index([heroId])
+  @@index([type])
+}
+
+model CrownFragment {
+  id         String   @id @default(uuid())
+  metal      String
+  gem        String?
+  shards     Int
+  mode       String?  @default("story")
+  sourceBoss String?
+  hero       Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId     String
+  createdAt  DateTime @default(now())
+
+  @@index([heroId])
+}
+
+model Progress {
+  id                        String   @id @default(uuid())
+  district01                Boolean  @default(false)
+  currentAct                Int      @default(1)
+  alignment                 Int      @default(0)
+  totalRestorationProgress  Float    @default(0)
+  storyMilestones           String   @default("[]")
+  hero                      Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId                    String   @unique
+  updatedAt                 DateTime @updatedAt
+}
+
+model MatchHistory {
+  id            String   @id @default(uuid())
+  mode          String   @default("battle")
+  result        String
+  score         Int      @default(0)
+  durationSec   Int      @default(0)
+  hero          Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId        String
+  createdAt     DateTime @default(now())
+
+  @@index([heroId])
+  @@index([mode])
+}
+
+model Boss {
+  id            String @id
+  name          String
+  element       String
+  hp            Int
+  stamina       Int
+  mana          Int
+  phases        Int
+  rageThreshold Float
+  tier          Int    @default(1)
+  accessType    String @default("door")
+  bossType      String @default("structure_guardian")
+  sizeClass     String @default("medium")
+  strengthClass String @default("elite")
+  battleStyle   String @default("elite_duel")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  heroProgress  HeroBossProgress[]
+}
+
+model QuestDefinition {
+  id            String   @id
+  name          String
+  description   String
+  type          String
+  levelRequired Int      @default(1)
+  giver         String?
+  location      String?
+  rewardsJson   String   @default("{}")
+  createdAt     DateTime @default(now())
+
+  heroQuests    HeroQuest[]
+}
+
+model HeroQuest {
+  id             String      @id @default(uuid())
+  hero           Hero        @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId         String
+  quest          QuestDefinition @relation(fields: [questId], references: [id], onDelete: Cascade)
+  questId        String
+  status         QuestStatus @default(AVAILABLE)
+  progressJson   String      @default("[]")
+  startedAt      DateTime?
+  completedAt    DateTime?
+
+  @@unique([heroId, questId])
+  @@index([heroId])
+}
+
+model Kingdom {
+  id           String       @id
+  name         String
+  element      String
+  lore         String
+  vaultLocation String
+  status       KingdomStatus @default(FALLEN)
+  createdAt    DateTime      @default(now())
+
+  heroProgress HeroKingdomProgress[]
+}
+
+model HeroKingdomProgress {
+  id                  String       @id @default(uuid())
+  hero                Hero         @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId              String
+  kingdom             Kingdom      @relation(fields: [kingdomId], references: [id], onDelete: Cascade)
+  kingdomId           String
+  status              KingdomStatus @default(FALLEN)
+  restorationProgress Float        @default(0)
+  vaultCleared        Boolean      @default(false)
+  updatedAt           DateTime     @updatedAt
+
+  @@unique([heroId, kingdomId])
+  @@index([heroId])
+}
+
+model CrownRecipe {
+  id            String   @id
+  mode          String
+  metal         String
+  gem           String
+  requiredShards Int
+  createdAt     DateTime @default(now())
+
+  heroCrowns    HeroCrown[]
+}
+
+model HeroCrown {
+  id              String         @id @default(uuid())
+  hero            Hero           @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId          String
+  recipe          CrownRecipe    @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  recipeId        String
+  name            String
+  state           HeroCrownState @default(ACTIVE)
+  durability      Int            @default(100)
+  maxDurability   Int            @default(100)
+  battlesRemaining Int           @default(5)
+  createdAt       DateTime       @default(now())
+
+  @@index([heroId])
+}
+
+model AchievementDefinition {
+  id            String   @id
+  title         String
+  description   String
+  category      String
+  targetValue   Int      @default(1)
+  rewardJson    String   @default("{}")
+  createdAt     DateTime @default(now())
+
+  heroAchievements HeroAchievement[]
+}
+
+model HeroAchievement {
+  id               String                 @id @default(uuid())
+  hero             Hero                   @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId           String
+  achievement      AchievementDefinition  @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  achievementId    String
+  status           HeroAchievementStatus  @default(LOCKED)
+  progressValue    Int                    @default(0)
+  unlockedAt       DateTime?
+
+  @@unique([heroId, achievementId])
+  @@index([heroId])
+}
+
+model HeroStoryChoice {
+  id            String   @id @default(uuid())
+  hero          Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId        String
+  choiceKey     String
+  alignmentDelta Int     @default(0)
+  createdAt     DateTime @default(now())
+
+  @@index([heroId])
+}
+
+model HeroBossProgress {
+  id             String   @id @default(uuid())
+  hero           Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  heroId         String
+  boss           Boss     @relation(fields: [bossId], references: [id], onDelete: Cascade)
+  bossId         String
+  defeats        Int      @default(0)
+  bestTier       Int      @default(0)
+  bestTimeSec    Int?
+  updatedAt      DateTime @updatedAt
+
+  @@unique([heroId, bossId])
+  @@index([heroId])
+}

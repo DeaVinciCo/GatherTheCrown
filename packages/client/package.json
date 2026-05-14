@@ -1,0 +1,21 @@
+{
+  "name": "@game/client",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "dev:mobile": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "start": "vite preview"
+  },
+  "dependencies": {
+    "@game/shared": "workspace:*",
+    "@supabase/supabase-js": "^2.49.8",
+    "colyseus.js": "^0.15.26",
+    "phaser": "^3.70.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0"
+  }
+}

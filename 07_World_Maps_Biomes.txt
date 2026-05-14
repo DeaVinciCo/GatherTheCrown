@@ -1,0 +1,67 @@
+=== WORLD DESIGN & BIOMES ===
+
+CORE ZONES:
+- Castles & fortified towns (hub areas, crown halls, shops)
+- Forests & swamps (roaming bosses, creat dens)
+- Ruins & temples (story bosses, shard caches)
+- Arenas (PvP combat zones)
+- Circuits & tracks (Racing mode)
+- Oceans & moats (aquatic roaming bosses)
+
+=== FACTION ZONES ===
+
+INFERNAL KIN (Volcano/Fire Caves):
+- Environment: Volcanoes, ember caves
+- Exclusive Materials: Emberium shards, Molten Pearl
+- Palette: Black, red, orange, ember gold
+- Ground: Charred tiles, ash drift, safe basalt plates, molten cracks (animated)
+- Vegetation: Firecaps (mushrooms), ember fruit (rare)
+- Architecture: Blackened fort metalwork, chain lifts, slag heaps, forges (sparks)
+
+TIDEBORN (Ocean/Water Reefs):
+- Environment: Ocean caves, reefs
+- Exclusive Materials: Dusktide Opals, Tideglass
+- Palette: Blues, teals, sandy golds
+- Water: Saltwater wave loop, foam crest tiles, tide pools
+- Shore: Wet/dry sand transitions, rock outcrops, driftwood, shells
+- Vegetation: Sea grapes, coconuts, date palms, fish racks, kelp piles
+- Architecture: Stilted shacks, rope piers, lighthouses (turning beam), harbor cranes
+
+SKY NOMADS (Storm/Lightning Isles):
+- Environment: Floating islands
+- Exclusive Materials: Skycrystals, Lunasteel
+- Palette: Sky blues, storm purples, lightning yellows
+- Sky: Rolling layered clouds, purple lightning fork
+- Ground: Island edges with waterfall curtains, rope bridges, windmills
+- Vegetation: "Charged" crystal trees (leaf shimmer), glow-fruits
+- Architecture: Air docks, tether masts, canvas tents, storm vanes
+
+EARTHBOUND GIANTS (Mountains/Stone Fortresses):
+- Environment: Mountain fortresses
+- Exclusive Materials: Cryogem Ore, Flintsteel
+- Palette: Rock grays, snow whites, moss greens
+- Ground: Jagged cliff tiles, switchback paths, rope bridges, ice patches
+- Vegetation: Hardy shrubs, alpine flowers, mushrooms, root vegetables, goat pens
+- Architecture: Heavy stone walls, buttresses, triangular banners, forges (ember glow)
+
+MYSTIC SCRIBES (Temples/Arcane Libraries):
+- Environment: Libraries, temples
+- Exclusive Materials: Aethercrystals, Soulshards
+- Palette: Marble whites, golds, glowing blues
+- Sky: Calm dusk gradients, floating lanterns
+- Ground: Polished tiles, reflecting pools, trimmed hedges, runic pavements (pulse)
+- Vegetation: Enchanted figs, golden pears, dreamleaf herbs, oversized blooms
+- Architecture: Colonnades, domes, scroll banners, stained glass windows
+
+SHADOW FOLK (Crypts/Wastelands):
+- Environment: Crypts, wastelands
+- Exclusive Materials: Shadowglass, Voidiron
+- Palette: Black, gray, violet, crimson accents
+- Sky: Low blood moon, fast mist drift
+- Ground: Cracked earth, charcoal shrubs, thorn brambles, bone remnants
+- Vegetation: Nightshade berries (poison icon), withered herbs
+- Architecture: Black-stone keeps, iron spikes, chain bridges, braziers with violet fire
+
+SPECIAL REALMS:
+- Mythfall Gate (unlocked after Crown of the Seven Realms)
+- Seasonal dungeons (rotating shard/gem rewards)

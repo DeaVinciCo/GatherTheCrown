@@ -1,0 +1,473 @@
+{
+  "system_name": "Royal Castle Multi-Floor Dungeon",
+  "game": "Gather The Crown: Creats & Foes",
+  "version": "1.0",
+  "description": "Complete 3-floor castle dungeon with main paths, optional side-rooms, enemy ecology, puzzles, and final boss encounter",
+  
+  "castle_structure": {
+    "total_floors": 3,
+    "progression": "linear_with_optional_branches",
+    "clear_requirement": "defeat_corrupted_monarch",
+    "recommended_level": "40-50",
+    "estimated_time": "45-90 minutes (depending on side-room exploration)"
+  },
+
+  "floor_1_outer_ward": {
+    "name": "Outer Ward",
+    "theme": "Abandoned courtyard and servant quarters",
+    "atmosphere": "Moonlit ruins, collapsed roofs, overgrown gardens",
+    
+    "main_path": {
+      "enemy_types": [
+        {
+          "name": "Bats",
+          "count": "8-12",
+          "spawn_reason": "Collapsed roofs created entry points",
+          "behavior": "Swarm attacks, poison drip",
+          "weakness": "Fire, light spells"
+        },
+        {
+          "name": "Campers (Cursed Servants)",
+          "count": "5-7",
+          "spawn_reason": "Former castle staff possessed by corruption",
+          "behavior": "Stationary until approached, grab attacks",
+          "weakness": "Elemental crits break possession"
+        },
+        {
+          "name": "Roamers (Optional)",
+          "count": "2-3",
+          "spawn_condition": "Only if main gate left open at night",
+          "behavior": "Blind, sound-hunting, patrol patterns",
+          "weakness": "Stealth or quick elimination"
+        }
+      ],
+      
+      "puzzle": {
+        "name": "Banner Sigils",
+        "description": "Four torn banners must be arranged in correct family order",
+        "solution": "Match heraldic symbols to faded wall murals",
+        "reward": "Unlocks inner gate to Floor 2",
+        "hint_location": "Readable scroll in servant quarters"
+      },
+      
+      "loot": {
+        "guaranteed": ["Silver shards x5", "Basic healing potions x3"],
+        "random_drops": ["Bronze gems", "Copper shards", "Servant's journal (lore)"],
+        "chest_count": 2,
+        "chest_types": ["Fangkey chest", "Glyphkey chest"]
+      }
+    },
+    
+    "optional_side_rooms": [
+      {
+        "room_name": "Collapsed Treasury Vault",
+        "entrance": "Hidden behind cracked wall (requires Earth spell or heavy attack)",
+        "difficulty": "Medium",
+        "enemies": [
+          {
+            "name": "Treasure Wraith",
+            "count": 1,
+            "description": "Elite camper guarding gold",
+            "special_ability": "Gold Curse - slows movement when hit"
+          },
+          {
+            "name": "Possessed Bats",
+            "count": "4-6",
+            "description": "Faster, more aggressive bat variant"
+          }
+        ],
+        "loot": {
+          "guaranteed": ["Gold shards x3", "1500 GC"],
+          "rare_drops": ["Topaz gem", "Treasury Key (opens locked chest on Floor 2)"],
+          "chest": "Soulkey chest with rare fruit"
+        },
+        "time_estimate": "+8-12 minutes"
+      },
+      {
+        "room_name": "Overgrown Armory",
+        "entrance": "Locked door (requires Glyphkey)",
+        "difficulty": "Medium-Hard",
+        "enemies": [
+          {
+            "name": "Animated Armor",
+            "count": 2,
+            "description": "Hollow armor possessed by corruption",
+            "special_ability": "Shield Bash - knockback attack"
+          },
+          {
+            "name": "Vine Campers",
+            "count": 3,
+            "description": "Servants entangled with thorny vines",
+            "special_ability": "Root Grab - immobilizes player briefly"
+          }
+        ],
+        "loot": {
+          "guaranteed": ["Weapon blueprint: Royal Guard Spear", "Steel shards x4"],
+          "rare_drops": ["Spinel gem", "Armor enhancement scroll"],
+          "chest": "Fangkey chest with legendary weapon part"
+        },
+        "time_estimate": "+10-15 minutes"
+      }
+    ]
+  },
+
+  "floor_2_lower_keep": {
+    "name": "Lower Keep",
+    "theme": "Flooded halls and guard barracks",
+    "atmosphere": "Water-damaged corridors, echoing drips, rusted weapons",
+    
+    "main_path": {
+      "enemy_types": [
+        {
+          "name": "Wraith Archers",
+          "count": "6-8",
+          "spawn_reason": "Former royal archers, now spectral",
+          "behavior": "Ranged attacks, teleport when approached",
+          "weakness": "Light magic, close-range rush"
+        },
+        {
+          "name": "Stone Sentinels",
+          "count": "3-4",
+          "spawn_reason": "Animated castle defense statues",
+          "behavior": "Slow but tanky, ground slam attacks",
+          "weakness": "Lightning to stun, then combo attacks"
+        },
+        {
+          "name": "Elite Camper (Former Advisor)",
+          "count": 1,
+          "spawn_reason": "Mini-boss guarding moat gate",
+          "behavior": "Spellcasting, summons lesser campers",
+          "weakness": "Fire crit breaks corruption shield",
+          "drops": "Gold shards x3, Purple gem, Advisor's Signet Ring"
+        }
+      ],
+      
+      "puzzle": {
+        "name": "Moat Gate Valves",
+        "description": "Three water valves must be turned in sequence to drain flooded passage",
+        "solution": "Follow water flow direction carved into walls",
+        "reward": "Drains water, reveals hidden path to Floor 3",
+        "hint_location": "Engineer's notes on waterlogged table"
+      },
+      
+      "loot": {
+        "guaranteed": ["Gold shards x7", "Purple gems x2", "Scroll of Water Walking"],
+        "random_drops": ["Sapphire gems", "Steel shards", "Guard captain's journal (lore)"],
+        "chest_count": 3,
+        "chest_types": ["Fangkey chest", "Soulkey chest", "Glyphkey chest"]
+      }
+    },
+    
+    "optional_side_rooms": [
+      {
+        "room_name": "Flooded Library",
+        "entrance": "Requires Water Walking spell or creat with swimming ability",
+        "difficulty": "Hard",
+        "enemies": [
+          {
+            "name": "Drowned Scholar",
+            "count": 1,
+            "description": "Elite wraith with book-based attacks",
+            "special_ability": "Curse Pages - random debuffs (slow, silence, confusion)"
+          },
+          {
+            "name": "Water Wraiths",
+            "count": "4-5",
+            "description": "Spectral figures rising from flooded floor",
+            "special_ability": "Drown Grasp - pulls player underwater briefly"
+          }
+        ],
+        "loot": {
+          "guaranteed": ["Ancient spell scroll: Tidal Surge", "Alexandrite gem", "2000 GC"],
+          "rare_drops": ["Jeremejevite gem", "Lore book: The Fall of the Crown"],
+          "chest": "Soulkey chest with creat evolution fruit"
+        },
+        "special_feature": "Readable books provide lore about castle's corruption",
+        "time_estimate": "+12-18 minutes"
+      },
+      {
+        "room_name": "Barracks War Room",
+        "entrance": "Unlocked with Treasury Key from Floor 1 (if found)",
+        "difficulty": "Hard",
+        "enemies": [
+          {
+            "name": "Corrupted Captain",
+            "count": 1,
+            "description": "Elite stone sentinel with tactical AI",
+            "special_ability": "Battle Command - buffs nearby enemies"
+          },
+          {
+            "name": "Wraith Soldiers",
+            "count": "5-6",
+            "description": "Mix of archers and melee wraiths",
+            "special_ability": "Formation Fighting - coordinate attacks"
+          }
+        ],
+        "loot": {
+          "guaranteed": ["Weapon blueprint: Captain's Halberd", "Gold shards x5", "Painite gem"],
+          "rare_drops": ["Armor set blueprint: Royal Guard Set", "Battle tactics scroll"],
+          "chest": "Fangkey chest with legendary armor piece"
+        },
+        "special_feature": "War table shows map of castle with marked secret passages",
+        "time_estimate": "+15-20 minutes"
+      }
+    ]
+  },
+
+  "floor_3_high_throne": {
+    "name": "High Throne Room",
+    "theme": "Corrupted throne hall and royal chambers",
+    "atmosphere": "Dark energy pulses, shattered stained glass, ominous crown glow",
+    
+    "main_path": {
+      "enemy_types": [
+        {
+          "name": "Royal Guards (Spear & Shield)",
+          "count": "8-10",
+          "spawn_reason": "Elite guards corrupted by crown's power",
+          "behavior": "Defensive formations, coordinated strikes",
+          "weakness": "Break shields with heavy attacks, then combo"
+        },
+        {
+          "name": "Court Magus",
+          "count": "2-3",
+          "spawn_reason": "Royal mages bound to throne",
+          "behavior": "Elemental spells, teleportation, barriers",
+          "weakness": "Interrupt casting with stuns"
+        }
+      ],
+      
+      "pre_boss_puzzle": {
+        "name": "Throne Seal",
+        "description": "Four elemental braziers must be lit in correct order",
+        "solution": "Match seasonal cycle shown in throne room murals (Spring→Summer→Fall→Winter)",
+        "reward": "Breaks barrier protecting Corrupted Monarch",
+        "hint_location": "Royal astronomer's notes on side table"
+      },
+      
+      "loot_before_boss": {
+        "guaranteed": ["Gold shards x10", "Purple gems x3", "Full heal potion x2"],
+        "random_drops": ["Alexandrite gems", "Painite gem", "Royal decree (lore)"],
+        "chest_count": 2,
+        "chest_types": ["Soulkey chest", "Fangkey chest"]
+      }
+    },
+    
+    "optional_side_rooms": [
+      {
+        "room_name": "Royal Vault",
+        "entrance": "Hidden passage behind throne (revealed after lighting braziers)",
+        "difficulty": "Very Hard",
+        "enemies": [
+          {
+            "name": "Vault Guardian",
+            "count": 1,
+            "description": "Massive stone sentinel with crown fragment embedded in chest",
+            "special_ability": "Crown Pulse - AoE damage wave, Petrify Gaze - temporary stun"
+          },
+          {
+            "name": "Shadow Wraiths",
+            "count": "6-8",
+            "description": "Elite wraiths protecting royal treasures",
+            "special_ability": "Phase Shift - become invulnerable briefly"
+          }
+        ],
+        "loot": {
+          "guaranteed": ["Sovereign Crown Fragment (legendary)", "Bixbite gem x2", "5000 GC"],
+          "rare_drops": ["Starforged shards x3", "Blueprint: Crown of Kings", "Royal family heirloom (cosmetic)"],
+          "chest": "Glyphkey chest with mythic weapon"
+        },
+        "special_feature": "Contains portraits of royal family with lore descriptions",
+        "time_estimate": "+20-25 minutes"
+      },
+      {
+        "room_name": "Corrupted Chapel",
+        "entrance": "Side door from throne room (always accessible)",
+        "difficulty": "Hard",
+        "enemies": [
+          {
+            "name": "Fallen Priest",
+            "count": 1,
+            "description": "Elite court magus with dark healing abilities",
+            "special_ability": "Corrupt Blessing - heals enemies, damages player"
+          },
+          {
+            "name": "Possessed Choir",
+            "count": "4-6",
+            "description": "Spectral singers with sonic attacks",
+            "special_ability": "Dirge of Despair - reduces player stats temporarily"
+          }
+        ],
+        "loot": {
+          "guaranteed": ["Holy relic: Purification Talisman", "Jeremejevite gem", "Gold shards x8"],
+          "rare_drops": ["Spell scroll: Divine Shield", "Chapel key (opens secret in Royal Vault)"],
+          "chest": "Soulkey chest with rare creat egg"
+        },
+        "special_feature": "Purification Talisman provides buff against Corrupted Monarch",
+        "time_estimate": "+10-15 minutes"
+      }
+    ],
+    
+    "boss_encounter": {
+      "name": "The Corrupted Monarch",
+      "title": "Last King of the Fallen Realm",
+      "level": "Story Boss - Tier 4 Reignlord",
+      "recommended_level": "45-50",
+      "fight_duration": "15-20 minutes",
+      
+      "appearance": {
+        "description": "Once-noble king now twisted by crown's corruption",
+        "visual": "Tattered royal robes, glowing eyes, crown fused to skull, dark energy aura",
+        "weapon": "Corrupted scepter that shifts between sword and staff"
+      },
+      
+      "phase_1": {
+        "hp_range": "100% - 66%",
+        "name": "Regal Fury",
+        "behavior": "Aggressive melee with scepter, occasional crown pulses",
+        "attacks": [
+          {
+            "name": "Crown Pulse",
+            "type": "AoE",
+            "description": "Dark energy wave from crown, must dodge or block",
+            "damage": "Medium",
+            "telegraph": "Crown glows brighter for 2 seconds"
+          },
+          {
+            "name": "Scepter Combo",
+            "type": "Melee",
+            "description": "3-hit combo with knockback on final strike",
+            "damage": "Medium-High",
+            "counter": "Dodge final strike, punish with combo"
+          },
+          {
+            "name": "Shadow Grasp",
+            "type": "Ranged",
+            "description": "Dark tendrils shoot from ground, immobilize briefly",
+            "damage": "Low",
+            "telegraph": "Ground darkens where tendrils will emerge"
+          }
+        ],
+        "strategy": "Learn attack patterns, dodge crown pulses, attack during recovery windows"
+      },
+      
+      "phase_2": {
+        "hp_range": "66% - 33%",
+        "name": "Desperate Dominion",
+        "behavior": "Summons wraith archers, uses possession beam, more defensive",
+        "phase_transition": "Monarch kneels, crown flares, summons 4 wraith archers",
+        "attacks": [
+          {
+            "name": "Possession Beam",
+            "type": "Channeled",
+            "description": "Red beam from crown attempts to possess player, reverses controls if hit",
+            "damage": "Low + Control Reversal",
+            "counter": "Hide behind pillars or use Purification Talisman"
+          },
+          {
+            "name": "Royal Command",
+            "type": "Summon",
+            "description": "Summons 2-4 wraith archers to assist",
+            "strategy": "Kill archers quickly or they overwhelm you"
+          },
+          {
+            "name": "Corrupted Barrier",
+            "type": "Defense",
+            "description": "Creates shield that reflects damage, must be broken with elemental crits",
+            "counter": "Use opposing element to boss's current aura"
+          }
+        ],
+        "strategy": "Manage adds, break barriers with elemental crits, avoid possession beam"
+      },
+      
+      "phase_3": {
+        "hp_range": "33% - 0%",
+        "name": "Crown's Wrath",
+        "behavior": "Enraged, crown takes control, extremely aggressive",
+        "phase_transition": "Monarch screams, crown fully engulfs head, dark aura intensifies",
+        "attacks": [
+          {
+            "name": "Desperate Fury",
+            "type": "Berserk",
+            "description": "Rapid melee attacks with no recovery, must maintain distance",
+            "damage": "High",
+            "counter": "Use ranged attacks, creat assists, defensive spells"
+          },
+          {
+            "name": "Crown Explosion",
+            "type": "Ultimate",
+            "description": "Massive AoE that covers entire arena, must hide behind pillars",
+            "damage": "Lethal if not blocked",
+            "telegraph": "Crown glows intensely, 5-second charge time",
+            "frequency": "Every 60 seconds"
+          },
+          {
+            "name": "Shadow Swarm",
+            "type": "AoE + DOT",
+            "description": "Dark energy fills arena, constant damage over time",
+            "damage": "Low but persistent",
+            "counter": "Use healing items, Light spells reduce damage"
+          }
+        ],
+        "strategy": "Survive crown explosions, manage health carefully, use all resources, coordinate with creat for sync attacks"
+      },
+      
+      "defeat_sequence": {
+        "description": "Crown shatters, monarch collapses, dark energy dissipates",
+        "cutscene": "Monarch's eyes clear, speaks final words of gratitude, passes peacefully",
+        "restoration": "Throne room light returns, stained glass repairs itself, kingdom begins healing"
+      },
+      
+      "rewards": {
+        "guaranteed": [
+          "Sovereign Crown Fragment (legendary)",
+          "Monarch's Signet Ring (unique accessory)",
+          "10,000 GC",
+          "Gold shards x20",
+          "Painite gem x3",
+          "Jeremejevite gem x2"
+        ],
+        "blueprints": [
+          "Legendary weapon: Scepter of the Restored King",
+          "Legendary armor: Royal Regalia Set",
+          "Crown blueprint: Monarch's Diadem"
+        ],
+        "special_drops": [
+          "Story completion: Castle Reclaimed",
+          "Title: Kingslayer / Kingmaker",
+          "Unlocks: Next kingdom region",
+          "Permanent buff: +5% to all stats in castle zones"
+        ]
+      }
+    }
+  },
+
+  "enemy_ecology_notes": {
+    "description": "How forest enemies naturally appear in castle ruins",
+    "connections": [
+      {
+        "enemy": "Bats",
+        "reason": "Collapsed roofs and broken windows created entry points",
+        "locations": "Outer Ward, any room with ceiling damage"
+      },
+      {
+        "enemy": "Campers",
+        "reason": "Former castle residents possessed by corruption, became stationary",
+        "locations": "All floors, especially servant quarters and guard posts"
+      },
+      {
+        "enemy": "Roamers",
+        "reason": "Wandered in through open gates at night, patrol borders",
+        "locations": "Outer Ward only, if gates left open"
+      }
+    ],
+    "design_philosophy": "Enemies feel organic to environment, not randomly placed"
+  },
+
+  "progression_summary": {
+    "main_path_only": "45-60 minutes",
+    "with_some_side_rooms": "60-90 minutes",
+    "100_percent_completion": "90-120 minutes",
+    "recommended_approach": "First run: main path only. Subsequent runs: explore side-rooms for better loot"
+  }
+}

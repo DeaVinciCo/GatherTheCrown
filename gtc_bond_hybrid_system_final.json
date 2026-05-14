@@ -1,0 +1,197 @@
+{
+  "module": "gtc_bond_hybrid_system_final",
+  "version": "2.0",
+  "game": "Gather The Crown: Creats & Foes",
+  
+  "hero_types": {
+    "pure_hero": {
+      "description": "Born with one elemental affinity",
+      "element_count": 1,
+      "creat_synergy": "Full combo finishers and ultimate moves with matching element creat",
+      "playstyle": "Specialized, powerful in their element"
+    },
+    
+    "hybrid_hero": {
+      "description": "Born with two elemental traits (rare bloodline)",
+      "element_count": 2,
+      "dominant_element": "Player chooses during character creation which element is primary",
+      "secondary_element": "Provides additional personal attacks/spells for hero only",
+      "creat_synergy": "Full combo finishers with dominant-element creat",
+      "playstyle": "Versatile, can adapt tactics mid-battle",
+      "note": "Secondary element does NOT affect creat bonding — it's just extra hero abilities"
+    }
+  },
+  
+  "bonding_system": {
+    "description": "Bond represents the synergy between hero and creat in combat",
+    "how_it_works": "Hero + creat fight together as a duo, not separately",
+    
+    "perfect_bond": {
+      "condition": "Hero's dominant element matches creat's element",
+      "benefits": [
+        "Full combo finisher moves unlocked",
+        "Ultimate synchronized attacks available",
+        "Creat responds instantly to commands",
+        "Lowest food upkeep",
+        "Fastest stamina recovery"
+      ]
+    },
+    
+    "compatible_bond": {
+      "condition": "Hero rides/fights with non-matching element creat",
+      "benefits": [
+        "Still functional in combat",
+        "Basic attacks work fine",
+        "Can mount and ride"
+      ],
+      "limitations": [
+        "No cinematic combo finishers",
+        "No ultimate synchronized moves",
+        "Higher food consumption",
+        "Slower stamina recovery"
+      ],
+      "note": "Playable but not optimal — missing the 'magic' of perfect sync"
+    }
+  },
+  
+  "combat_flow": {
+    "mounted_combat": {
+      "when": "Races, boss battles, exploration, story mode",
+      "benefits": "Cinematic combo attacks, increased speed, trampling damage",
+      "unmount_anytime": true
+    },
+    
+    "unmounted_combat": {
+      "description": "Hero and creat fight side-by-side as a tag team",
+      "tactics": [
+        "Creat distracts while hero lands critical hits",
+        "Hero tanks while creat unleashes elemental attacks",
+        "Alternating combos (creat stuns → hero finishes)"
+      ]
+    },
+    
+    "tactical_retreat": {
+      "scenario": "Creat takes too much damage",
+      "action": "Hero unmounts, creat retreats to recover",
+      "duration": "~45 seconds",
+      "hero_solo": "Hero holds off boss with personal skills and weapons",
+      "creat_recovery": "Stamina and HP regenerate while out of combat",
+      "return": "Creat rejoins when recovered for final combo phase"
+    },
+    
+    "combo_finishers": {
+      "requirement": "Perfect bond (matching elements)",
+      "trigger": "Boss HP drops below 20-30%",
+      "execution": "Synchronized chain attacks",
+      "examples": [
+        "Fire: Creat breathes flame → Hero charges through inferno with flaming blade",
+        "Water: Creat summons tidal wave → Hero rides wave for crushing impact",
+        "Earth: Creat slams ground → Hero leaps from shockwave for aerial strike",
+        "Lightning: Creat channels storm → Hero becomes lightning bolt strike",
+        "Shadow: Creat creates void → Hero emerges from shadows for assassination",
+        "Light: Creat radiates holy aura → Hero's blade becomes beam of light"
+      ]
+    }
+  },
+  
+  "hybrid_examples": {
+    "fire_shadow_hybrid": {
+      "dominant": "Fire (player choice)",
+      "secondary": "Shadow",
+      "creat_match": "Fire creat (for full combo finishers)",
+      "hero_abilities": [
+        "Fire attacks: Flame bolt, cinder dash, inferno wave",
+        "Shadow abilities: Veil step (stealth), shade slash, fear hex"
+      ],
+      "combat_style": "Aggressive attacker with stealth options"
+    },
+    
+    "water_earth_hybrid": {
+      "dominant": "Water (player choice)",
+      "secondary": "Earth",
+      "creat_match": "Water creat (for full combo finishers)",
+      "hero_abilities": [
+        "Water attacks: Tidal wave, ice shard, healing rain",
+        "Earth abilities: Stone skin (defense buff), root bind, boulder throw"
+      ],
+      "combat_style": "Defensive tank with healing support"
+    },
+    
+    "lightning_light_hybrid": {
+      "dominant": "Lightning (player choice)",
+      "secondary": "Light",
+      "creat_match": "Lightning creat (for full combo finishers)",
+      "hero_abilities": [
+        "Lightning attacks: Thunder strike, chain lightning, storm dash",
+        "Light abilities: Radiant beam, heal burst, purge debuffs"
+      ],
+      "combat_style": "Fast striker with support capabilities"
+    }
+  },
+  
+  "social_dynamics": {
+    "hero_relations": "All heroes are familiar with each other, part of same world",
+    "hybrid_status": "Hybrids are rare but not outcasts or feared",
+    "rivalries": "Only appear in competitive modes (PvP, Melee, Faction battles)",
+    "cooperation": "In story mode and PvE, all heroes work together regardless of type",
+    "tavern_culture": "Heroes gather, share stories, show off creats — no discrimination"
+  },
+  
+  "home_base_creat_care": {
+    "creat_shelter": {
+      "description": "Covered, gated dwelling for creat",
+      "size": "Large enough for fully evolved mythical forms",
+      "customization": ["Banners", "Feeding troughs", "Glowing runes", "Perches for flyers"],
+      "purpose": "Safe resting place when hero is at tavern or doing non-combat activities"
+    },
+    
+    "training_grounds": {
+      "location": "Next to creat shelter",
+      "features": ["Fenced sparring area", "Combat dummies", "Obstacle courses"],
+      "food_storage": "Element-specific fruits/foods stored nearby",
+      "activities": [
+        "Bond training (increases sync)",
+        "Skill practice (unlocks new abilities)",
+        "Stamina building (increases combat endurance)"
+      ]
+    },
+    
+    "creat_behavior": {
+      "when_hero_away": "Creat stays at home base, pacing/sleeping/training",
+      "when_hero_returns": "Creat roars/greets, ready for next adventure",
+      "feeding": "Regular meals maintain bond and combat readiness",
+      "idle_animations": "Sleeping, stretching, playing with training dummy, grooming"
+    }
+  },
+  
+  "restricted_areas": {
+    "tight_dungeons": {
+      "mounting": "Not allowed (space constraints)",
+      "creat_presence": "Follows behind as companion",
+      "combat": "Fights alongside hero, unmounted only",
+      "passive_buff": "Elemental aura provides small stat boost"
+    },
+    
+    "small_pvp_arenas": {
+      "mounting": "Not allowed (balance reasons)",
+      "creat_presence": "Trails behind or stands at edge",
+      "combat": "Assists with unmounted attacks only",
+      "visual": "Still visible to maintain immersion"
+    },
+    
+    "taverns_social_hubs": {
+      "creat_location": "Stays at home base shelter",
+      "reason": "Non-dangerous social activities don't require creat backup",
+      "player_choice": "Hero can visit tavern, trade, socialize while creat rests"
+    }
+  },
+  
+  "key_principles": {
+    "always_together": "Hero and creat are a fighting duo, not summon-based",
+    "mount_flexibility": "Can mount/unmount anytime during combat",
+    "tactical_depth": "Creat can retreat to heal while hero holds the line",
+    "combo_system": "Synchronized finishers are the ultimate expression of bond",
+    "no_fusion": "Hero and creat remain separate beings — partnership, not merger",
+    "hybrid_clarity": "Secondary element is hero-only abilities, doesn't complicate creat bonding"
+  }
+}

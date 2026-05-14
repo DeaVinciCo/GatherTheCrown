@@ -1,0 +1,98 @@
+=== CHARACTER CREATION SYSTEM ===
+
+WHEN TO SHOW:
+- First run (fresh install OR no character on profile)
+- OR player selects "New Character" from Main Menu after beating Story Mode once
+- Hard limit: Max 3 characters
+- After creation, set firstRun = false
+
+SCREEN LAYOUT:
+- Full-screen (no pop-ups)
+- Theme: parchment card centered, darkened vignette behind, iron rivets along header
+- Left column: form fields (stacked)
+- Right column: live character preview (2D pose, outfit/element tint updates as choices change)
+- Footer: [Confirm] (primary) and [Back] (secondary)
+
+=== CREATION FIELDS ===
+
+1. NAME SELECTION:
+- Text input with "Use Lore Name" toggle
+- If left blank OR toggle on → auto-assign lore name (seeded by element)
+- Validate: 2–20 chars, safe printable set
+
+2. ELEMENT TRAIT (choose 1):
+Options: Fire, Water, Earth, Storm, Light, Shadow, Arcane
+- On hover/selection: show micro-blurb (starting resist/weakness + synergy weapon tip)
+- Selection tints preview aura and accents
+- Determines:
+  * Starting resistance & weakness
+  * Bonded Creat path
+  * Preferred weapon synergy
+
+3. STARTER TOOLS (choose 2):
+Pool:
+- Wooden Hammer (basic crafting, repairs)
+- Rusty Hatchet (faster wood gathering, weak in combat)
+- Stone Pick (mining ore, weak vs. armor)
+- Field Knife (multi-use, weak damage but better crit vs. beasts)
+
+4. STARTER WEAPONS (choose 2):
+Pool:
+- Iron Shortsword (balanced starter melee)
+- Hunting Bow (ranged, weak damage but safe)
+- Torch (low melee damage, fire-based crits vs. Shadow foes)
+- Wooden Shield (weak offense, decent early defense)
+- Show "Element Synergy" badge if weapon pairs well with chosen trait
+
+5. APPEARANCE:
+OUTFIT (choose 1 of 4):
+- Leather Tunic
+- Adventurer Cloth
+- Chain Vest
+- Apprentice Robe
+
+HAIR:
+- 8 styles (short, long, braided, curly, shaved, wild, bun, ponytail)
+- Hair colors: black, brown, blonde, red, white, silver, blue, purple, green, gold, ombre, fade
+
+EYES:
+- Colors: brown, blue, green, hazel, gold, silver, red, violet
+- Subtle glow toggle for elemental characters
+
+SKIN TONE:
+- Full inclusive range: pale, olive, tan, bronze, deep brown, ebony, gray, glowing
+
+ACCESSORY (1 slot):
+- Amulet, sash, or wristband for variation
+
+6. TUTORIAL START (read-only note):
+"You will begin in the Trial of First Light: movement, gathering, combat basics. Reward: starter crown shard."
+
+=== VALIDATION ===
+
+REQUIRED:
+- 1 Element
+- 2 Tools
+- 2 Weapons
+- 1 Outfit
+- Name may be blank only if "Use Lore Name" is enabled
+
+If any required selection missing:
+- Disable [Confirm]
+- Show minimal error text under missing section
+
+=== ON CONFIRM ===
+
+CREATE CHARACTER SAVE ENTRY:
+- name, element, tools[], weapons[], outfit, appearance, createdAt
+- Set save.firstRun = false
+- Spawn player into tutorial scene: trial_first_light
+- Do not show creation screen again on next launch unless player chooses "New Character" and has capacity
+
+=== ACCESSIBILITY ===
+
+- Full keyboard/gamepad navigation
+- Visible focus ring
+- Colorblind-safe state indicators
+- High-contrast mode compatible
+- Tooltips delay 250ms, can be disabled

@@ -1,0 +1,120 @@
+{
+  "module": "gtc_economy_rewards_complete",
+  "version": "2.0",
+  "game": "Gather The Crown: Creats & Foes",
+  
+  "keys_and_locks": {
+    "permanent_keys": [
+      {
+        "id": "key_soulkey",
+        "name": "Soulkey",
+        "appearance": "Pearl-white with swirling core",
+        "opens": ["chest_ancestral"],
+        "loot": ["creat_bonding_scrolls", "rare_fruit", "lore_items"],
+        "never_lost": true
+      },
+      {
+        "id": "key_fangkey",
+        "name": "Fangkey",
+        "appearance": "Bone/gold with jagged teeth",
+        "opens": ["chest_predator"],
+        "loot": ["weapons", "attack_items", "armor", "potions"],
+        "never_lost": true
+      },
+      {
+        "id": "key_glyphkey",
+        "name": "Glyphkey",
+        "appearance": "Bronze/black with runes",
+        "opens": ["chest_runic"],
+        "loot": ["currency_bundles", "cosmetics", "random_rolls"],
+        "never_lost": true
+      }
+    ],
+    "temporary_keys": [
+      {"id":"key_bronze","opens":["chest_bronze","door_rusty"]},
+      {"id":"key_silver","opens":["chest_silver","gate_market"]},
+      {"id":"key_gold","opens":["chest_gold","vault_small"]},
+      {"id":"key_osmium","opens":["chest_osmium","vault_royal"]}
+    ],
+    "chest_rewards": {
+      "chest_bronze": ["gold:100-200","wood","berries"],
+      "chest_silver": ["gold:200-400","shard_silver","gem_common"],
+      "chest_gold": ["gold:500-900","gem_rare","blueprint_small"],
+      "chest_osmium": ["gold:1000-1500","bixbite","legendary_blueprint","crown_fragment_high"]
+    }
+  },
+  
+  "crowns_forging": {
+    "puzzle_board": {
+      "slot_shapes": ["crescent","facet","prong","keystone","brim","capstone"],
+      "rules": "Collect metal shards and matching gem shapes; place in puzzle to assemble crowns. Multiple copies can fill multiple boards. Nothing burns until a crown is equipped and used.",
+      "shatter_rule": {
+        "wear_down_time_sec": 90,
+        "on_shatter": "pieces fall, pulse for 8 seconds, then disappear; cannot be recovered"
+      }
+    },
+    "metals": ["bronze","silver","gold","bixbite_core","osmium","aethersteel","starforged"],
+    "gems": ["quartz","topaz","sapphire","spinel","alexandrite","jeremejevite","painite","bixbite"],
+    "visual_rule": "Shards MUST look like the material (bronze=dull brownish-orange, gold=bright shiny yellow, obsidian=black glass-like)",
+    "completion_rewards": ["gold_bundle","gems_bundle","shards_bundle","bixbite_small","blueprints","titles","stat_boost_mode_specific"]
+  },
+  
+  "currencies": {
+    "types": ["gold_coins","gems","shards","bixbite"],
+    "gems_value_order": ["clear(light/storm)","yellow(gold)","green(earth)","blue(water)","red(fire)","purple(shadow)","cosmic(arcane)"],
+    "gem_values_gc": {
+      "yellow_gold": 700,
+      "red_fire": 500,
+      "green_earth": 400,
+      "blue_water": 350,
+      "clear_light": 300,
+      "purple_shadow": 250,
+      "black_void": "3000-5000"
+    },
+    "sell_examples": {
+      "4_red_fire_gems": "2000_gc",
+      "10_red_fire_gems": "6000_gc (bulk bonus)",
+      "note": "Bulk sells give diminishing bonus to prevent hoard exploits"
+    }
+  },
+  
+  "creat_bonding": {
+    "bond_levels": [
+      {"pct":50, "mana_slots":5, "effects":["+5% dmg","+5% speed"], "sync_move":"basic_combo", "flow_efficiency":"slower_absorption_longer_cooldown"},
+      {"pct":75, "mana_slots":7, "effects":["+10% dmg","+10% resist"], "sync_move":"advanced_combo", "flow_efficiency":"faster_absorption_shorter_cooldown"},
+      {"pct":100, "mana_slots":10, "effects":["+15% dmg","+15% resist","+1 utility slot (non-race)"], "sync_move":"ultimate_combo", "flow_efficiency":"near_seamless_flow_increased_potency"}
+    ],
+    "gain_sources": ["battles","feeding","petting","quests","time_together"],
+    "decay_rule": {"idle_days":7,"decay_to_pct":75}
+  },
+  
+  "hybrids": {
+    "born_hybrid": {
+      "note": "Characters that start hybrid have two elemental trait passives at 70% potency each",
+      "allowed_pairs": [["fire","earth"],["water","storm"],["light","arcane"],["shadow","arcane"]]
+    },
+    "potion_hybrid": {
+      "duration_sec": "20-30",
+      "cooldown_sec": 120,
+      "boss_story_only": true,
+      "effect": "Temporarily grants secondary elemental kit at 60% potency",
+      "visual": "+25% attack, +15% speed, -20% damage taken, unique skill tree access"
+    }
+  },
+  
+  "account_rules": {
+    "max_characters": 3,
+    "max_creats_per_character": 3,
+    "total_creats_per_account": 9,
+    "first_creat_rule": "Cannot be traded, deleted, or replaced. To remove it, must delete entire account",
+    "account_deletion_cost": "50,000,000 GC",
+    "earnings_per_story_run": "75M-200M GC (minimum to maximum)",
+    "second_character_unlock": "Complete Story Mode with first character"
+  },
+  
+  "economy_rewards": {
+    "random_loot_small": ["wood","twigs","berries"],
+    "loot_medium": ["shard_silver","gem_green","craft_parts"],
+    "exclusive_gem_roll": ["painite","jeremejevite","alexandrite"]
+  }
+}

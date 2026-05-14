@@ -1,0 +1,220 @@
+=== STARTUP & MENU FLOW ===
+
+=== STARTUP SCREEN ===
+
+IMAGERY:
+- Size: 1920x1080 (Full HD), scales to 1280x720
+- Background: Dark forest at night with ruined stone crown monument in distance
+- Faint torches glowing in trees
+- Mist swirling at bottom of screen
+- Subtle animated particles (floating embers / glowing motes)
+
+TITLE TEXT:
+- Font: Gothic Blackletter (Fraktur / Old English)
+- Style: Embossed metallic gold with faint glow
+- Text: "Gather The Crown: Creats & Foes"
+- Alignment: Center-top, large (fills top 30%)
+
+SUBTEXT:
+- Font: Serif medieval (Cinzel or EB Garamond)
+- Text: "Press ENTER to Begin Thy Quest"
+- Style: White text with faint shimmer, smaller size
+- Alignment: Bottom-center, just above screen edge
+
+MINIMAL MENU:
+- ENTER: Start
+- ESC: Quit
+- Hint text at bottom in small font
+
+COLOR PALETTE:
+- Gold title (#D4AF37)
+- White subtext (#F5F5F5)
+- Deep greens, stone grays, torchlight oranges
+
+=== MAIN MENU (AFTER FIRST LAUNCH) ===
+
+MENU OPTIONS:
+- Continue (Active Character) - loads last played character
+- Switch Character - list existing 1–3 characters
+- New Character - disabled at 3/3, requires Story Mode completion
+- Settings
+- Credits
+- Exit
+
+CHARACTER SELECTION:
+- Shows character portrait, name, element, crown rank
+- Last played time
+- Story progress indicator
+- Click to select, Enter to confirm
+
+NEW CHARACTER RULES:
+- Only visible if save.storyCleared == true OR first run
+- Disabled if save.characters.length >= 3
+- If full reset (50M GC rule), show confirmation dialog
+
+=== IN-GAME TOP MENU BAR ===
+
+APPEARANCE:
+- Iron strip with rivets (medieval metallic look)
+- Tab labels in small caps serif font
+- Hover: gold underline
+- Click: pressed inset effect
+- Dropdowns: parchment panels with bronze border
+
+MENU ITEMS:
+1. Account
+   - Profile (rider info, stats, achievements)
+   - Sign Out
+
+2. Settings
+   - Audio (Master, Music, Ambience, SFX sliders + Mute toggle)
+   - Controls (keybinding, click action to rebind)
+   - Accessibility (UI scale, font scale, colorblind mode, high contrast)
+
+3. Satchel (Inventory)
+   - Weapons
+   - Tools
+   - Gems
+   - Shards
+   - Crowns
+   - Consumables
+
+4. Chronicles (Quest Journal)
+   - Story Quests
+   - Side Quests
+   - Crown Trials
+   - Mini-Games
+
+5. Map
+   - Open Map (parchment-style, zoomable)
+   - Fast Travel (unlocked locations)
+
+6. Codex of Laws (Game Options)
+   - Video settings
+   - UI Scale
+   - Keybinds
+   - Tutorials
+
+7. Exit
+   - Return to Main Menu
+   - Quit to Desktop
+
+=== MENU BEHAVIOR ===
+
+- ESC closes any open panel/dropdown
+- Returns to gameplay from submenus
+- Menus pause gameplay (except in PvP)
+- Tooltips appear after 250ms hover
+- Full keyboard/gamepad navigation support
+
+=== PROFILE PANEL ===
+
+DISPLAYS:
+- Rider name
+- Crown Rank (current crown tier)
+- Story Progress (Chapter X / 12)
+- Gold Coins (GC) balance
+- Total playtime
+- Achievements unlocked
+- Faction affiliation (if any)
+
+BUTTONS:
+- View Achievements
+- View Statistics
+- Manage Creats
+- Customize Appearance
+
+=== SETTINGS PANELS ===
+
+AUDIO:
+- Master Volume slider (0–100%)
+- Music Volume slider
+- Ambience Volume slider
+- SFX Volume slider
+- Mute All toggle
+- Test Sound button
+
+CONTROLS:
+- List of actions with assigned keys
+- Click action to rebind
+- Press new key to assign
+- Reset to Defaults button
+- Gamepad support toggle
+
+ACCESSIBILITY:
+- UI Scale slider (75%–150%)
+- Font Scale slider (80%–150%)
+- Colorblind Mode toggle
+- High Contrast UI toggle
+- Subtitle options
+- Visual sound indicators toggle
+
+=== FLOW DIAGRAM ===
+
+START → Title Screen
+  ├── Press ENTER
+  │   ├── First Run? → Character Creation
+  │   │   └── Complete → Tutorial Quest → Gameplay
+  │   └── Has Characters? → Main Menu
+  │       ├── Continue → Load Last Character → Gameplay
+  │       ├── Switch Character → Select → Gameplay
+  │       ├── New Character → Character Creation (if allowed)
+  │       ├── Settings → Submenus
+  │       └── Exit → Close Game
+  │
+  └── In Gameplay
+      ├── Top Menu Bar (always visible)
+      │   ├── Account → Profile / Sign Out
+      │   ├── Settings → Audio / Controls / Accessibility
+      │   ├── Satchel → Inventory tabs
+      │   ├── Chronicles → Quest lists
+      │   ├── Map → World map / Fast travel
+      │   ├── Codex → Game options
+      │   └── Exit → Confirm dialog
+      │
+      ├── HUD (always visible)
+      │   ├── Health/Stamina/Mana bars
+      │   ├── Mini-map
+      │   ├── Quick slots
+      │   ├── Crown tracker
+      │   └── Creat bond meter
+      │
+      └── Chat (Enter to open)
+          ├── In-game: slides in, auto-hides
+          └── Lobby: always visible
+
+=== PERSISTENCE ===
+
+SAVE DATA STRUCTURE:
+{
+  "firstRun": true/false,
+  "storyCleared": true/false,
+  "characters": [
+    {
+      "id": "uuid",
+      "name": "string",
+      "element": "fire/water/etc",
+      "createdAt": "timestamp",
+      "lastPlayed": "timestamp",
+      "storyProgress": 0-100,
+      "crownRank": "string",
+      "goldCoins": number,
+      "creats": [array of 3],
+      "inventory": {},
+      "appearance": {}
+    }
+  ],
+  "lastActiveCharacterId": "uuid",
+  "settings": {
+    "audio": {},
+    "controls": {},
+    "accessibility": {}
+  }
+}
+
+SAVE TRIGGERS:
+- Auto-save every 5 minutes during gameplay
+- Save on menu close
+- Save on character switch
+- Save on game exit
+- Manual save option in menu

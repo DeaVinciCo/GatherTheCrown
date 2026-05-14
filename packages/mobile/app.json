@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Gather The Crown Mobile",
+    "slug": "gather-the-crown-mobile",
+    "scheme": "gatherthecrown",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.deavinci.gatherthecrown"
+    },
+    "android": {
+      "package": "com.deavinci.gatherthecrown"
+    }
+  }
+}

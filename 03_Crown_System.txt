@@ -1,0 +1,56 @@
+=== CROWN SYSTEM ===
+
+CROWN PUZZLE MECHANICS:
+- Crowns forged from shard pieces (metals) + gems (elements) in puzzle system
+- Crown puzzles: ghost-outline UI where shards and gems slot into specific shapes
+- Collect shards/gems to build multiple crowns simultaneously
+- Crowns give temporary stat boosts when equipped (attack, crit, defense, stealth, speed)
+- Durability: Crowns shatter after use (# battles or minutes)
+- Shatter effect: pieces scatter, pulse 8 seconds, then vanish permanently (NO RECOVERY)
+- Multiple crowns of same type can be crafted and stockpiled
+- Only one crown active at a time
+- Completing crowns grants: loot, titles, cosmetics, permanent buffs, blueprint unlocks, aura effects
+
+=== CROWN TYPES BY MODE ===
+
+Story Mode: Sovereign's Diadem
+- Metals: Starforged, Aethersteel
+- Gems: Painite, Alexandrite, Jeremejevite
+- Rarity: Mythic (ultra rare), Legendary, Epic
+
+Melee Mode: Duelist's Crest
+- Metals: Hardened Gold, Silver, Bronze
+- Gems: Spinel, Topaz, Sapphire
+- Rarity: Epic, Rare, Uncommon
+
+Racing Mode: Racer's Torque
+- Metals: Lightweight Osmium, Aethersteel
+- Gems: Quartz, Sapphire, Jeremejevite
+- Rarity: Rare, Uncommon, Common
+
+Mini-Games: Tactician's Band
+- Metals: Silver, Bronze
+- Gems: Quartz, Topaz
+- Rarity: Common, Uncommon
+
+PvE Dungeon Mode: Warden's Circlet
+- Metals: Bixbite, Gold
+- Gems: Alexandrite, Spinel, Painite
+- Rarity: Legendary, Epic, Rare
+
+PvP Competitive: Conqueror's Halo
+- Metals: Osmium, Starforged, Bixbite
+- Gems: Painite, Jeremejevite, Alexandrite
+- Rarity: Mythic, Legendary
+
+Side Quests: Seeker's Laurel
+- Metals: Silver, Bronze + Aethersteel inlays
+- Gems: Quartz, Spinel, Topaz
+- Rarity: Rare, Uncommon
+
+META CROWN: Crown of the Seven Realms
+- Metals: Starforged
+- Gems: Painite, Alexandrite, Jeremejevite
+- Effect: Permanent +15% boost to ALL stats
+- Unlocks: Mythfall Gate (special realm portal)
+- Visibility: Only visible to other crown-complete players

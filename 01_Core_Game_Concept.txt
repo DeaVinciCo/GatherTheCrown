@@ -1,0 +1,34 @@
+GATHER THE CROWN: CREATS & FOES — MASTER GAME BUILD DOCUMENT
+
+=== CORE GAME CONCEPT ===
+
+Genre: Fantasy RPG • Strategy • Survival • Action • PvP + PvE
+
+Core Loop: Explore → Collect shards/gems → Build crowns → Bond with creats → Conquer foes → Repeat
+
+Theme: Medieval fantasy with mythic temples, forests, moats, castles, ruins, towns, and mystical arenas
+
+=== GAMEPLAY MODES ===
+- Story Mode (main arcs, evolving bosses, lore-heavy)
+- Side Quests (exploration, puzzle, lore crumbs, shard/gem rewards)
+- Mini-Games (fast, reflex or puzzle bosses, resource wins)
+- Races (placement medals, speed boosts, shards/gem drops)
+- Melee / PvP Arena (Clashborn combat crowns, shard/gem gambling)
+- Crown Trials (faction events, ritual bosses)
+- Faction Battles / Raids (10-player, territory control, massive bosses)
+
+=== PLAYER/CHARACTER SYSTEM ===
+- Max 3 characters per account
+- Each character bonded with 3 creats (primary soul-bond + 2 alternates)
+- First-ever creat = permanent (cannot delete unless full account wipe)
+- Additional creats may be traded, deleted, or fused
+- Cannot create additional characters until completing Story Mode once
+- Account reset requires: Story Mode completion + 50M gold coins (GC)
+- Gameplay earnings: 75M GC minimum, 200M max if played optimally
+
+=== CREATS (MYSTICAL CREATURES) ===
+Elemental affinities: Fire, Water, Earth, Shadow, Light, Storm, Void, Arcane
+- Grow via food, training, and battle bonding
+- Creat synergy determines battle styles and crown bonuses
+- Each creat has unique aura (flame particles, frost mist, shadow haze, etc.)
+- Roles: Tank (Earth, Shadow), DPS (Fire, Storm, Void), Support (Water, Light)

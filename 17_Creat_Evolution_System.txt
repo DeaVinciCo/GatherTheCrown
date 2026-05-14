@@ -1,0 +1,294 @@
+=== CREAT EVOLUTION SYSTEM ===
+
+OVERVIEW:
+- Creats evolve through 4 stages: Hatchling → Adolescent → Mature → Elder
+- Evolution unlocks new abilities, stat boosts, and visual transformations
+- Bond level and specific items required for evolution
+- Element remains constant (Fire creat stays Fire)
+
+=== EVOLUTION STAGES ===
+
+STAGE 1: HATCHLING (Level 1-10)
+- Starting form, small size
+- Basic elemental attack
+- 50% of max stats
+- Visual: Compact, cute, glowing eyes
+- Bond Required: 0% (starting stage)
+
+STAGE 2: ADOLESCENT (Level 11-25)
+- Medium size, more defined features
+- Unlocks secondary ability
+- 75% of max stats
+- Visual: Larger, more aggressive features, brighter aura
+- Bond Required: 40%
+- Evolution Item: 10 Elemental Fruits + 500 GC
+
+STAGE 3: MATURE (Level 26-45)
+- Full adult size, battle-ready
+- Unlocks Sync Mode compatibility
+- 100% of max stats
+- Visual: Fully developed, battle scars, intense aura
+- Bond Required: 70%
+- Evolution Item: 5 Rare Elemental Crystals + 5,000 GC
+
+STAGE 4: ELDER (Level 46+)
+- Legendary form, largest size
+- Unlocks Ultimate Ability
+- 125% of max stats (stat overflow)
+- Visual: Ancient features, glowing runes, massive aura
+- Bond Required: 95%
+- Evolution Item: 1 Primal Essence (boss drop) + 50,000 GC
+
+=== BOND SYSTEM ===
+
+BOND METER (0-100%):
+- Increases through: battles together, feeding, petting, training
+- Decreases through: neglect, fainting in battle, using wrong element
+
+BOND GAIN RATES:
+- Win battle together: +2%
+- Feed favorite food: +1%
+- Pet/interact: +0.5% (once per day)
+- Training session: +1%
+- Sync Mode victory: +5%
+
+BOND LOSS RATES:
+- Creat faints in battle: -3%
+- Don't feed for 3 days: -5%
+- Use opposing element attack on creat: -10%
+
+BOND MILESTONES:
+- 25%: Creat learns your name (dialogue change)
+- 50%: Unlocks combo attacks
+- 75%: Creat protects you (auto-block 1 fatal hit per battle)
+- 100%: Perfect Bond (stat boost, unique cosmetic aura)
+
+=== EVOLUTION TRIGGERS ===
+
+AUTOMATIC EVOLUTION:
+- Reach level threshold + bond requirement
+- Prompt appears: "Your creat is ready to evolve!"
+- Player can choose to evolve now or delay
+
+ITEM-REQUIRED EVOLUTION:
+- Adolescent → Mature: 10 Elemental Fruits (element-specific)
+- Mature → Elder: 5 Rare Elemental Crystals + 1 Primal Essence
+
+SPECIAL EVOLUTIONS (Optional Variants):
+- Shadow Fire Drake: Fire creat + Shadow Gem during evolution
+- Frost Storm Roc: Storm creat + Ice Crystal during evolution
+- Radiant Earth Golem: Earth creat + Light Shard during evolution
+
+=== ELEMENTAL FRUITS (Evolution Items) ===
+
+FIRE: Ember Fruit (volcano zones, fire bosses)
+WATER: Tide Berry (ocean zones, water bosses)
+EARTH: Stone Apple (mountain zones, earth bosses)
+STORM: Thunder Grape (sky isles, storm bosses)
+LIGHT: Radiant Pear (temples, light bosses)
+SHADOW: Void Plum (crypts, shadow bosses)
+ARCANE: Aether Fig (mystic libraries, arcane bosses)
+
+DROP RATES:
+- Common enemies: 5% chance
+- Elite enemies: 15% chance
+- Bosses: 50% chance (guaranteed on first kill)
+
+=== RARE ELEMENTAL CRYSTALS ===
+
+ACQUISITION:
+- Boss drops (Tier 2-3): 25% chance
+- Crown Trial completion: 1 guaranteed
+- Faction raids: 2-3 per completion
+- Merchant: 10,000 GC each (limited stock)
+
+=== PRIMAL ESSENCE ===
+
+ACQUISITION:
+- Story Mode bosses (Level 3 only): 100% drop
+- Faction raid final boss: 50% drop
+- Crown of Seven Realms completion: 3 guaranteed
+
+USES:
+- Evolve creat to Elder stage
+- Craft legendary weapons
+- Unlock special cosmetics
+
+=== STAT CHANGES PER EVOLUTION ===
+
+EXAMPLE: FIRE DRAKE
+
+HATCHLING:
+- HP: 100
+- Attack: 20
+- Defense: 10
+- Speed: 15
+- Special: Ember Breath (30 damage)
+
+ADOLESCENT:
+- HP: 200 (+100)
+- Attack: 40 (+20)
+- Defense: 20 (+10)
+- Speed: 25 (+10)
+- Special: Flame Burst (60 damage, AoE)
+
+MATURE:
+- HP: 350 (+150)
+- Attack: 70 (+30)
+- Defense: 40 (+20)
+- Speed: 40 (+15)
+- Special: Inferno Strike (120 damage, burn effect)
+- Sync Mode: Meteor Dive (300 damage, requires rider combo)
+
+ELDER:
+- HP: 500 (+150)
+- Attack: 100 (+30)
+- Defense: 60 (+20)
+- Speed: 55 (+15)
+- Special: Dragon's Wrath (200 damage, AoE burn)
+- Ultimate: Volcanic Eruption (500 damage, field-wide, once per battle)
+
+=== VISUAL TRANSFORMATIONS ===
+
+HATCHLING:
+- Size: 64x64 pixels
+- Features: Round body, small wings/limbs, big eyes
+- Aura: Faint glow (2-3 particles)
+
+ADOLESCENT:
+- Size: 96x96 pixels
+- Features: Elongated body, defined muscles, sharper features
+- Aura: Moderate glow (5-8 particles)
+
+MATURE:
+- Size: 128x128 pixels
+- Features: Battle-ready, scars, armor-like scales
+- Aura: Intense glow (10-15 particles)
+
+ELDER:
+- Size: 192x192 pixels
+- Features: Ancient, glowing runes, massive presence
+- Aura: Legendary glow (20+ particles, pulsing effect)
+
+=== EVOLUTION ANIMATION ===
+
+SEQUENCE:
+1. Creat glows brightly (2 seconds)
+2. Light engulfs creat (white flash)
+3. Silhouette grows/transforms (3 seconds)
+4. Light fades, new form revealed
+5. Creat roars/cries (element-specific sound)
+6. Stat increase notification
+7. New ability unlocked notification
+
+SKIPPABLE: Yes (press Enter to skip)
+
+=== DE-EVOLUTION / REGRESSION ===
+
+NOT POSSIBLE:
+- Once evolved, creat cannot revert to previous stage
+- This is permanent progression
+
+EXCEPTION:
+- If bond drops below 20%, creat becomes "Feral"
+- Feral state: refuses commands, attacks randomly, visual corruption
+- Fix: Restore bond to 30%+ through feeding and care
+
+=== SPECIAL EVOLUTION VARIANTS ===
+
+HYBRID EVOLUTIONS (Rare):
+- Require specific gem during evolution
+- Changes appearance and adds secondary element
+- Example: Fire Drake + Shadow Gem = Shadow Flame Drake
+  * Retains fire attacks
+  * Gains shadow stealth ability
+  * Visual: Black scales with ember cracks
+
+AVAILABLE HYBRIDS:
+- Fire + Shadow = Shadow Flame
+- Water + Ice = Frost Tide
+- Earth + Light = Radiant Stone
+- Storm + Fire = Inferno Tempest
+- Light + Arcane = Celestial Radiance
+- Shadow + Void = Abyssal Void
+
+HYBRID REQUIREMENTS:
+- Mature stage evolution only
+- Specific gem (Alexandrite, Painite, or element-specific rare gem)
+- Bond 80%+
+- 25,000 GC
+
+=== EVOLUTION REWARDS ===
+
+HATCHLING → ADOLESCENT:
+- +500 GC
+- +10 Renown
+- Title: "Creat Trainer"
+
+ADOLESCENT → MATURE:
+- +2,500 GC
+- +25 Renown
+- Title: "Beast Master"
+- Unlock: Sync Mode
+
+MATURE → ELDER:
+- +10,000 GC
+- +50 Renown
+- Title: "Legendary Rider"
+- Unlock: Ultimate Ability
+- Cosmetic: Elder Aura (visible to all players)
+
+HYBRID EVOLUTION:
+- +15,000 GC
+- +75 Renown
+- Title: "Elemental Fusion Master"
+- Unique cosmetic: Hybrid Sigil (character emblem)
+
+=== EVOLUTION STRATEGY TIPS ===
+
+EARLY GAME:
+- Focus on bond building (feed, battle, interact)
+- Save Elemental Fruits for Adolescent evolution
+- Don't rush evolution (higher level = better base stats)
+
+MID GAME:
+- Farm Rare Elemental Crystals from Crown Trials
+- Decide if you want standard or hybrid evolution
+- Mature stage unlocks Sync Mode (essential for Story bosses)
+
+LATE GAME:
+- Prioritize Primal Essence farming (Story Mode Level 3 bosses)
+- Elder evolution is endgame power spike
+- Consider multiple creats at Elder stage for versatility
+
+=== CREAT RETIREMENT SYSTEM ===
+
+OPTION: Retire creat to Sanctuary
+- Frees up creat slot
+- Creat remains in Sanctuary (can visit, but not battle)
+- Keeps bond level and cosmetics
+- Can be recalled for 10,000 GC (once per creat)
+
+PURPOSE:
+- Allows experimentation with new creats
+- Doesn't punish players for trying different elements
+- Preserves emotional attachment
+
+SANCTUARY LOCATION:
+- Mystic Scribes faction zone
+- Peaceful meadow with elemental habitats
+- NPCs care for retired creats
+
+=== EVOLUTION LORE ===
+
+WORLD EXPLANATION:
+- Creats are born from elemental rifts
+- Evolution is natural maturation + rider bond
+- Elder stage is rare (only 1% of wild creats reach it)
+- Hybrid evolutions are ancient magic, rediscovered by Mystic Scribes
+
+STORY INTEGRATION:
+- Chapter 5: Learn about creat evolution from NPC
+- Chapter 8: Witness wild creat evolution event
+- Chapter 12: Unlock hybrid evolution knowledge
+

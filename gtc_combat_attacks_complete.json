@@ -1,0 +1,75 @@
+{
+  "module": "gtc_combat_attacks_complete",
+  "version": "2.0",
+  "game": "Gather The Crown: Creats & Foes",
+  
+  "attacks_by_element": {
+    "fire": [
+      {"id":"atk_fire_bolt","name":"Fire Bolt","type":"ranged","dmg":12,"cd":2.0,"tags":["ignite"]},
+      {"id":"atk_cinder_dash","name":"Cinder Dash","type":"mobility","dmg":6,"cd":8.0,"tags":["burn_trail"]},
+      {"id":"atk_flame_arc","name":"Flame Arc","type":"melee_cone","dmg":16,"cd":7.0,"tags":["ignite"]},
+      {"id":"trait_fire_brand","name":"Trait: Fire Brand","type":"locked_trait","dmg":10,"cd":5.0,"tags":["burn","armor_shred_small"]}
+    ],
+    "water": [
+      {"id":"atk_water_splash","name":"Water Splash","type":"ranged","dmg":10,"cd":2.0,"tags":["slow"]},
+      {"id":"atk_tide_pull","name":"Tide Pull","type":"control","dmg":0,"cd":10.0,"tags":["pull_small"]},
+      {"id":"atk_ice_shard","name":"Ice Shard","type":"skillshot","dmg":14,"cd":6.0,"tags":["freeze_short"]},
+      {"id":"trait_brisk_current","name":"Trait: Brisk Current","type":"locked_trait","dmg":8,"cd":6.0,"tags":["slow","cleanse_burn"]}
+    ],
+    "earth": [
+      {"id":"atk_rock_throw","name":"Rock Throw","type":"ranged","dmg":13,"cd":3.0,"tags":["stagger"]},
+      {"id":"atk_quake_stomp","name":"Quake Stomp","type":"aoe","dmg":18,"cd":9.0,"tags":["knockdown"]},
+      {"id":"atk_bark_skin","name":"Barkskin","type":"buff","dmg":0,"cd":15.0,"tags":["damage_reduce"]},
+      {"id":"trait_earthen_guard","name":"Trait: Earthen Guard","type":"locked_trait","dmg":0,"cd":10.0,"tags":["temporary_armor"]}
+    ],
+    "storm": [
+      {"id":"atk_spark_chain","name":"Spark Chain","type":"ranged_chain","dmg":11,"cd":3.0,"tags":["stun_short"]},
+      {"id":"atk_gale_step","name":"Gale Step","type":"mobility","dmg":0,"cd":7.0,"tags":["evade"]},
+      {"id":"atk_thunder_drop","name":"Thunder Drop","type":"ground_target","dmg":20,"cd":10.0,"tags":["shock"]},
+      {"id":"trait_static_field","name":"Trait: Static Field","type":"locked_trait","dmg":6,"cd":7.0,"tags":["zap_close","interrupt_small"]}
+    ],
+    "light": [
+      {"id":"atk_radiant_ray","name":"Radiant Ray","type":"beam","dmg":12,"cd":3.0,"tags":["blind_short"]},
+      {"id":"atk_guardian_mark","name":"Guardian Mark","type":"debuff","dmg":0,"cd":8.0,"tags":["vuln_10"]},
+      {"id":"atk_heal_burst","name":"Heal Burst","type":"support","dmg":0,"cd":12.0,"tags":["heal_team_small"]},
+      {"id":"trait_dawn_aegis","name":"Trait: Dawn Aegis","type":"locked_trait","dmg":0,"cd":9.0,"tags":["small_shield","cleanse_shadow"]}
+    ],
+    "shadow": [
+      {"id":"atk_shade_slash","name":"Shade Slash","type":"melee","dmg":15,"cd":4.0,"tags":["bleed"]},
+      {"id":"atk_veil_step","name":"Veil Step","type":"stealth","dmg":0,"cd":9.0,"tags":["invis_short"]},
+      {"id":"atk_wisp_grip","name":"Wisp Grip","type":"control","dmg":6,"cd":8.0,"tags":["silence_short"]},
+      {"id":"trait_midnight_reap","name":"Trait: Midnight Reap","type":"locked_trait","dmg":12,"cd":7.0,"tags":["execute_small","life_steal_small"]}
+    ],
+    "arcane": [
+      {"id":"atk_rune_burst","name":"Rune Burst","type":"aoe","dmg":14,"cd":6.0,"tags":["manadrain_small"]},
+      {"id":"atk_blink","name":"Blink","type":"mobility","dmg":0,"cd":7.0,"tags":["teleport_short"]},
+      {"id":"atk_sigil_lock","name":"Sigil Lock","type":"debuff","dmg":0,"cd":10.0,"tags":["ability_lock_short"]},
+      {"id":"trait_keystone","name":"Trait: Arcane Keystone","type":"locked_trait","dmg":0,"cd":8.0,"tags":["reduce_cd_team_small"]}
+    ]
+  },
+  
+  "weapon_basics": [
+    {"id":"wpn_sword_light","name":"Light Sword","combo":"3-hit","base_dmg":9,"tags":["melee"]},
+    {"id":"wpn_machete","name":"Machete","combo":"2-hit","base_dmg":10,"tags":["melee","brush_cut"]},
+    {"id":"wpn_bow_wood","name":"Wooden Bow","ammo":"arrow","base_dmg":8,"tags":["ranged"]},
+    {"id":"wpn_crossbow","name":"Crossbow","ammo":"bolt","base_dmg":11,"tags":["ranged","slow_reload"]},
+    {"id":"wpn_sling","name":"Sling Shot","ammo":"stone","base_dmg":6,"tags":["ranged","stagger"]},
+    {"id":"wpn_hatchet","name":"Hatchet","base_dmg":10,"tags":["melee","gather_bonus"]},
+    {"id":"wpn_flintlock","name":"Flintlock Pistol","ammo":"ball","base_dmg":18,"tags":["ranged","reload_heavy"],"era":"medieval_fantasy"}
+  ],
+  
+  "boosts": {
+    "race_track_pickups": [
+      {"id":"pu_oil_flask","name":"Oil Flask","effect":"slick_slow","duration":3},
+      {"id":"pu_vine_snare","name":"Vine Snare","effect":"root_single","duration":2},
+      {"id":"pu_thunder_orb","name":"Thunder Orb","effect":"stun_nearest","duration":2},
+      {"id":"pu_speed_draught","name":"Speed Draught","effect":"speed_boost","duration":3},
+      {"id":"pu_rock_sling","name":"Rock Sling","effect":"stagger_hit","duration":0}
+    ],
+    "combat_boosts": [
+      {"id":"boost_power","name":"Power Surge","multiplier":"+20% attack dmg","duration":8},
+      {"id":"boost_guard","name":"Guard Stance","multiplier":"-20% dmg taken","duration":8},
+      {"id":"boost_haste","name":"Haste","multiplier":"-20% ability cd","duration":8}
+    ]
+  }
+}

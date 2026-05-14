@@ -1,0 +1,85 @@
+{
+  "module": "gtc_master_complete",
+  "version": "2.0",
+  "game": "Gather The Crown: Creats & Foes",
+  "attribution": {
+    "creator_brand": "Dea Vinci Co.",
+    "project_owner": "Dea Vinci Co.",
+    "origin_signature": "Created and designed by Dea Vinci Co.",
+    "created_on": "2026-05-02",
+    "notice": "Brand attribution metadata for internal and external deep-dive tracing."
+  },
+  
+  "visual_specs": {
+    "sprite_sizes": {
+      "heroes": "64x64 px (detailed armor, hair, weapon visible)",
+      "enemies_regular": "48x48 px (clear silhouettes: rat, bat, zombie, wolf)",
+      "brutes_minibosses": "96x96 px (fill ~25% of screen)",
+      "bosses": "128-256 px (depending on epicness)",
+      "items_loot": "32x32 px (sword, gem, potion icons clearly visible)",
+      "environment_tiles": "32x32 px (ground/grass/stone, lower priority than characters)"
+    },
+    "design_rules": {
+      "outlines": "Dark outlines or shading so sprites stand out against backgrounds",
+      "silhouettes": "Distinct shapes even when zoomed out (rat=long tail, wolf=hunched, golem=blocky)",
+      "animations": "4-6 frames minimum for walk/run/attack at 64x64 for fluid motion",
+      "camera_zoom": "Zoom in 20-30% so 64x64 heroes feel substantial",
+      "color_coding": "Elemental enemies glow their element color (fire=red, ice=blue, etc)"
+    }
+  },
+  
+  "core": {
+    "title": "Gather the Crown: Creats & Foes",
+    "global_cooldowns": {
+      "attack_global_sec": 0.30,
+      "utility_swap_sec": 5,
+      "potion_lockout_sec": 2,
+      "boost_duration_sec_default": 8
+    },
+    "stamina": {
+      "max": 100,
+      "regen_per_sec": 6
+    }
+  },
+  
+  "movement_actions": {
+    "actions": [
+      {"id":"walk","speed":1.0,"stamina_cost":0},
+      {"id":"speed_walk","speed":1.2,"stamina_cost":0},
+      {"id":"run","speed":1.6,"stamina_cost":3},
+      {"id":"slide","speed":1.8,"stamina_cost":8,"requires":"run"},
+      {"id":"crawl","speed":0.5,"stamina_cost":0},
+      {"id":"jump","height":1.0,"stamina_cost":4},
+      {"id":"double_jump","height":1.7,"stamina_cost":7,"requires":"jump"},
+      {"id":"kick_low","dmg":5,"stamina_cost":4},
+      {"id":"kick_high","dmg":7,"stamina_cost":6},
+      {"id":"punch","dmg":6,"stamina_cost":4},
+      {"id":"uppercut","dmg":9,"stamina_cost":7}
+    ]
+  },
+  
+  "elements": {
+    "list": ["fire","water","earth","storm","light","shadow","arcane"],
+    "trait_buffs": {
+      "fire":   {"buff":"+5% burn dmg", "utility":"ignite kindling instantly"},
+      "water":  {"buff":"+5% slow potency", "utility":"extinguish/cleanse small fires"},
+      "earth":  {"buff":"-5% dmg taken", "utility":"fortify barricades faster"},
+      "storm":  {"buff":"+5% move speed", "utility":"short sprint charge"},
+      "light":  {"buff":"+5% heal/shield", "utility":"reveal traps for 2s"},
+      "shadow": {"buff":"+5% stealth time", "utility":"brief veil on crouch start"},
+      "arcane": {"buff":"-5% ability cooldowns", "utility":"blink micro-teleport (short)"}
+    }
+  },
+  
+  "combat": {
+    "loadout": {
+      "attack_slots": 3,
+      "utility_slots": 2,
+      "locked_trait_slot": {
+        "enabled": true,
+        "context": ["race_mode","story_mode","pve","pvp"],
+        "note": "This slot is NOT replaced by loot pickups in races; it holds the hero's elemental trait attack."
+      }
+    }
+  }
+}

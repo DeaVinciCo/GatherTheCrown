@@ -1,0 +1,179 @@
+{
+  "dialogues": {
+    "elder_miriam_001": {
+      "id": "elder_miriam_001",
+      "speaker": "Elder Miriam",
+      "text": "Welcome, young rider. The legends speak of you.",
+      "emotion": "wise",
+      "voiceFile": "audio/dialogue/elder_miriam_001.mp3",
+      "choices": [
+        {
+          "id": 1,
+          "text": "Who are you?",
+          "next": "elder_miriam_002",
+          "requirement": null,
+          "bondChange": 0,
+          "factionChange": null
+        },
+        {
+          "id": 2,
+          "text": "What legends?",
+          "next": "elder_miriam_003",
+          "requirement": null,
+          "bondChange": 0,
+          "factionChange": null
+        },
+        {
+          "id": 3,
+          "text": "[Say nothing]",
+          "next": "elder_miriam_004",
+          "requirement": null,
+          "bondChange": 0,
+          "factionChange": null
+        }
+      ],
+      "triggers": null
+    },
+    "elder_miriam_002": {
+      "id": "elder_miriam_002",
+      "speaker": "Elder Miriam",
+      "text": "I am Miriam, keeper of the old ways. The egg you found has been waiting for someone special. Someone like you.",
+      "emotion": "wise",
+      "voiceFile": "audio/dialogue/elder_miriam_002.mp3",
+      "choices": [
+        {
+          "id": 1,
+          "text": "Why me?",
+          "next": null,
+          "requirement": null,
+          "bondChange": 5,
+          "factionChange": null
+        }
+      ],
+      "triggers": {
+        "quest": "main_001",
+        "bondIncrease": 5
+      }
+    },
+    "kael_rival_001": {
+      "id": "kael_rival_001",
+      "speaker": "Kael",
+      "text": "So you're the one everyone's talking about. The 'chosen rider.' What makes you so special?",
+      "emotion": "competitive",
+      "voiceFile": "audio/dialogue/kael_001.mp3",
+      "choices": [
+        {
+          "id": 1,
+          "text": "I don't know. I'm just trying to help.",
+          "next": "kael_humble",
+          "requirement": null,
+          "bondChange": 5,
+          "factionChange": null
+        },
+        {
+          "id": 2,
+          "text": "Maybe I'm just better than you.",
+          "next": "kael_arrogant",
+          "requirement": null,
+          "bondChange": -10,
+          "factionChange": null
+        }
+      ],
+      "triggers": null
+    }
+  },
+  "systemMessages": {
+    "levelUp": {
+      "title": "LEVEL UP!",
+      "text": "You are now level {level}! New abilities unlocked!",
+      "sound": "audio/sfx/level_up.mp3"
+    },
+    "achievementUnlocked": {
+      "title": "ACHIEVEMENT UNLOCKED!",
+      "text": "{achievementName}\n{achievementDescription}\nReward: {rewards}",
+      "sound": "audio/sfx/achievement.mp3"
+    },
+    "questComplete": {
+      "title": "QUEST COMPLETE!",
+      "text": "{questName}\nRewards: {rewards}",
+      "sound": "audio/sfx/quest_complete.mp3"
+    },
+    "bondIncrease": {
+      "title": "BOND INCREASED!",
+      "text": "Your bond with {creatName} increased to level {bondLevel}!",
+      "sound": "audio/sfx/bond_up.mp3"
+    },
+    "vaultCleared": {
+      "title": "VAULT CLEARED!",
+      "text": "{kingdomName} vault cleared!\nCoins: {coinsCollected}\nItems: {itemsCollected}",
+      "sound": "audio/sfx/vault_cleared.mp3"
+    },
+    "kingdomRestoring": {
+      "title": "KINGDOM RESTORING",
+      "text": "{kingdomName} is being restored!\nProgress: {progress}%",
+      "sound": "audio/sfx/restoration.mp3"
+    },
+    "error": {
+      "title": "ERROR",
+      "text": "{message}",
+      "sound": "audio/sfx/error.mp3"
+    }
+  },
+  "tutorialMessages": {
+    "movement": "Use WASD or Arrow Keys to move. Hold Shift to sprint.",
+    "combat": "Left Click or Space to attack. Right Click to block.",
+    "bonding": "Press P to pet your creat. Press F to feed. Press Space to play.",
+    "racing": "Hold W to accelerate. Use A/D to steer. Hold Shift for boost.",
+    "vaultExploration": "Explore the vault and collect coins. Press E near the treasure chest to collect loot."
+  },
+  "creatEmotions": {
+    "happy": {
+      "text": "{creatName} seems very happy!",
+      "animation": "bounce",
+      "sound": "audio/sfx/creat_happy.mp3"
+    },
+    "sad": {
+      "text": "{creatName} seems sad. Maybe it needs attention?",
+      "animation": "droop",
+      "sound": "audio/sfx/creat_sad.mp3"
+    },
+    "hungry": {
+      "text": "{creatName} is hungry! Feed it soon.",
+      "animation": "stomach_growl",
+      "sound": "audio/sfx/creat_hungry.mp3"
+    },
+    "scared": {
+      "text": "{creatName} is scared! Comfort it or remove the threat.",
+      "animation": "tremble",
+      "sound": "audio/sfx/creat_scared.mp3"
+    },
+    "excited": {
+      "text": "{creatName} is excited!",
+      "animation": "jump",
+      "sound": "audio/sfx/creat_excited.mp3"
+    }
+  },
+  "navigationPrompts": {
+    "questMarker": "Follow the golden marker to {location}. Distance: {distance}m",
+    "checkpointReached": "Checkpoint reached! Your progress has been saved.",
+    "playerLost": "Check your map (M key) to see where you need to go.",
+    "vaultEntered": "Entered {kingdomName} vault. Collect treasure and coins!",
+    "treasureNearby": "Press E to collect treasure!",
+    "tooFarFromTreasure": "Get closer to the treasure chest."
+  },
+  "combatInstructions": {
+    "bossStart": "Boss Fight: {bossName}! Watch for attack patterns!",
+    "lowHealth": "WARNING: Low Health! Use healing potion (H key)!",
+    "enemyDefeated": "Enemy defeated! +{xp} XP, +{gold}g",
+    "criticalHit": "CRITICAL HIT! {damage} damage!",
+    "perfectBlock": "PERFECT BLOCK! Counter attack available!"
+  },
+  "racingInstructions": {
+    "raceStart": "Race starting in 3... 2... 1... GO!",
+    "perfectStart": "PERFECT START! Boost activated!",
+    "driftTutorial": "Hold brake + turn to drift! Longer drifts = more boost!",
+    "raceComplete": "Race complete! Position: {position}, Time: {time}\n+{xp} XP, +{gold}g",
+    "newLap": "Lap {currentLap}/{totalLaps}",
+    "finalLap": "FINAL LAP!"
+  }
+}

@@ -1,0 +1,307 @@
+=== TECHNICAL SPECIFICATIONS ===
+
+=== ENGINE & PLATFORM ===
+
+PRIMARY ENGINE: Python with Pygame
+- Flat 2D rendering
+- Cross-platform (Windows, macOS, Linux)
+- Lightweight and accessible
+
+ALTERNATIVE 3D OPTION (Future):
+- Ursina Engine (Python-based 3D)
+- Panda3D (Python 3D engine)
+- Keep 2D UI overlays even in 3D mode
+
+=== RESOLUTION & DISPLAY ===
+
+TARGET RESOLUTIONS:
+- Primary: 1280x720 (HD)
+- Full HD: 1920x1080
+- Scalable UI (75%–150%)
+- Windowed and fullscreen modes
+- Aspect ratio: 16:9 (primary), 16:10 (supported)
+
+FRAME RATE:
+- Target: 60 FPS
+- Minimum: 30 FPS
+- V-Sync option
+
+=== ASSET SPECIFICATIONS ===
+
+SPRITES & TILES:
+- Base tile size: 64x64 pixels
+- HD variant: 128x128 pixels
+- Character sprites: 96x96 to 128x128
+- Boss sprites: 256x256 to 512x512
+- Format: PNG with transparency
+- Color depth: 32-bit RGBA
+
+ANIMATIONS:
+- Frame counts: 4f (idle), 6–8f (walk/attack), 8–12f (complex)
+- Frame rate: 12–15 FPS for animations
+- Sprite sheets with consistent frame sizes
+- Naming: asset_name_f08.png (8 frames)
+
+UI ELEMENTS:
+- Icons: 24x24, 32x32, 64x64 pixels
+- Buttons: 9-slice scalable
+- Panels: 9-slice parchment backgrounds
+- Fonts: TTF format, multiple sizes
+
+AUDIO:
+- Music: OGG format, 128-192 kbps, stereo
+- SFX: OGG or WAV, 44.1kHz, mono or stereo
+- Ambience: OGG, loopable, 96-128 kbps
+- Voice: OGG, 64-96 kbps, mono
+
+=== FILE STRUCTURE ===
+
+/assets/
+  /characters/
+    /riders/
+    /npcs/
+    /portraits/
+  /creats/
+    /fire/
+    /water/
+    /earth/
+    /storm/
+    /light/
+    /shadow/
+    /arcane/
+  /enemies/
+    /common/
+    /bosses/
+  /tilesets/
+    /greenwood/
+    /tideborn/
+    /highlands/
+    /sky_isles/
+    /scribes/
+    /shadowfolk/
+    /infernal/
+  /parallax/
+    /[biome]_sky_back.png
+    /[biome]_mountains_far.png
+    /[biome]_treeband_mid.png
+  /buildings/
+    /castles/
+    /towns/
+    /inns/
+    /ruins/
+  /props/
+    /barrels/
+    /crates/
+    /signs/
+    /torches/
+  /ui/
+    /icons/
+    /panels/
+    /buttons/
+    /chat/
+    /crowns/
+  /weapons/
+  /items/
+  /fx/
+    /particles/
+    /explosions/
+    /auras/
+  /audio/
+    /music/
+    /sfx/
+    /ambience/
+    /voice/
+  /fonts/
+
+/save/
+  profile.json
+  characters/
+    [character_id].json
+
+/config/
+  settings.json
+  keybinds.json
+
+=== PERFORMANCE TARGETS ===
+
+MEMORY:
+- RAM usage: < 512 MB (2D mode)
+- VRAM usage: < 256 MB
+- Asset streaming for large worlds
+
+LOADING TIMES:
+- Initial load: < 10 seconds
+- Scene transitions: < 2 seconds
+- Asset streaming: seamless (no visible loading)
+
+OPTIMIZATION:
+- Sprite batching for multiple entities
+- Culling for off-screen objects
+- LOD (Level of Detail) for distant objects
+- Texture atlases to reduce draw calls
+- Object pooling for frequently spawned entities
+
+=== INPUT SUPPORT ===
+
+KEYBOARD & MOUSE:
+- WASD or Arrow keys for movement
+- Mouse for menus and targeting
+- Hotkeys for quick actions (I, M, C, etc.)
+- Rebindable keys
+
+GAMEPAD:
+- Xbox/PlayStation controller support
+- D-pad and analog stick movement
+- Button mapping
+- Vibration feedback for combat
+
+TOUCH (Future):
+- Virtual joystick for movement
+- Tap for actions
+- Swipe for menus
+
+=== NETWORKING (MULTIPLAYER) ===
+
+ARCHITECTURE:
+- Client-server model
+- Authoritative server for anti-cheat
+- UDP for real-time combat
+- TCP for chat and transactions
+
+FEATURES:
+- PvP arenas (1v1, team battles)
+- Co-op dungeons (2–4 players)
+- Faction raids (10 players)
+- Global chat, team chat, private messages
+- Friend lists and guilds
+
+ANTI-CHEAT:
+- Server-side validation
+- Encrypted packets
+- Rate limiting
+- Anomaly detection
+
+=== DATA PERSISTENCE ===
+
+SAVE SYSTEM:
+- JSON format for readability
+- Automatic backups (last 3 saves)
+- Cloud save support (optional)
+- Save encryption for security
+
+SAVE FREQUENCY:
+- Auto-save every 5 minutes
+- Save on major events (crown completion, boss defeat)
+- Save on menu close
+- Manual save option
+
+=== LOCALIZATION ===
+
+SUPPORTED LANGUAGES (Initial):
+- English (primary)
+- Spanish
+- French
+- German
+- Portuguese
+
+TEXT SYSTEM:
+- External JSON files for all text
+- Font support for special characters
+- RTL (Right-to-Left) support for future languages
+- String interpolation for dynamic text
+
+=== ACCESSIBILITY ===
+
+VISUAL:
+- Colorblind modes (Deuteranopia, Protanopia, Tritanopia)
+- High contrast mode
+- Adjustable UI scale (75%–150%)
+- Adjustable font size
+- Screen reader support (future)
+
+AUDIO:
+- Subtitles for all dialogue
+- Visual indicators for sound cues
+- Mono audio option
+- Independent volume controls
+
+CONTROLS:
+- Fully rebindable keys
+- One-handed mode options
+- Reduced motion mode
+- Auto-aim assist (optional)
+
+=== MODDING SUPPORT (Future) ===
+
+PLANNED FEATURES:
+- Custom character skins
+- Custom creat designs
+- Custom maps and biomes
+- Custom quests
+- Mod loader integration
+- Workshop support (Steam)
+
+MOD TOOLS:
+- Asset importer
+- Quest editor
+- Dialogue editor
+- Balance tweaking tools
+
+=== ANALYTICS & TELEMETRY ===
+
+TRACKED DATA (Anonymous):
+- Playtime and session length
+- Popular game modes
+- Crown completion rates
+- Boss difficulty metrics
+- Drop rates and economy balance
+- Crash reports and errors
+
+PRIVACY:
+- Opt-in telemetry
+- No personal data collection
+- GDPR compliant
+- Clear privacy policy
+
+=== VERSION CONTROL ===
+
+VERSIONING:
+- Semantic versioning (MAJOR.MINOR.PATCH)
+- Example: 1.0.0 (launch), 1.1.0 (content update), 1.0.1 (bugfix)
+
+UPDATE SYSTEM:
+- Auto-update checker
+- Patch notes display
+- Rollback option for major updates
+- Beta branch for testing
+
+=== TESTING REQUIREMENTS ===
+
+QUALITY ASSURANCE:
+- Unit tests for core systems
+- Integration tests for gameplay loops
+- Performance profiling
+- Memory leak detection
+- Cross-platform testing
+
+BETA TESTING:
+- Closed beta (100–500 players)
+- Open beta (unlimited)
+- Feedback collection system
+- Bug reporting tools
+
+=== LAUNCH REQUIREMENTS ===
+
+MINIMUM SYSTEM REQUIREMENTS:
+- OS: Windows 7/macOS 10.12/Ubuntu 18.04
+- CPU: Dual-core 2.0 GHz
+- RAM: 2 GB
+- GPU: Integrated graphics with OpenGL 3.0
+- Storage: 2 GB available space
+
+RECOMMENDED SYSTEM REQUIREMENTS:
+- OS: Windows 10/macOS 11/Ubuntu 20.04
+- CPU: Quad-core 2.5 GHz
+- RAM: 4 GB
+- GPU: Dedicated graphics with OpenGL 4.0
+- Storage: 4 GB available space (SSD recommended)

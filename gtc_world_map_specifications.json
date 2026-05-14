@@ -1,0 +1,366 @@
+{
+  "module": "gtc_world_map_complete",
+  "version": "1.0",
+  "game": "Gather The Crown: Creats & Foes",
+  "map_title": "Gather the Location: World View",
+  
+  "map_views": {
+    "world_view": {
+      "description": "Full parchment scroll showing all 10 kingdoms",
+      "style": "Worn scroll, torn edges, medieval ink",
+      "resolution": "3072x2048 (wide landscape for full view)",
+      "interactive": false,
+      "purpose": "Lore reference, progress tracking, kingdom overview",
+      "unlocks": "Piece by piece as kingdoms are cleared (fog of war)"
+    },
+    
+    "regional_view": {
+      "description": "Zoomed view of 2-3 kingdoms and connecting paths",
+      "resolution": "2048x1536",
+      "interactive": true,
+      "purpose": "Mid-level navigation, shows ruins and major landmarks",
+      "features": ["enemy_counts", "loot_markers", "quest_icons"]
+    },
+    
+    "local_view": {
+      "description": "Close-up tactical map of current area",
+      "resolution": "1920x1080",
+      "interactive": true,
+      "purpose": "Active pathfinding, shows drops, enemies, hidden areas",
+      "features": ["clickable_destinations", "highlighted_paths", "real_time_updates"]
+    }
+  },
+  
+  "kingdoms": [
+    {
+      "id": 1,
+      "name": "Verdantia",
+      "crest": "Oak tree with crown in branches",
+      "biome": "Forest",
+      "position": "Southwest (starting zone)",
+      "color": "#3C6E3C",
+      "paths_to": ["Auricvale", "Duskmarsh"]
+    },
+    {
+      "id": 2,
+      "name": "Ashenreach",
+      "crest": "Volcano with flame crown",
+      "biome": "Volcanic",
+      "position": "Far West",
+      "color": "#E73B2F",
+      "paths_to": ["Obsidara"]
+    },
+    {
+      "id": 3,
+      "name": "Frostvale",
+      "crest": "Snowflake with ice crown",
+      "biome": "Frozen",
+      "position": "Far North",
+      "color": "#58B7FF",
+      "paths_to": ["Stormrend", "Tideholm"]
+    },
+    {
+      "id": 4,
+      "name": "Duskmarsh",
+      "crest": "Serpent coiled around crown",
+      "biome": "Swamp",
+      "position": "South",
+      "color": "#5C3B7A",
+      "paths_to": ["Verdantia", "Mirehollow"]
+    },
+    {
+      "id": 5,
+      "name": "Stormrend",
+      "crest": "Lightning bolt through crown",
+      "biome": "Highlands",
+      "position": "North-Central",
+      "color": "#7A7FFF",
+      "paths_to": ["Frostvale", "Crownspire"]
+    },
+    {
+      "id": 6,
+      "name": "Obsidara",
+      "crest": "Black crystal crown",
+      "biome": "Obsidian Ruins",
+      "position": "West-Central",
+      "color": "#1C1C1C",
+      "paths_to": ["Ashenreach", "Auricvale"]
+    },
+    {
+      "id": 7,
+      "name": "Auricvale",
+      "crest": "Lion with golden crown",
+      "biome": "Golden Plains",
+      "position": "Central",
+      "color": "#D6B46A",
+      "paths_to": ["Verdantia", "Obsidara", "Tideholm", "Crownspire"]
+    },
+    {
+      "id": 8,
+      "name": "Mirehollow",
+      "crest": "Skull wearing bone crown",
+      "biome": "Catacombs",
+      "position": "Southeast",
+      "color": "#6C4A2E",
+      "paths_to": ["Duskmarsh", "Tideholm"]
+    },
+    {
+      "id": 9,
+      "name": "Tideholm",
+      "crest": "Wave with coral crown",
+      "biome": "Coastal",
+      "position": "East",
+      "color": "#2F75E7",
+      "paths_to": ["Frostvale", "Auricvale", "Mirehollow", "Crownspire"]
+    },
+    {
+      "id": 10,
+      "name": "Crownspire",
+      "crest": "Shattered crown with seven fragments",
+      "biome": "Floating Citadel",
+      "position": "Northeast (endgame)",
+      "color": "#9E6BCF",
+      "paths_to": ["Stormrend", "Auricvale", "Tideholm"]
+    }
+  ],
+  
+  "special_locations": {
+    "forest_trials": {
+      "name": "The Everrooted Wilds",
+      "position": "Southwest corner (spawn point)",
+      "icon": "🌲",
+      "description": "Three branching paths where heroes begin their journey",
+      "connects_to": "Verdantia"
+    },
+    
+    "home_base": {
+      "name": "Greenwood Clearing",
+      "position": "Northern cliffs, between Northwatch Cliffs and The Old Overlook, reached by Greenwood Trail",
+      "icon": "🏡",
+      "description": "Player's personal home base for crafting and rest. Feels quiet, private, and slightly removed from town while still tied to Sanctuary Isle."
+    },
+
+    "greenwood_trail": {
+      "name": "Greenwood Trail",
+      "position": "Winding forest path branching north from Sanctuary Isle proper into the private rider clearings",
+      "icon": "🌲",
+      "description": "A lantern-lit wooded approach that leads to personal rider homes and hidden cliffside spaces",
+      "connects_to": ["Northwatch Cliffs", "The Old Overlook", "Greenwood Clearing"]
+    },
+
+    "northern_cliff_landmarks": {
+      "name": "Northwatch Cliffs",
+      "position": "North edge of Sanctuary Isle",
+      "icon": "⛰️",
+      "description": "Wind-swept high ground where storms and distant horizons are easiest to see"
+    },
+
+    "memory_point": {
+      "name": "The Old Overlook",
+      "position": "Just east of Northwatch Cliffs, above the tree line",
+      "icon": "🗿",
+      "description": "Quiet place of remembrance and sunset reflection for riders and island families"
+    },
+    
+    "bodies_of_water": [
+      {"name": "Mistmere Lake", "position": "Between Verdantia and Duskmarsh"},
+      {"name": "Frostmirror Pond", "position": "In Frostvale"},
+      {"name": "Tidal Bay", "position": "Tideholm coastline"},
+      {"name": "Ashen River", "position": "Flows from Ashenreach to Obsidara"}
+    ],
+    
+    "mountain_ranges": [
+      {"name": "Stormcrest Mountains", "position": "Stormrend"},
+      {"name": "Obsidian Peaks", "position": "Obsidara"},
+      {"name": "Frostfang Range", "position": "Frostvale"}
+    ],
+    
+    "forests": [
+      {"name": "Everrooted Wilds", "position": "Forest Trials area"},
+      {"name": "Verdant Canopy", "position": "Verdantia"},
+      {"name": "Shadowgrove", "position": "Duskmarsh"}
+    ]
+  },
+
+  "island_world_rules": {
+    "1_mixed_neighborhood_layout_by_district": {
+      "policy": "Districts are mixed by daily function rather than isolated by family lineage.",
+      "districts": [
+        {
+          "name": "Market and Inn Belt",
+          "mix": ["vendors", "dock runners", "single-parent homes", "apprentices", "traveling support staff"]
+        },
+        {
+          "name": "Open Ring and Hybrid Yard Edge",
+          "mix": ["field-years trainees", "hearthway students", "mentors", "nearby family households"]
+        },
+        {
+          "name": "Fishers Walk and Quiet Pier",
+          "mix": ["fishers", "boat crews", "market families", "retired riders"]
+        },
+        {
+          "name": "Hatchling Hallow Corridor",
+          "mix": ["hallow caretakers", "young families", "school overflow routes", "support workers"]
+        }
+      ]
+    },
+    "2_transport_hierarchy_by_distance_and_cargo": {
+      "tiers": [
+        {
+          "tier": 1,
+          "mode": "Walking",
+          "distance": "0-1.2 miles",
+          "cargo": "Personal carry",
+          "default": true
+        },
+        {
+          "tier": 2,
+          "mode": "Handcart and wheelbarrow",
+          "distance": "0.3-1.5 miles",
+          "cargo": "Light supplies"
+        },
+        {
+          "tier": 3,
+          "mode": "Horse and pack pony",
+          "distance": "1-3.5 miles",
+          "cargo": "Medium route loads"
+        },
+        {
+          "tier": 4,
+          "mode": "Buggy and cargo cart",
+          "distance": "1-3.5 miles",
+          "cargo": "Heavy district deliveries"
+        },
+        {
+          "tier": 5,
+          "mode": "Skiff and small boat",
+          "distance": "Coastal/dock transfer",
+          "cargo": "Variable by weather"
+        }
+      ]
+    },
+    "3_locked_island_scale_for_map_and_route_planning": {
+      "island": "Sanctuary Isle",
+      "north_south_miles": 2.0,
+      "east_west_miles": 1.75,
+      "target_area_sq_miles": 3.5,
+      "status": "locked",
+      "routing_reason": "Maintains readable route pacing and intimate community density."
+    },
+    "4_surrounding_kingdom_connectivity_model": {
+      "policy": "Only Kingdom 1 uses a direct overland crossing from Sanctuary Isle; the other three surrounding kingdoms use water passage routes.",
+      "kingdom_1_land_connection": {
+        "kingdom_id": "aldermarch",
+        "route_name": "Sanctuary-Aldermarch Causeway Crossing",
+        "route_width_miles": 0.5,
+        "route_length_miles": 10.0,
+        "route_profile": "curved_inner_trek",
+        "curvature_notes": [
+          "main lane uses S-curves and gentle switchback bends",
+          "semi-detached branch pockets support stealth, search runs, and bypass movement"
+        ],
+        "green_cover_zones": [
+          "mini forest pockets",
+          "dense shrubbery bends",
+          "reed and brush screen lanes"
+        ],
+        "rock_features": [
+          "rock outcrop shelves for partial cover",
+          "ridge stones for watch and camp windbreak"
+        ],
+        "safe_camp_model": "hidden overnight camps embedded in brush and rock pockets",
+        "travel_cadence_note": "Feels like a lived route traveled about once a month by small crossing parties.",
+        "travel_days_standard": 3,
+        "travel_days_fast": 2,
+        "travel_days_weather_penalty": 4,
+        "activity_nodes": [
+          "camp zones",
+          "forage patches",
+          "fishing bank",
+          "creat watering hole",
+          "concealment pockets",
+          "search loops"
+        ],
+        "journey_enemy_count": 8,
+        "journey_enemy_set": [
+          "Gloom Rats",
+          "Rift Bats",
+          "Hollow Hounds",
+          "Broken Wardens",
+          "Ash Witches",
+          "Vinebound Revenants",
+          "Shard Slingers",
+          "Gate Leeches"
+        ]
+      },
+      "boat_connected_surrounding_kingdoms": [
+        {
+          "kingdom_id": "stormrage",
+          "travel_days_standard": 2,
+          "travel_days_fast": 1
+        },
+        {
+          "kingdom_id": "vastmalaise",
+          "travel_days_standard": 2,
+          "travel_days_fast": 1
+        },
+        {
+          "kingdom_id": "sunward",
+          "travel_days_standard": 2,
+          "travel_days_fast": 1
+        }
+      ],
+      "outer_kingdom_note": "Outer kingdoms continue to use sea lanes unless future land bridges are explicitly added."
+    }
+  },
+  
+  "map_legend": {
+    "icons": {
+      "🏰": "Kingdom Castle",
+      "🛠️": "Abandoned Ruin (restorable)",
+      "🌲": "Forest Zone",
+      "⛰️": "Mountain Range",
+      "💧": "Body of Water",
+      "✨": "Special Loot Zone",
+      "🗝️": "Rare Key Required",
+      "⚔️": "Boss Battle",
+      "📜": "Side Quest",
+      "🎭": "Mini-Game",
+      "🏡": "Home Base",
+      "🐾": "Creat Egg Discovery",
+      "🍎": "Foraging Zone"
+    },
+    
+    "path_types": {
+      "solid_black_line": "Main road (safe travel)",
+      "dashed_line": "Forest path (enemies present)",
+      "dotted_line": "Hidden path (requires discovery)",
+      "red_line": "Dangerous route (high-level enemies)"
+    }
+  },
+  
+  "zoom_functionality": {
+    "world_view": {
+      "shows": "All 10 kingdoms, major paths, bodies of water",
+      "click_action": "Zoom to regional view of clicked area"
+    },
+    "regional_view": {
+      "shows": "2-3 kingdoms, ruins, forests, quest markers",
+      "click_action": "Zoom to local view OR select destination"
+    },
+    "local_view": {
+      "shows": "Current area, enemies, loot drops, interactive elements",
+      "click_action": "Set waypoint, highlight path to destination"
+    }
+  },
+  
+  "progression_system": {
+    "fog_of_war": "Kingdoms appear greyed/locked until previous kingdom cleared",
+    "path_unlocking": "New paths appear as ruins are restored",
+    "icon_updates": {
+      "corrupted_castle": "Red pulsing crown icon",
+      "restored_castle": "Golden glowing crown icon",
+      "cleared_ruin": "Changes from 🛠️ to 🏪 (shop) or 🏨 (inn)"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+=== SOUND & MUSIC SYSTEM ===
+
+ENGINE TARGET:
+- 2D Python (pygame or pyglet audio support)
+- Load assets in OGG or WAV (loop-safe)
+- Compressed for size but HQ for clarity
+- Categories: SFX, Ambience, Music, NPC Dialogue
+- Volume range: ambience lower than SFX, music mixable (duck during dialogue)
+
+=== AMBIENCE TRACKS ===
+
+FOREST:
+- forest_day.ogg (birds, insects, wind, rustling leaves)
+- forest_night.ogg (owls, crickets, distant howls)
+
+MOUNTAIN:
+- mountain_wind.ogg (gusts, rocks clinking, echoes)
+
+OCEAN/TIDEBORN:
+- tide_shore.ogg (waves, seagulls, water lapping)
+- tide_cave.ogg (dripping water, distant whale songs)
+
+SKY ISLES:
+- sky_isles.ogg (wind whistling, faint thunder rumbles)
+
+SHADOW WASTES:
+- shadow_wastes.ogg (mist, crows, faint whispers)
+
+INFERNAL CAVES:
+- infernal_caves.ogg (lava bubbling, crackling, deep rumbles)
+
+TOWNS:
+- town_market.ogg (crowds, chatter, clinking coins)
+- castle_interior.ogg (echo footsteps, muffled voices, torch crackle)
+
+=== COMBAT SFX ===
+
+WEAPONS:
+- sword_draw.ogg ("shwing" metallic)
+- sword_clash1.ogg, sword_clash2.ogg
+- shield_block.ogg, armor_hit.ogg
+- bow_shot.ogg, arrow_hit.ogg
+- spear_thrust.ogg, spear_block.ogg
+
+MAGIC/ELEMENTAL:
+- explosion_small.ogg, explosion_large.ogg
+- fireball_cast.ogg, fireball_hit.ogg
+- ice_shard.ogg, ice_break.ogg
+- thunder_strike.ogg, lightning_crackle.ogg
+- earth_quake.ogg, rock_crash.ogg
+- shadow_whisper.ogg, void_blast.ogg
+
+BOSSES:
+- boss_roar1.ogg, boss_roar2.ogg
+- boss_enrage.ogg
+- boss_defeat.ogg
+
+=== NPC DIALOGUE (SHORT VOICE BARKS) ===
+
+- innkeeper_greeting.ogg ("Welcome, traveler!")
+- blacksmith_forge.ogg ("Sharpened and ready.")
+- merchant_sell.ogg ("Best price in town!")
+- guard_warn.ogg ("Stay out of trouble.")
+- town_crowd_cheer.ogg (group voices "Huzzah!")
+- generic_yes.ogg, generic_no.ogg (for confirmation prompts)
+
+=== MUSIC TRACKS ===
+
+OVERWORLD & REGIONS:
+- overworld_theme.ogg (lute, drums, medieval fanfare)
+- forest_theme.ogg (flute, strings, soft percussion)
+- tideborn_theme.ogg (harp, drums, water percussion)
+- highlands_theme.ogg (horns, drums, bagpipes)
+- sky_nomad_theme.ogg (light strings, harps, rolling drums)
+- scribes_theme.ogg (choir, bells, soft strings)
+- shadowfolk_theme.ogg (low drones, violins, chanting)
+- infernal_theme.ogg (war drums, chanting, heavy brass)
+
+LOCATIONS:
+- town_theme.ogg (light lute, laughter, bells)
+- inn_theme.ogg (warm tavern music, fiddle)
+- castle_theme.ogg (regal horns, strings)
+
+COMBAT:
+- boss_battle_theme.ogg (fast percussion, brass, choir hits)
+- pvp_battle_theme.ogg (intense drums, strings)
+
+SPECIAL EVENTS:
+- crown_completion_fanfare.ogg (trumpets, bells, cheering crowd)
+- victory_fanfare.ogg (short triumphant horns)
+- defeat_theme.ogg (somber strings)
+- level_up.ogg (bright harp run)
+
+=== UI SFX ===
+
+MENU INTERACTIONS:
+- menu_open.ogg, menu_close.ogg
+- button_hover.ogg (subtle tick)
+- button_click.ogg (satisfying thunk)
+- error.ogg (low thud)
+
+ITEM INTERACTIONS:
+- item_collect.ogg (gem sparkle)
+- shard_collect.ogg (metal clink)
+- crown_forge.ogg (forge slam + chime)
+- potion_drink.ogg (gulp)
+- equip_weapon.ogg (metal slide)
+
+QUEST INTERACTIONS:
+- quest_accept.ogg (scroll sound + ding)
+- quest_complete.ogg (flourish + cheer)
+- quest_update.ogg (soft chime)
+
+=== SOUND RULES ===
+
+- Loop ambience tracks seamlessly (crossfade)
+- Play combat sounds layered (e.g., sword clash + grunt)
+- NPC barks randomize between 2–3 versions to avoid repetition
+- Music crossfades when moving between regions
+- Fanfares (bells, trumpets, cheers) trigger on victories and crown completion
+
+=== TRIGGERS ===
+
+- Enter forest: play forest_day.ogg + forest_theme.ogg
+- Enter inn: fade forest_theme → town_theme + innkeeper_greeting.ogg
+- Combat start: fade out ambience 50%, raise combat_sfx + boss_battle_theme
+- Crown forged: play crown_forge.ogg + crown_completion_fanfare.ogg
+- Boss defeated: roar cut, crowd_cheer.ogg, loot sparkle
+- Level up: level_up.ogg + visual effect
+- Fast travel: whoosh sound + map unfurl
+
+=== AUDIO SETTINGS ===
+
+SLIDERS:
+- Master Volume (0–100%)
+- Music Volume (0–100%)
+- Ambience Volume (0–100%)
+- SFX Volume (0–100%)
+- Mute All (toggle)
+
+ACCESSIBILITY:
+- Subtitle options for dialogue
+- Visual indicators for important sounds (combat alerts, quest updates)
+- Mono audio option for hearing impaired

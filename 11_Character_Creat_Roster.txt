@@ -1,0 +1,147 @@
+=== CHARACTER & CREAT ROSTER ===
+
+FACTION: INFERNAL KIN (Volcano/Fire Caves)
+1. Kaelen Emberfall — reckless Fire duelist, bonded to Ignivar the Flame Drake
+2. Rhyss Darkbraid — brutal warlord, bonded to Varkun the Lava Hound
+3. Selene Cindermark — pyromancer strategist, bonded to Pyralis the Ember Hawk
+4. Torvak the Ashen — scarred gladiator, bonded to Korrath the Magma Boar
+5. Lyra Emberveil — agile thief, bonded to Scaelith the Fire Serpent
+6. Deyra Ashstorm — priestess, bonded to Solkar the Phoenixborn
+7. Malro Veythos — smith-warrior, bonded to Obryn the Molten Golem
+8. Cyran Cindercut — assassin, bonded to Fynis the Fire Panther
+
+FACTION: TIDEBORN (Ocean/Water Reefs)
+9. Selora Veyne — healer, bonded to Thalora the Sea Serpent
+10. Dorian Tidesurge — commander, bonded to Kelvaris the Reef Leviathan
+11. Irynn Crestfall — lore-seeker, bonded to Marenna the Pearl Whale
+12. Faelen Drift — explorer, bonded to Nymari the Tide Sprite
+13. Corvath Brineblade — pirate, bonded to Seirath the Abyss Shark
+14. Liora Deepveil — song-weaver, bonded to Veythis the Coral Nymph
+15. Harun Deltar — fisherman turned rider, bonded to Krillan the Tide Crab
+16. Nyssara Moonwake — storm-sailor, bonded to Velros the Wave Roc
+
+FACTION: SKY NOMADS (Storm/Lightning Isles)
+17. Orin Starwind — storm rider, bonded to Zephyrix the Thunder Eagle
+18. Kaelith Swiftstrike — duelist, bonded to Arcash the Sky Panther
+19. Nyelle Cloudsong — bard, bonded to Stratos the Tempest Roc
+20. Draven Galeheart — raider, bonded to Valkar the Storm Drake
+21. Sylas Veylor — inventor, bonded to Auronis the Storm Djinn
+22. Elira Dawnbreak — scout, bonded to Phyros the Lightning Hawk
+23. Tarn Skyrend — sky mercenary, bonded to Dristhal the Bolt Wyrm
+24. Mirra Sunwing — pilot, bonded to Kaeryn the Wind Falcon
+
+FACTION: EARTHBOUND GIANTS (Mountains/Stone Fortresses)
+25. Drax Ironbloom — tank, bonded to Grunthok the Stone Boar
+26. Veyra Claymantle — defender, bonded to Orvann the Earth Golem
+27. Joran Rockthane — miner, bonded to Braxil the Crystal Bear
+28. Marn Craghollow — elder, bonded to Krenith the Root Ent
+29. Halda Slatefist — defender, bonded to Drakar the Obsidian Rhino
+30. Tyran Bouldershade — mercenary, bonded to Felros the Cave Lion
+31. Yllia Stonebloom — gardener, bonded to Lysar the Moss Deer
+32. Korven Shatterhelm — outlaw, bonded to Makros the Ironclad Beetle
+
+FACTION: MYSTIC SCRIBES (Temples/Arcane Libraries)
+33. Elaryn Dawnscribe — mage, bonded to Solyra the Radiant Moth
+34. Thoren Quillbane — shadow scholar, bonded to Inkveil the Shade Serpent
+35. Mirielle Luthar — healer, bonded to Aethis the Star Elk
+36. Cassian Runeveil — forbidden arts, bonded to Veythra the Arcane Crow
+37. Lythis Moonveil — psychic seer, bonded to Nyxra the Astral Fox
+38. Daelen Sunquill — archivist, bonded to Kyris the Crystal Owl
+39. Alira Tomeheart — cursebreaker, bonded to Fexis the Ethercat
+40. Sorath Penryn — ritualist, bonded to Zarith the Glass Basilisk
+
+FACTION: SHADOW FOLK (Crypts/Wastelands)
+41. Lyssan Shadeveil — assassin, bonded to Nythra the Shadow Panther
+42. Malrik Veydran — necromancer, bonded to Ozar the Bone Serpent
+43. Keryn Duskwraith — rogue, bonded to Fynraith the Wraith Bat
+44. Sorin Hollowfang — warlord, bonded to Varul the Night Wolf
+45. Zeyra Ashveil — huntress, bonded to Shyra the Void Raven
+46. Thalos Mirefang — cultist, bonded to Krythos the Death Cobra
+47. Neris Duskthorn — thief, bonded to Myra the Shade Lynx
+48. Vorak Blightcaller — warlock, bonded to Orris the Plague Rat
+
+NEUTRAL NPCs:
+49. Crown Forgemaster Aereth — puzzle guide, bonded to Bronzis the Iron Golem
+50. Arena Master Kaelor — bonded to Phyros the Flame Hawk
+51. Wandering Chronicler Ilryn — bonded to Mystral the Wind Fox
+52. Shard Merchant Veyna — bonded to Golrim the Gold Serpent
+53. Healer NPC Liora Greenvale — bonded to Serith the Water Nymph
+54. Town Protector Edrin Stonewall — bonded to Aurix the Earth Griffin
+55. Rogue Rider Tova Blackthorn — bonded to Syllith the Shadow Basilisk
+56. Crown Trial Sentinel Kythera — bonded to Vaelith the Star Serpent
+
+=== CREAT ARCHETYPES BY ELEMENT ===
+
+FIRE:
+- Pyrogryph (fiery gryphon, ember wings, molten claws)
+- Flame Wolf (wolf with flaming mane + ember breath)
+- Ash Serpent (lava-scaled snake, leaves magma trails)
+
+WATER:
+- Tide Serpent (serpent with glowing fins)
+- Coral Stag (antlers made of coral, walks on water's edge)
+- Abyssal Turtle (massive armored shell, bioluminescent patterns)
+
+EARTH:
+- Moss Boar (stone tusks covered in vines, roots enemies)
+- Terra Golem (humanoid stone giant, moss-crusted)
+- Crystal Beetle (earthbound, armored, cracks earth underfoot)
+
+STORM/LIGHTNING:
+- Storm Roc (giant bird, feathers crackle with thunder)
+- Thunder Hound (hound with electric paws, sparks trail)
+- Sky Serpent (airborne snake, lightning strikes)
+
+LIGHT:
+- Radiant Stag (glowing antlers, white-gold aura)
+- Sunhawk (falcon, blinding light attacks)
+- Dawn Lion (golden mane, radiant roar)
+
+SHADOW:
+- Umbraven (shadow raven, violet glowing eyes)
+- Phantom Lynx (shadowy lynx, phase-walk ability)
+- Hollow Serpent (serpent that melts into darkness)
+
+ICE/FROST:
+- Frost Serpent (icy scales, frost mist aura)
+- Glacial Bear (fur crackles with frost, heavy melee strikes)
+- Shard Owl (crystalline feathers, screech slows foes)
+
+ARCANE/MYSTIC:
+- Aether Fox (multi-tailed, shimmering cosmic aura)
+- Rune Elk (antlers carved with glowing runes)
+- Star Moth (wings shine constellations, drains mana)
+
+=== ENEMIES (NON-BOSS FOES) ===
+
+- Emberlings: small fire imps in volcano regions
+- Tideleeches: parasitic sea monsters in ocean zones
+- Shadeborn Hounds: shadow wolf packs in wastelands
+- Stone Sentinels: corrupted statues guarding ruins
+- Sky Raiders: rogue riders with stolen creats
+- Wraithbats: cave swarmers that drain stamina
+- Frost Stalkers: ice wolves in mountain ranges
+- Plague Crows: disease carriers in shadow zones
+- Venom Spiders: web-spinners in forests
+- Root Beasts: animated plants in overgrown areas
+
+=== MAJOR BOSSES ===
+
+STORY MODE:
+- Ashthrone Veyla: Fire Queen, evolves (Fire → Frostflame → Emberstorm)
+- Silkbrand Hollowshade: Shadow puppeteer, controls fallen riders
+- Tidal Father Roen: Ocean giant who controls currents
+- The Hollow Monarch: Final boss, wears shattered crown, commands undead creats
+
+CROWN TRIALS:
+- Solflare Aevan: Firebird with meteor divebombs
+- Crystfang the Sealed: Ice elemental horror in glacial ruins
+- Vexiloth: Storm serpent, mimics playstyle
+
+ROAMING/SIDE QUEST:
+- Thornmane: Nature boar, shifts terrain
+- Skyrend: Betrayer wyvern-drake
+- Froskarn: Ice-scorpion, freezes field
+
+FACTION RAIDS:
+- The False Sovereign: Corrupted former champion, glitch Crown
